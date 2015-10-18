@@ -13,23 +13,23 @@
   background-size: cover;
   background-repeat: no-repeat;
 
+
 }
 
 #home_inner_section{
 
- margin-top: 2.5em;
- margin-bottom: 2em;
-
-
-
-  background-color: rgba(0,0,0,0.4);
+ height:100%;
+ width:100%;
+  background-color: rgba(0,0,0,0.3);
   color: white;
 
-
+  //vertical-align: middle;
+// adding the fade in animation for the sign up section
+// does not support IE webrowser
   animation: fadein 3s;
-      -moz-animation: fadein 3s; /* Firefox */
-      -webkit-animation: fadein 3s; /* Safari and Chrome */
-      -o-animation: fadein 3s; /* Opera */
+      -moz-animation: fadein 4s; /* Firefox */
+      -webkit-animation: fadein 4s; /* Safari and Chrome */
+      -o-animation: fadein 4s; /* Opera */
   }
   @keyframes fadein {
       from {
