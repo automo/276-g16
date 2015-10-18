@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  password: MyString
+  birthdate: 2015-10-18
+  first_name: MyString
+  last_name: MyString
+  is_mod: false
+  phone: MyString
+  rating: 1
+  failed_login_attempts: 1
+  registered_at: 2015-10-18 14:13:11
+
+two:
+  email: MyString
+  password: MyString
+  birthdate: 2015-10-18
+  first_name: MyString
+  last_name: MyString
+  is_mod: false
+  phone: MyString
+  rating: 1
+  failed_login_attempts: 1
+  registered_at: 2015-10-18 14:13:11
