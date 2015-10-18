@@ -3,15 +3,21 @@
 
 Shoppu is a web-based, multi-device app that provides a platform for connecting customers and personal shoppers with each other.
 
-### Running on Windows
-*To locally run, open "Command Prompt with Ruby and Rails", cd to 276-g16/shoppu/, and enter:*
+### Running the app locally
+*open "Command Prompt with Ruby and Rails" or a terminal, change directory to 276-g16/shoppu/, and enter:*
 ```
 bundle install
-ruby bin\rails server
+bin\rails server
 ```
 
-### Running on Mac OSX
-*To locally run, enter:
-```
-enter terminal commands here ...
-```
+### Authors
+| Surname | First name    |
+| ------- | ------------- |
+| Chen    | Mengying      |
+| Sharma  | Karan         |
+| Utomo   | Agnes Carissa |
+| Wong    | Terrence      |
+| Yuan    | Cheng Mike    |
+
+### References
+* Hartl, M. (2015). Ruby on rails tutorial: Learn web development with rails (Third ed.).
