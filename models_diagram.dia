@@ -28,7 +28,7 @@
           <dia:boolean val="true"/>
         </dia:attribute>
         <dia:attribute name="scaling">
-          <dia:real val="0.437762051820755"/>
+          <dia:real val="0.46595799922943115"/>
         </dia:attribute>
         <dia:attribute name="fitto">
           <dia:boolean val="true"/>
@@ -361,17 +361,18 @@
     </dia:object>
     <dia:object type="Standard - Text" version="1" id="O1">
       <dia:attribute name="obj_pos">
-        <dia:point val="37.5751,18"/>
+        <dia:point val="30.7751,30.35"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="37.5751,17.36;59.4026,19.7325"/>
+        <dia:rectangle val="30.7751,29.71;52.6026,32.8825"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
             <dia:string>#Notes: 1. id is defined for all models automatically (do not explicitly create it)
-          2. a solid circle means the entry cannot be null for a user
-          3. an empty circle means the entry can be null for a user#</dia:string>
+          2. a solid circle = not null
+          3. an empty circle = can be null
+          4. underlined attribute = primary key#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="sans" style="0" name="Helvetica"/>
@@ -380,7 +381,7 @@
             <dia:real val="0.80000000000000004"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="37.5751,18"/>
+            <dia:point val="30.7751,30.35"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000"/>
@@ -399,7 +400,7 @@
         <dia:point val="49.05,20.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="49.05,20.4;57.665,27.1"/>
+        <dia:rectangle val="49.05,20.4;57.28,27.1"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -408,7 +409,7 @@
         <dia:point val="49.05,20.4"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="8.6150000000000002"/>
+        <dia:real val="8.2300000000000004"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="6.6999999999999993"/>
@@ -584,7 +585,7 @@
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#customer_id#</dia:string>
+            <dia:string>#user_id#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>#integer#</dia:string>
@@ -606,19 +607,19 @@
     </dia:object>
     <dia:object type="Database - Reference" version="0" id="O3">
       <dia:attribute name="obj_pos">
-        <dia:point val="36.7901,21.55"/>
+        <dia:point val="36.7901,18.35"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="36.7901,20.9;49.05,21.8"/>
+        <dia:rectangle val="36.7901,17.7;49.05,26.6"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="36.7901,21.55"/>
-        <dia:point val="42.87,21.55"/>
-        <dia:point val="42.87,21.8"/>
-        <dia:point val="49.05,21.8"/>
+        <dia:point val="36.7901,18.35"/>
+        <dia:point val="42.92,18.35"/>
+        <dia:point val="42.92,26.6"/>
+        <dia:point val="49.05,26.6"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="0"/>
@@ -626,7 +627,7 @@
         <dia:enum val="0"/>
       </dia:attribute>
       <dia:attribute name="orth_autoroute">
-        <dia:boolean val="false"/>
+        <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="text_colour">
         <dia:color val="#000000"/>
@@ -660,8 +661,8 @@
         <dia:real val="0.59999999999999998"/>
       </dia:attribute>
       <dia:connections>
-        <dia:connection handle="0" to="O0" connection="21"/>
-        <dia:connection handle="1" to="O2" connection="12"/>
+        <dia:connection handle="0" to="O0" connection="13"/>
+        <dia:connection handle="1" to="O2" connection="24"/>
       </dia:connections>
     </dia:object>
   </dia:layer>
