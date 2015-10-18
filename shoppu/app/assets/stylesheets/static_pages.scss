@@ -7,18 +7,19 @@
   // we can put background image here
   //background-color: grey;
 
-  height:600px;
+  height:550px;
   width: 100%;
   background-image: image-url("AdobeStock_66582497_WM.jpeg");
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
 
 }
 
 #home_inner_section{
-  margin-top: 10%;
-  margin-bottom: 10%;
-  z-index: 99;
+
+ margin-top: 2em;
+ margin-bottom: auto;
+
 
 
   background-color: rgba(0,0,0,0.4);
