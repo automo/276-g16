@@ -1,3 +1,5 @@
+Writing good commit messages: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+
 Formatting README.md: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
 Rails tutorial file: https://www.railstutorial.org/book/filling_in_the_layout
