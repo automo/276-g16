@@ -4,3 +4,7 @@ Formatting README.md: https://github.com/adam-p/markdown-here/wiki/Markdown-Chea
 Preview markdown: http://markable.in/editor/
 
 Rails tutorial file: https://www.railstutorial.org/book/filling_in_the_layout
+
+Uploading pictures to a model: http://railscasts.com/episodes/134-paperclip?autoplay=true
+
+Associating database models: http://guides.rubyonrails.org/association_basics.html
