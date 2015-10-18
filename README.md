@@ -4,7 +4,7 @@
 Shoppu is a web-based, multi-device app that provides a platform for connecting customers and personal shoppers with each other.
 
 ### How to run on Windows
-*To run locally, open "Command Prompt with Ruby and Rails", cd to 276-g16/shoppu/, and enter:*
+*To locally run, open "Command Prompt with Ruby and Rails", cd to 276-g16/shoppu/, and enter:*
 ```
 bundle install
 ruby bin\rails server
