@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) %> | TestTest</title>
+  <title><%= yield(:title) %> | Shoppu</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,6 +9,7 @@
 <body>
 	<header class ="nav bar navbar-fixed-top navbar-inverse">
 		<div class ="container">
+      <!=  Need to update the link # to the actual route path=>
 			<%= link_to "Shoppu",'#', id: "logo" %>
 			<nav>
 				<ul class ="nav navbar-nav navbar-right">
