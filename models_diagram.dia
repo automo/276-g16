@@ -28,7 +28,7 @@
           <dia:boolean val="true"/>
         </dia:attribute>
         <dia:attribute name="scaling">
-          <dia:real val="0.46595796942710876"/>
+          <dia:real val="0.46595799922943115"/>
         </dia:attribute>
         <dia:attribute name="fitto">
           <dia:boolean val="true"/>
@@ -279,7 +279,7 @@
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#is_mod#</dia:string>
+            <dia:string>#is_moderator#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>#boolean#</dia:string>
