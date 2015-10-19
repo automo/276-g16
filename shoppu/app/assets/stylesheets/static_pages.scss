@@ -6,9 +6,7 @@
 
   // we can put background image here
   //background-color: grey;
-
-  height: auto;
-  width: auto;
+  height: 50%;
   background-image: image-url("AdobeStock_66582497_WM.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -26,6 +24,27 @@
   // overflow: auto;
 }
 
+#home_section2{
+
+  // we can put background image here
+  //background-color: grey;
+  height: 50%;
+  background-image: image-url("AdobeStock_84206998_WM.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  //background-attachment:fixed;
+  background-position: top center;
+  //position:absolute;
+
+  margin:0;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // position:fixed;
+  // overflow: auto;
+}
 #home_inner_section{
   height:100%;
   width:100%;
@@ -36,9 +55,9 @@
   // adding the fade in animation for the sign up section
   // does not support IE webrowser
   animation: fadein 3s;
-      -moz-animation: fadein 4s; /* Firefox */
-      -webkit-animation: fadein 4s; /* Safari and Chrome */
-      -o-animation: fadein 4s; /* Opera */
+      -moz-animation: fadein 3s; /* Firefox */
+      -webkit-animation: fadein 3s; /* Safari and Chrome */
+      -o-animation: fadein 3s; /* Opera */
   }
   @keyframes fadein {
       from {
@@ -73,3 +92,10 @@
           opacity: 1;
       }
   }
+
+
+// styling for about info on homepage
+#about {
+  text-align: left;
+  font-size: 1.5em;
+}

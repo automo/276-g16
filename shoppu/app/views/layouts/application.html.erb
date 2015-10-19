@@ -10,11 +10,12 @@
 	<header class ="nav bar navbar-fixed-top navbar-inverse" id="header">
 		<div class ="container">
       <!=  Need to update the link # to the actual route path=>
-			<%= link_to "Shoppu",'#', id: "logo" %>
+			<%= link_to "Shoppu",root_path , id: "logo" %>
 			<nav>
 				<ul class ="nav navbar-nav navbar-right">
-					<li><%= link_to "Home", '#' %></li>
-					<li><%= link_to "Help", '#' %></li>
+					<li><%= link_to "Home", root_path %></li>
+					<li><%= link_to "Help", help_path %></li>
+          <li><%= link_to "Contact", contact_path %></li>
 					<li><%= link_to "Log in", '#' %></li>
 				</ul>
 			</nav>
@@ -24,5 +25,21 @@
 <!-- <div class ="container"> -->
 <%= yield %>
 <!-- </div> -->
+
+
+<footer class="footer">
+  <small>
+  Shoppu &copy; 2015
+  </small>
+  <nav>
+    <ul>
+
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Help", help_path %></li>
+      <li><%= link_to "Contact", contact_path %></li>
+
+    </ul>
+  </nav>
+</footer>
 </body>
 </html>
