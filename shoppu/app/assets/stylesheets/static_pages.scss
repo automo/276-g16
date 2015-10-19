@@ -8,13 +8,20 @@
   //background-color: grey;
 
   height: auto;
-  width: 100%;
+  width: auto;
   background-image: image-url("AdobeStock_66582497_WM.jpeg");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
+  //background-attachment:fixed;
+  background-position: left top;
+  //position:absolute;
+
+  margin:0;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+  // background-repeat: no-repeat;
   // position:fixed;
   // overflow: auto;
 }
