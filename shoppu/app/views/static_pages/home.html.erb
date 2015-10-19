@@ -1,15 +1,32 @@
 <% provide(:title, "Home") %>
-	<h1>Home</h1>
+	<!-- <h1>    Make your shopping personal</h1> -->
 	<div class="center jumbotron" id ="home_section">
-		<div class ="center jumbotron" id ="home_inner_section">
-		<h1>Welcome to Shoppu</h1>
-
-	  <h2>
-	    Make your shopping personal
-
-	  </h2>
-
-		<br>
-	  <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
-	</div>
+		<div class ="container">
+			<div class ="center jumbotron" id ="home_inner_section">
+				<h2>What is Shoppu?</h2>
+			  <p>
+			    Shoppu is a web-based, multi-device app that provides a platform for
+					connecting customers and personal shoppers with each other.
+			  </p>
+				<br>
+				<h2>How does it work?</h2>
+					<div align='left'>
+						<h3>For customers</h3>
+						<ol align='left' style="font-size:20px;">
+							<li>Create a shopping list</li>
+							<li>Set a bounty on your list</li>
+							<li>Have your items delivered to your doorstep!</li>
+						</ol>
+						<h3>For personal shoppers</h3>
+						<ol align='left' style="font-size:20px;">
+							<li>Accept bounties near your location</li>
+							<li>Pick up items</li>
+							<li>Deliver items and collect bounty!</li>
+						</ol>
+					</div>
+				<h2>It's that simple!</h2>
+				<br>
+			  <%= link_to "Sign up", '#', class: "btn btn-lg btn-primary" %>
+			</div>
+		</div>
 	</div>

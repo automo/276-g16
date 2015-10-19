@@ -7,25 +7,27 @@
   // we can put background image here
   //background-color: grey;
 
-  height:550px;
+  height: auto;
   width: 100%;
   background-image: image-url("AdobeStock_66582497_WM.jpeg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
-
-
+  // position:fixed;
+  // overflow: auto;
 }
 
 #home_inner_section{
-
- height:100%;
- width:100%;
-  background-color: rgba(0,0,0,0.3);
+  height:100%;
+  width:100%;
+  background-color: rgba(0,0,0,0.6);
   color: white;
 
   //vertical-align: middle;
-// adding the fade in animation for the sign up section
-// does not support IE webrowser
+  // adding the fade in animation for the sign up section
+  // does not support IE webrowser
   animation: fadein 3s;
       -moz-animation: fadein 4s; /* Firefox */
       -webkit-animation: fadein 4s; /* Safari and Chrome */
