@@ -6,7 +6,8 @@
 
   // we can put background image here
   //background-color: grey;
-  height: 50%;
+  height: 600px;
+  width: 100%;
   background-image: image-url("AdobeStock_66582497_WM.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -28,7 +29,7 @@
 
   // we can put background image here
   //background-color: grey;
-  height: 50%;
+  height: 600px;
   background-image: image-url("AdobeStock_84206998_WM.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -36,7 +37,8 @@
   background-position: top center;
   //position:absolute;
 
-  margin:0;
+  margin-top:auto;
+  margin-bottom: auto;
   // -webkit-background-size: cover;
   // -moz-background-size: cover;
   // -o-background-size: cover;
@@ -50,6 +52,9 @@
   width:100%;
   background-color: rgba(0,0,0,0.6);
   color: white;
+  position:relative;
+  top: 100px;
+
 
   //vertical-align: middle;
   // adding the fade in animation for the sign up section
