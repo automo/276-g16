@@ -6,3 +6,5 @@ Rails tutorial file: https://www.railstutorial.org/book/filling_in_the_layout
 
 Git Branching 
 https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+
+Favicon generator: http://www.favicon-generator.org/search/BLACK/S
