@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018215352) do
+ActiveRecord::Schema.define(version: 20151021065439) do
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                              null: false
     t.string   "address",                               null: false
     t.string   "email",                                 null: false
-    t.string   "password",                              null: false
     t.date     "birthdate",                             null: false
     t.string   "first_name",                            null: false
     t.string   "last_name",                             null: false
@@ -26,6 +25,7 @@ ActiveRecord::Schema.define(version: 20151018215352) do
     t.integer  "failed_login_attempts", default: 0
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.string   "password_digest"
   end
 
 end
