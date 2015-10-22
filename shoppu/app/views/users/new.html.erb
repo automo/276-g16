@@ -15,7 +15,8 @@
       <%= f.text_field :address,  :required => true, class: 'form-control' %>
 
       <%= f.label :birthdate %>
-      <%= f.date_select :birthdate,  :required => true ,class: 'form-control'%>
+      <%= f.date_select :birthdate, :start_year => 1910, :end_year => 2015,  :required => true ,class: 'form-control'%>
+
 
 
       <%= f.label :email %>
