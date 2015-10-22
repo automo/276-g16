@@ -4,7 +4,7 @@ one:
   username: MyString
   address: MyString
   email: MyString
-  password: MyString
+  password_digest: <%= BCrypt::Password.create('donuts', cost: 4) %>
   birthdate: 2015-10-18
   first_name: MyString
   last_name: MyString
@@ -16,7 +16,7 @@ two:
   username: MyString
   address: MyString
   email: MyString
-  password: MyString
+  password_digest: <%= BCrypt::Password.create('donuts', cost: 4) %>
   birthdate: 2015-10-18
   first_name: MyString
   last_name: MyString
