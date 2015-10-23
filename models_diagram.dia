@@ -28,7 +28,7 @@
           <dia:boolean val="true"/>
         </dia:attribute>
         <dia:attribute name="scaling">
-          <dia:real val="0.46595799922943115"/>
+          <dia:real val="0.46595796942710876"/>
         </dia:attribute>
         <dia:attribute name="fitto">
           <dia:boolean val="true"/>
@@ -525,7 +525,7 @@
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#offer#</dia:string>
+            <dia:string>#bounty#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>#decimal#</dia:string>
