@@ -8,7 +8,7 @@ one:
   birthdate: 2015-10-18
   first_name: MyString
   last_name: MyString
-  is_mod: false
+  is_moderator: false
   rating: 1
   failed_login_attempts: 1
 
@@ -20,6 +20,6 @@ two:
   birthdate: 2015-10-18
   first_name: MyString
   last_name: MyString
-  is_mod: false
+  is_moderator: false
   rating: 1
   failed_login_attempts: 1

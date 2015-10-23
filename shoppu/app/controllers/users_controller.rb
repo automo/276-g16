@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :address, :email,:password,  :password_confirmation, :birthdate,
-    :first_name, :last_name, :is_mod, :rating => "0", :failed_login_attempts => "0")
+    :first_name, :last_name, :is_moderator, :rating => "0", :failed_login_attempts => "0")
   end
 
 

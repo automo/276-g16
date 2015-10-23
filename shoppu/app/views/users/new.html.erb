@@ -31,10 +31,10 @@
       <%= f.label :password_confirmation, "Password Confirmation" %>
       <%= f.password_field :password_confirmation, :required => true, class: 'form-control' %>
 
-      <%= f.label :is_mod, "Moderator?" %>
-      <%= f.radio_button :is_mod, 'true', :checked => true %>
+      <%= f.label :is_moderator, "Moderator?" %>
+      <%= f.radio_button :is_moderator, 'true', :checked => true %>
       <%= label :mod_yes, 'YES' %>
-      <%= f.radio_button :is_mod, 'false' %>
+      <%= f.radio_button :is_moderator, 'false' %>
       <%= label :mod_no, 'NO' %>
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
