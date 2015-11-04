@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023015615) do
+ActiveRecord::Schema.define(version: 20151104061608) do
+
+  create_table "order_items", force: :cascade do |t|
+    t.string   "status",     null: false
+    t.text     "content"
+    t.integer  "order_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "title",                      null: false
+    t.decimal  "bounty",                     null: false
+    t.datetime "deliver_by"
+    t.datetime "accepted_at"
+    t.integer  "service_rating", default: 0
+    t.string   "status",                     null: false
+    t.integer  "owner_id",                   null: false
+    t.integer  "servicer_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "orders", ["owner_id"], name: "index_orders_on_owner_id"
+  add_index "orders", ["servicer_id"], name: "index_orders_on_servicer_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                              null: false

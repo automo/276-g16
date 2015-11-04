@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :orders
 
   validates :username, presence: true, uniqueness: {case_sensitive: false}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -10,16 +11,6 @@ class User < ActiveRecord::Base
   has_secure_password
 
   validates :password, presence: true, length: {minimum: 6}
-
-
-
-
-
-
-
-
-
-
 
 
 end
