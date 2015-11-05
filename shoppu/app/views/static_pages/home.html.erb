@@ -1,43 +1,95 @@
 <% provide(:title, "Home") %>
 	<!-- <h1>    Make your shopping personal</h1> -->
-	<div class="center jumbotron" id ="home_section">
-		<div class ="container">
-			<div class ="center jumbotron" id ="home_inner_section">
-				<h1>Shoppu</h1>
-				<p>Make your shopping personal</p>
-				<br>
-				<%= link_to "Sign Up Now", signup_path, class: "btn btn-lg btn-primary" %>
-			</div>
 
 
+	<header id="top" class="header">
+			 <div class="text-vertical-center">
+					 <h1>SHOPPU</h1>
+					 <h3>Make Your Shopping Personal</h3>
+					 <br>
+					 <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+					 <%= link_to "Sign Up Now", signup_path, class: "btn btn-lg btn-light" %>
+			 </div>
+	 </header>
 
-		</div>
-	</div>
+	 <!-- About -->
+	 <section id="about" class="about">
+			 <div class="container">
+					 <div class="row">
+							 <div class="col-lg-12 text-center">
+									 <h2>What is Shoppu?</h2>
+									 <p class="lead">Shoppu is a web-based, multi-device app that provides a platform for connecting users and personal shoppers.</p>
+							 </div>
+					 </div>
+					 <!-- /.row -->
+			 </div>
+			 <!-- /.container -->
+	 </section>
 
 
-	<div class ="container" id="about">
-		<h2>What is Shoppu?</h2>
-		<p>
-			Shoppu is a web-based, multi-device app that provides a platform for
-			connecting customers and personal shoppers with each other.
-		</p>
-		<br>
-		<h2>How does it work?</h2>
-			<div>
-				<h3>For customers</h3>
-				<ol>
-					<li>Create a shopping list</li>
-					<li>Set a bounty on your list</li>
-					<li>Have your items delivered to your doorstep!</li>
-				</ol>
-				<h3>For personal shoppers</h3>
-				<ol>
-					<li>Accept bounties near your location</li>
-					<li>Pick up items</li>
-					<li>Deliver items and collect bounty!</li>
-				</ol>
-			</div>
-	</div>
+	 <!-- Services -->
+    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+    <section id="services" class="services bg-primary">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>Our Services</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <div class="fa-stack fa-4x">
+                                <h1 class="glyphicon glyphicon-user"></h1>
+                            </div>
+                                <h4>
+                                    <strong>Users</strong>
+                                </h4>
+                                <p>Shoppu User can be either Customer and Shopper</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+													<div class="service-item">
+															<div class="fa-stack fa-4x">
+															<h1 class="glyphicon glyphicon-th-list"></h1>
+													</div>
+															<h4>
+																	<strong>Shopping List</strong>
+															</h4>
+															<p>Customers can create shopping list and posted it on the server</p>
+													</div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+													<div class="service-item">
+															<div class="fa-stack fa-4x">
+															<h1 class="glyphicon glyphicon-shopping-cart"></h1>
+													</div>
+															<h4>
+																	<strong>Shopping</strong>
+															</h4>
+															<p>Shoppers can view the shopping list online and pick up and deliver the order.</p>
+													</div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+													<div class="service-item">
+															<div class="fa-stack fa-4x">
+															<h1 class="glyphicon glyphicon-usd"></h1>
+													</div>
+															<h4>
+																	<strong>Bounty</strong>
+															</h4>
+															<p>Shoppers can then collect the bounty as service fee from the Customers.</p>
+													</div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
 
 	<div class="center jumbotron" id ="home_section2">
 		<div class ="container">
@@ -45,7 +97,7 @@
 				<h1>Shoppu</h1>
 				<p>It is that simple!</p>
 				<br>
-				<%= link_to "Sign Up Now", signup_path, class: "btn btn-lg btn-primary" %>
+				<%= link_to "Sign Up Now", signup_path, class: "btn btn-lg btn-light" %>
 			</div>
 
 

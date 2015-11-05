@@ -1,106 +1,103 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/*!
+ * Start Bootstrap - Stylish Portfolio Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
 
-#home_section{
+/* Global Styles */
 
-  // we can put background image here
-  //background-color: grey;
-  height: 600px;
-  width: 100%;
-  background-image: image-url("AdobeStock_66582497_WM.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  //background-attachment:fixed;
-  background-position: left top;
-  //position:absolute;
 
-  margin:0;
-  // -webkit-background-size: cover;
-  // -moz-background-size: cover;
-  // -o-background-size: cover;
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // position:fixed;
-  // overflow: auto;
+/* Header */
+
+.header {
+    display: table;
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    background: image-url("AdobeStock_66582474_WM.jpeg") no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
-#home_section2{
 
-  // we can put background image here
-  //background-color: grey;
-  height: 600px;
-  background-image: image-url("AdobeStock_84206998_WM.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  //background-attachment:fixed;
-  background-position: top center;
-  //position:absolute;
+/* About */
 
-  margin-top:auto;
-  margin-bottom: auto;
-  // -webkit-background-size: cover;
-  // -moz-background-size: cover;
-  // -o-background-size: cover;
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // position:fixed;
-  // overflow: auto;
+.about {
+    padding: 50px 0;
 }
-#home_inner_section{
-  height:100%;
-  width:100%;
-  background-color: rgba(0,0,0,0.6);
-  color: white;
-  position:relative;
-  top: 100px;
 
+/* Services */
 
-  //vertical-align: middle;
-  // adding the fade in animation for the sign up section
-  // does not support IE webrowser
-  animation: fadein 3s;
-      -moz-animation: fadein 3s; /* Firefox */
-      -webkit-animation: fadein 3s; /* Safari and Chrome */
-      -o-animation: fadein 3s; /* Opera */
-  }
-  @keyframes fadein {
-      from {
-          opacity:0;
-      }
-      to {
-          opacity:1;
-      }
-  }
-  @-moz-keyframes fadein { /* Firefox */
-      from {
-          opacity:0;
-      }
-      to {
-          opacity:1;
-      }
-  }
-  @-webkit-keyframes fadein { /* Safari and Chrome */
-      from {
-          opacity:0;
-      }
-      to {
-          opacity:1;
-      }
+.services {
+    padding: 50px 0;
+}
 
-  }
-  @-o-keyframes fadein { /* Opera */
-      from {
-          opacity:0;
-      }
-      to {
-          opacity: 1;
-      }
-  }
+.service-item {
+    margin-bottom: 30px;
+}
 
+/* Callout */
 
-// styling for about info on homepage
-#about {
-  text-align: left;
-  font-size: 1.5em;
+.callout {
+    display: table;
+    width: 100%;
+    height: 400px;
+    color: #fff;
+    background: url(../img/callout.jpg) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+/* Portfolio */
+
+.portfolio {
+    padding: 50px 0;
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
+.img-portfolio {
+    margin: 0 auto;
+}
+
+.img-portfolio:hover {
+    opacity: 0.8;
+}
+
+/* Call to Action */
+
+.call-to-action {
+    padding: 50px 0;
+}
+
+.call-to-action .btn {
+    margin: 10px;
+}
+
+/* Map */
+
+.map {
+    height: 500px;
+}
+
+@media(max-width:768px) {
+    .map {
+        height: 75%;
+    }
+}
+
+/* Footer */
+
+footer {
+    padding: 100px 0;
 }
