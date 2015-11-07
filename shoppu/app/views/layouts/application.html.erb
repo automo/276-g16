@@ -30,6 +30,14 @@
                <a href="../#services" onclick = $("#menu-close").click(); >Services</a>
            </li>
            <% if logged_in? %>
+           <!-- Dropp down not working properly omitting the dropdown here for now-->
+
+                 <li><%= link_to "Profile", current_user %></li>
+                 <li><%= link_to "Settings", '#' %></li>
+                 <li>
+                   <%= link_to "Log out", logout_path, method: "delete" %>
+                 </li>
+          <!--
            <li><%= link_to "Users", '#' %></li>
            <li class="dropdown">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -44,6 +52,7 @@
                </li>
              </ul>
            </li>
+         -->
          <% else %>
            <li><%= link_to "Log in", login_path %></li>
          <% end %>
@@ -63,20 +72,16 @@
            <li><%= link_to "Services", root_path(:anchor => "services") %></li>
            <li><%= link_to "Contact", root_path(:anchor => "contact") %></li>
            <% if logged_in? %>
-             <li><%= link_to "Users", '#' %></li>
-             <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                 Account <b class="caret"></b>
-               </a>
-               <ul class="dropdown-menu">
+
+
+           <!-- Dropp down not working properly omitting the dropdown here for now-->
+
                  <li><%= link_to "Profile", current_user %></li>
                  <li><%= link_to "Settings", '#' %></li>
-                 <li class="divider"></li>
                  <li>
                    <%= link_to "Log out", logout_path, method: "delete" %>
                  </li>
-               </ul>
-             </li>
+
            <% else %>
              <li><%= link_to "Log in", login_path %></li>
            <% end %>
