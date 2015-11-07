@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap.min
  */
 
 /* Global Styling
@@ -20,6 +21,8 @@
  body {
      width: 100%;
      height: 100%;
+     margin :0;
+     padding: 0;
  }
 
  body {
@@ -141,7 +144,7 @@
      float:right;
      z-index: 1;
      position: fixed;
-     top: 0;
+     top: 0px;
      right: -10px;
  }
 
@@ -158,3 +161,24 @@
  .toggle {
      margin: 5px 5px 0 0;
  }
+/*  Mobile show only the menu button*/
+
+.mobileShow{
+  display: none;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px)
+{
+  .mobileShow {display:inline-block;}
+}
+/*Mobile hide the navi bar*/
+
+
+.mobileHide{
+  display: block;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px)
+{
+  .mobileHide {display:none;}
+}
