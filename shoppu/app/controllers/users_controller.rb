@@ -13,7 +13,9 @@ class UsersController < ApplicationController
 
    if @user.save
      log_in @user
-      flash[:success] = "Welcome to the Sample App!"
+     UserMailer.user_email(@user).deliver
+      flash[:success] = "Welcome to the Shoppu App!"
+
      redirect_to @user
    else
      render 'new'
