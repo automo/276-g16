@@ -184,3 +184,12 @@
 {
   .mobileHide {display:none;}
 }
+
+.mobileview{
+  margin: 50px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px)
+{
+  .mobileview {margin:0px;}
+}
