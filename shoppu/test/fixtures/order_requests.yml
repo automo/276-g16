@@ -8,7 +8,7 @@ one:
   service_rating: 1
   status: MyString
   owner_id: 1
-  servicer_id:
+  servicer_id: 1
   description: MyText
 
 two:
@@ -19,5 +19,5 @@ two:
   service_rating: 1
   status: MyString
   owner_id: 1
-  servicer_id:
+  servicer_id: 1
   description: MyText
