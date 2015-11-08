@@ -3,9 +3,9 @@
 one:
   status: MyString
   content: MyText
-  order_id: 
+  order_id: 1
 
 two:
   status: MyString
   content: MyText
-  order_id: 
+  order_id: 1

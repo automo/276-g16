@@ -4,6 +4,7 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
     @user = User.new(username: "Example User", email: "user@example.com",address:"sfu", is_moderator:"true",first_name:"asd",last_name:"sada",password:"123456",password_confirmation:"123456",birthdate:"2012-11-11")
+
   end
 
   test "user should be valid" do
@@ -44,6 +45,63 @@ end
   end
 end
 
+  test "email will be unique" do
+    dupilicate_user=@user.dup
+    dupilicate_user.email=@user.email.upcase
+    @user.save
+    assert_not dupilicate_user.valid?
+  end
+
+  test "password should be nonblank" do
+      @user.password = @user.password_confirmation = " " * 6
+      assert_not @user.valid?
+  end
+
+  test "password should have a minimum length" do
+      @user.password = @user.password_confirmation = "a" * 5
+      assert_not @user.valid?
+  end
+
+  test "first_name should be present" do
+    @user.first_name="  "
+    assert_not @user.valid?
+  end
+
+  test "last_name should be present" do
+    @user.last_name="  "
+    assert_not @user.valid?
+  end
+
+  test "address should be present" do
+    @user.address="  "
+    assert_not @user.valid?
+  end
+
+  test "username should be unique" do
+    dupilicate_user=@user.dup
+    dupilicate_user.username=@user.username.upcase
+    @user.save
+    assert_not dupilicate_user.valid?
+  end
+
+  test "username should have length less than 50" do
+    @user.email="name"*200
+    assert_not @user.valid?
+  end
+
+  test "email addresses should be saved as lower-case" do
+      mixed_case_email = "UserN@ExAMPle.CoM"
+      @user.email = mixed_case_email
+      @user.save
+      assert_equal mixed_case_email.downcase, @user.reload.email
+  end
+
+  test "username should be saved as lower-case" do
+      mixed_case_username = "ExAmpleNm"
+      @user.username = mixed_case_username
+      @user.save
+      assert_equal mixed_case_username.downcase, @user.reload.username
+  end
 
 
 
