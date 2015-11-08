@@ -62,7 +62,7 @@
        </ul>
    </nav>
 
-   <header class="navbar navbar-fixed-top navbar-inverse mobileHide">
+   <header style="margin-bottom:0px;" class="navbar navbar-inverse mobileHide">
      <div class="container">
        <%= link_to "SHOPPU", root_path, id: "logo" %>
        <nav>
@@ -90,12 +90,14 @@
      </div>
    </header>
 
+   <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-info" %>
+    <% end %>
+
 <!-- <div class ="container"> -->
 <%= yield %>
 <!-- </div> -->
-<% flash.each do |name, msg| %>
-   <%= content_tag :div, msg, class: "alert alert-info" %>
- <% end %>
+
 
 
 <footer class="footer">
