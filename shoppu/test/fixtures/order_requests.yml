@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  bounty: 9.99
+  deliver_by: 2015-11-08 00:09:31
+  accepted_at: 2015-11-08 00:09:31
+  service_rating: 1
+  status: MyString
+  owner_id: 1
+  servicer_id:
+  description: MyText
+
+two:
+  title: MyString
+  bounty: 9.99
+  deliver_by: 2015-11-08 00:09:31
+  accepted_at: 2015-11-08 00:09:31
+  service_rating: 1
+  status: MyString
+  owner_id: 1
+  servicer_id:
+  description: MyText

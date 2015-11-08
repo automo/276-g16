@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h2 class="order_request_title"><%= @order_request.title %></h2>
+<p class="order_request_sub_title"><%= @order_request.description %></p>
+
+<div id="order_items_wrapper">
+	<%= render @order_request.order_items %>
+	<div id="form">
+		<%= render "order_items/form" %>
+	</div>
+</div>
+
+<div class="links">
+	<%= link_to 'Edit', edit_order_request_path(@order_request) %> |
+	<%= link_to 'Delete', order_request_path(@order_request), method: :delete, data: { confirm: "Are you sure?" }
+ %> |
+  <%= link_to 'Back', order_requests_path %>
+</div>

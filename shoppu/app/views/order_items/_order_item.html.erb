@@ -1,0 +1,31 @@
+<div class="row clearfix">
+	<% if order_item.completed? %>
+		<div class="complete">
+			<%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
+				<i style="opacity: 0.4;" class="fa fa-check"></i>
+			<% end %>
+		</div>
+		<div class="order_item">
+			<p style="opacity: 0.4;"><strike><%= order_item.content %></strike></p>
+		</div>
+		<div class="trash">
+			<%= link_to order_request_order_item_path(@order_request, order_item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+				<i class="fa fa-trash"></i>
+			<% end %>
+		</div>
+	<% else %>
+		<div class="complete">
+			<%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
+				<i class="fa fa-check"></i>
+			<% end %>
+		</div>
+		<div class="order_item">
+			<p><%= order_item.content %></p>
+		</div>
+		<div class="trash">
+			<%= link_to order_request_order_item_path(@order_request, order_item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+				<i class="fa fa-trash"></i>
+			<% end %>
+		</div>
+	<% end %>
+</div>
