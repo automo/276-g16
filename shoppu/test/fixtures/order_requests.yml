@@ -3,19 +3,21 @@
 one:
   title: MyString
   bounty: 9.99
-  deliver_by: 2015-11-03 22:02:05
-  accepted_at: 2015-11-03 22:02:05
+  deliver_by: 2015-11-08 00:09:31
+  accepted_at: 2015-11-08 00:09:31
   service_rating: 1
   status: MyString
-  owner_id: 
-  servicer_id: 
+  owner_id: 1
+  servicer_id: 1
+  description: MyText
 
 two:
   title: MyString
   bounty: 9.99
-  deliver_by: 2015-11-03 22:02:05
-  accepted_at: 2015-11-03 22:02:05
+  deliver_by: 2015-11-08 00:09:31
+  accepted_at: 2015-11-08 00:09:31
   service_rating: 1
   status: MyString
-  owner_id: 
-  servicer_id: 
+  owner_id: 1
+  servicer_id: 1
+  description: MyText

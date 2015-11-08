@@ -1,0 +1,53 @@
+<%= form_for(@order_request) do |f| %>
+  <% if @order_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order_request.errors.count, "error") %> prohibited this order_request from being saved:</h2>
+
+      <ul>
+      <% @order_request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :bounty %><br>
+    <%= f.text_field :bounty %>
+  </div>
+  <div class="field">
+    <%= f.label :deliver_by %><br>
+    <%= f.datetime_select :deliver_by %>
+  </div>
+  <div class="field">
+    <%= f.label :accepted_at %><br>
+    <%= f.datetime_select :accepted_at %>
+  </div>
+  <div class="field">
+    <%= f.label :service_rating %><br>
+    <%= f.number_field :service_rating %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :owner_id %><br>
+    <%= f.text_field :owner_id %>
+  </div>
+  <div class="field">
+    <%= f.label :servicer_id %><br>
+    <%= f.text_field :servicer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
