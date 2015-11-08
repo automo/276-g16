@@ -62,9 +62,12 @@
        </ul>
    </nav>
 
+
+<!-- Navi header for the desktop browser -->
    <header style="margin-bottom:0px;" class="navbar navbar-inverse mobileHide">
      <div class="container">
        <%= link_to "SHOPPU", root_path, id: "logo" %>
+       
        <nav>
          <ul class="nav navbar-nav navbar-right">
            <li><%= link_to "Home", root_path(:anchor => "top") %></li>
@@ -94,9 +97,9 @@
       <%= content_tag :div, msg, class: "alert alert-info" %>
     <% end %>
 
-<!-- <div class ="container"> -->
+
   <%= yield %>
-<!-- </div> -->
+
 
 
 
