@@ -102,6 +102,12 @@ end
       assert_equal mixed_case_username.downcase, @user.reload.username
   end
 
-
+  test "associated order_requests should be destroyed" do
+    @user.save
+    @user.owned_orders.create!(title: "Example Title", bounty: "123.99")
+    assert_difference 'OrderRequest.count', -1 do
+      @user.destroy
+    end
+  end
 
 end

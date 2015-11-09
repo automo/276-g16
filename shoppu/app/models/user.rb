@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :order_owner, foreign_key: 'owner_id', class_name: "OrderRequest"
-  has_many :order_servicer, foreign_key: 'servicer_id', class_name: "OrderRequest"
+  has_many :owned_orders, foreign_key: 'owner_id', class_name: "OrderRequest", dependent: :destroy
+  has_many :serviced_orders, foreign_key: 'servicer_id', class_name: "OrderRequest", dependent: :destroy
 
   before_save {username.downcase!}
   validates :username, presence: true, uniqueness: {case_sensitive: false},
