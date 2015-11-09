@@ -104,7 +104,7 @@ end
   end
 
 
-  test "age is greater than 0" do
+  test "age is greater than 0 / birthdate must be smaller than current date" do
     @user.birthdate="2020-11-11"
     age=@user.birthdate
     assert_not @user.valid?
