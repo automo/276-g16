@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108090406) do
+ActiveRecord::Schema.define(version: 20151109030721) do
 
   create_table "order_items", force: :cascade do |t|
     t.string   "status",           default: "open", null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20151108090406) do
     t.integer  "failed_login_attempts", default: 0,     null: false
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.string   "remember_digest"
   end
 
 end

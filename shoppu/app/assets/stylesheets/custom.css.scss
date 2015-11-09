@@ -3,6 +3,33 @@
 
 // typography
 //reference : https://www.railstutorial.org/book/filling_in_the_layout
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+
 
 $gray-medium-light: #eaeaea;
 
@@ -133,6 +160,20 @@ aside {
 
 /* forms */
 
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -154,6 +195,6 @@ input {
 .field_with_errors {
   @extend .has-error;
   .form-control {
-    color: $state-danger-text;
+    color: red;
   }
 }

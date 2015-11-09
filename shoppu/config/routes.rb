@@ -17,12 +17,15 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :users
+
+  # resources :order_requests
+
   resources :order_requests do
-   resources :order_items do
-     member do
-       patch :complete
-     end
-   end
+    resources :order_items do
+        member do
+        patch :complete
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

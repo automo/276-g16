@@ -1,10 +1,11 @@
 class OrderItemsController < ApplicationController
   before_action :set_order_request
   before_action :set_order_item, except: [:create]
+  before_action :logged_in_user, only: [:create, :destroy]
 
-  def show
-    redirect_to @order_request
-  end
+  # def show
+  #   redirect_to @order_request
+  # end
 
   def create
 		@order_item = @order_request.order_items.create(order_item_params)
@@ -30,7 +31,10 @@ class OrderItemsController < ApplicationController
   private
 
   def set_order_request
-    @order_request = OrderRequest.find(params[:order_request_id])
+    # @order_request = OrderRequest.find(params[:order_request_id])
+    @order_request = current_user.owned_orders.find_by(params[:id])
+    # @order_request = current_user.owned_orders.find_by(owner_id: params[:id])
+    redirect_to root_url if @order_request.nil?
   end
 
   def set_order_item
