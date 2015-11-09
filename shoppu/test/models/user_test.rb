@@ -104,5 +104,12 @@ end
   end
 
 
+  test "age is greater than 0" do
+    @user.birthdate="2020-11-11"
+    age=@user.birthdate
+    assert_not @user.valid?
+  end
+
+
 
 end
