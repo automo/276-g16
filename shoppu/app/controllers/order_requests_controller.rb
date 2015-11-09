@@ -15,7 +15,8 @@ class OrderRequestsController < ApplicationController
 
   # GET /order_requests/new
   def new
-    @order_request = OrderRequest.new
+    @user = User.find(params[:id])
+    @order_request = @user.order_requests.build
   end
 
   # GET /order_requests/1/edit
@@ -25,7 +26,8 @@ class OrderRequestsController < ApplicationController
   # POST /order_requests
   # POST /order_requests.json
   def create
-    @order_request = OrderRequest.new(order_request_params)
+    @user = User.find(params[:id])
+    @order_request = @user.order_requests.build
 
     respond_to do |format|
       if @order_request.save

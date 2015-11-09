@@ -16,7 +16,10 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  resources :users
+  resources :users do
+    resources :order_requests
+  end
+
   resources :order_requests do
    resources :order_items do
      member do
