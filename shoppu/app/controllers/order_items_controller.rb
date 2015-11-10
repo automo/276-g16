@@ -34,7 +34,10 @@ class OrderItemsController < ApplicationController
     # @order_request = OrderRequest.find(params[:order_request_id])
     @order_request = current_user.owned_orders.find_by(params[:id])
     # @order_request = current_user.owned_orders.find_by(owner_id: params[:id])
-    redirect_to root_url if @order_request.nil?
+    if @order_request.nil?
+      flash[:error] = "A processing error has occurred - Sorry for the inconvenience"
+      redirect_to root_url
+    end
   end
 
   def set_order_item
