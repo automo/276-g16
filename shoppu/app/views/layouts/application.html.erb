@@ -13,10 +13,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle mobileShow">	<span>MENU</span></a>
+  <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle mobileShow">	<i class = "fa fa-bars fa-3x"></i></a>
    <nav id="sidebar-wrapper" class ="mobileShow">
        <ul class="sidebar-nav">
-           <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="glyphicon glyphicon-remove"></i></a>
+           <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times fa-3x"></i></a>
            <li class="sidebar-brand">
                <a href="../#top"  onclick = $("#menu-close").click(); >Start Bootstrap</a>
            </li>
@@ -103,22 +103,26 @@
   <%= yield %>
 
 
+  <footer>
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-10 col-lg-offset-1 text-center">
+                  <h4><strong>SHOPPU</strong>
+                  </h4>
+                  <p>SFU<br>Burnaby, BC Canada</p>
 
+                      <p><i class="fa fa-phone fa-fw"></i> (123) 456-7890</p>
+                      <p><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:shoppumail@gmail.com">shoppumail@gmail.com</a>
+                      </p>
 
-<footer class="footer">
-  <small>
-  Shoppu &copy; 2015
-  </small>
-  <nav>
-    <ul>
+                  <br>
 
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Help", help_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
-
-    </ul>
-  </nav>
-</footer>
+                  <hr class="small">
+                  <p class="text-muted">Copyright &copy; SHOPPU 2015</p>
+              </div>
+          </div>
+      </div>
+  </footer>
 
 
 
