@@ -17,7 +17,7 @@
 			 <div class="container">
 					 <div class="row">
 							 <div class="col-lg-12 text-center">
-									 <h2>What is Shoppu?</h2>
+									 <h2 style="color:black;">What is Shoppu?</h2>
 									 <p class="lead">Shoppu is a web-based, multi-device app that provides a platform for connecting users and personal shoppers.</p>
 							 </div>
 					 </div>
@@ -33,14 +33,16 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-10 col-lg-offset-1">
-                    <h2>Our Services</h2>
+                    <h2 style="color: white;">Our Services</h2>
                     <hr class="small">
                     <div class="row">
                         <div class="col-md-3 col-sm-6">
                             <div class="service-item">
-                                <div class="fa-stack fa-4x">
-                                <h1 class="glyphicon glyphicon-user"></h1>
-                            </div>
+															<span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-users fa-stack-1x text-primary"></i>
+                            </span>
+
                                 <h4>
                                     <strong>Users</strong>
                                 </h4>
@@ -49,9 +51,10 @@
                         </div>
                         <div class="col-md-3 col-sm-6">
 													<div class="service-item">
-															<div class="fa-stack fa-4x">
-															<h1 class="glyphicon glyphicon-th-list"></h1>
-													</div>
+														<span class="fa-stack fa-4x">
+															<i class="fa fa-circle fa-stack-2x"></i>
+															<i class="fa fa-th-list fa-stack-1x text-primary"></i>
+													</span>
 															<h4>
 																	<strong>Shopping List</strong>
 															</h4>
@@ -60,9 +63,10 @@
                         </div>
                         <div class="col-md-3 col-sm-6">
 													<div class="service-item">
-															<div class="fa-stack fa-4x">
-															<h1 class="glyphicon glyphicon-shopping-cart"></h1>
-													</div>
+															<span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-shopping-cart fa-stack-1x text-primary"></i>
+                            </span>
 															<h4>
 																	<strong>Shopping</strong>
 															</h4>
@@ -71,9 +75,10 @@
                         </div>
                         <div class="col-md-3 col-sm-6">
 													<div class="service-item">
-															<div class="fa-stack fa-4x">
-															<h1 class="glyphicon glyphicon-usd"></h1>
-													</div>
+														<span class="fa-stack fa-4x">
+															<i class="fa fa-circle fa-stack-2x"></i>
+															<i class="fa fa-usd fa-stack-1x text-primary"></i>
+													</span>
 															<h4>
 																	<strong>Bounty</strong>
 															</h4>
@@ -95,6 +100,7 @@
 		<div class ="container">
 			<div class ="center jumbotron" id ="home_inner_section">
 				<h1>Shoppu</h1>
+				<br>
 				<p>It is that simple!</p>
 				<br>
 				<%= link_to "Sign Up Now", signup_path, class: "btn btn-lg btn-light" %>
