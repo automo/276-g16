@@ -12,3 +12,8 @@ Favicon generator: http://www.favicon-generator.org/search/BLACK/S
 Background Patterns: http://subtlepatterns.com/
 
 High-quality ROR tutorial (access lynda.com from SFU library resources first!): http://www.lynda.com/Ruby-Rails-tutorials/Ruby-Rails-4-Essential-Training/139989-2.html
+
+Heroku commands:
+Update heroku repo = 'git add --all' THEN 'git commit -am "commit message goes here"' THEN 'git push heroku master'
+Drop database = 'heroku pg:reset DATABASE' OR 'heroku run rake db:reset' THEN 'heroku restart'
+Recreate empty database = 'heroku run rake db:migrate'
