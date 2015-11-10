@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-  # 
+  #
   # def create_order_request
   #    @user = User.find(params[:id])
   #    @order_request = @user.order_requests.build(params[:order_request])
@@ -34,6 +34,26 @@ class UsersController < ApplicationController
    end
  end
 
+# Adding new action for update user profile
+  def edit
+    @user=User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      # Handle a successful update.
+
+      flash[:success] = "Profile updated"
+      redirect_to @user
+
+    else
+      render 'edit'
+    end
+  end
+
+
+
  private
 
   def user_params
@@ -41,4 +61,10 @@ class UsersController < ApplicationController
     :first_name, :last_name, :is_moderator, :rating => "0", :failed_login_attempts => "0")
   end
 
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
 end
