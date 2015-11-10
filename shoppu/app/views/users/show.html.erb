@@ -6,7 +6,8 @@
                     <h1 class="page-header">Welcome,   <%= @user.username %> </h1>
                 </div>
                 <!-- /.col-lg-12 -->
-            </div>
+</div>
+
 <div class="row">
   <div class="col-lg-3 col-md-6 col-sm-6">
                       <div class="panel panel-yellow">
@@ -103,38 +104,33 @@
 </div>
 
 
+  <h3>This is a sample graph for order crearted and fulfilled by the user</h3>
+  <h4>Not implemented yet  for iteration 3 </h4>
+  <div  id="bar-example">
+
+  </div>
 
 
-
-  <aside class="col-md-4">
-    <section class="user_info">
-
-      <h1> Welcome,
-        <%= @user.username %>
-      </h1>
-
-      <h1>This is the sample page for the user interface</h1>
-      <h2>User Information</h2>
-
-
-      <ul>
-        <li> Username: <%= @user.username %> </li>
-        <li> Email : <%= @user.email %> </li>
-        <li>  First Name: <%= @user.first_name %> </li>
-        <li>  Last Name: <%= @user.last_name %> </li>
-        <li>  Birthdate: <%= @user.birthdate %> </li>
-        <li>  Address: <%= @user.address %> </li>
-        <li>  Password: <%= @user.password_digest %> </li>
-        <li>  Rating: <%= @user.rating %> </li>
-
-
-      </ul>
-
-
-
-    </section>
-  </aside>
-</div>
 
 
 </div>
+
+
+<!-- Wil need to explore the ruby to extract the data here  -->
+<script>
+  new Morris.Bar({
+  element: 'bar-example',
+  data: [
+    { y: '2006', a: 100, b: 90 },
+    { y: '2007', a: 75,  b: 65 },
+    { y: '2008', a: 50,  b: 40 },
+    { y: '2009', a: 75,  b: 65 },
+    { y: '2010', a: 50,  b: 40 },
+    { y: '2011', a: 75,  b: 65 },
+    { y: '2012', a: 100, b: 90 }
+  ],
+  xkey: 'y',
+  ykeys: ['a', 'b'],
+  labels: ['Order Created', 'Order Fulfilled']
+  });
+</script>
