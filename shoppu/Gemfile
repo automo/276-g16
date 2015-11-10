@@ -39,7 +39,7 @@ gem 'mail'
 
 # font-awesome
 
-gem 'font-awesome-less'
+#gem 'font-awesome-less'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
