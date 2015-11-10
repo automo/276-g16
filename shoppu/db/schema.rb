@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109030721) do
+ActiveRecord::Schema.define(version: 20151109092029) do
 
   create_table "order_items", force: :cascade do |t|
     t.string   "status",           default: "open"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20151109030721) do
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.string   "remember_digest"
+    t.string   "reset_digest"
+    t.datetime "reset_sent_at"
   end
 
 end

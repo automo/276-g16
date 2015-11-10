@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  username: MyString
-  address: MyString
-  email: MyString
+Apple:
+  username: Apple
+  address: sfu
+  email: sfu@exapmle.com
   password_digest: <%= BCrypt::Password.create('donuts', cost: 4) %>
   birthdate: 2015-10-18
-  first_name: MyString
-  last_name: MyString
+  first_name: Apple
+  last_name: Apple
   is_moderator: false
   rating: 1
   failed_login_attempts: 1
