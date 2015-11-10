@@ -2,12 +2,18 @@ class OrderItemsController < ApplicationController
   before_action :set_order_request
   before_action :set_order_item, except: [:create]
   before_action :logged_in_user, only: [:create, :destroy]
+  # before_action :debug
+  #
+  # def debug
+  #   render :text => @order_request.inspect
+  # end
 
   # def show
   #   redirect_to @order_request
   # end
 
   def create
+    # @order_request = current_user.owned_orders.find_by(id: params[:id])
 		@order_item = @order_request.order_items.create(order_item_params)
 		redirect_to @order_request
 	end
@@ -32,7 +38,7 @@ class OrderItemsController < ApplicationController
 
   def set_order_request
     # @order_request = OrderRequest.find(params[:order_request_id])
-    @order_request = current_user.owned_orders.find_by(params[:id])
+    @order_request = current_user.owned_orders.find(params[:order_request_id])
     # @order_request = current_user.owned_orders.find_by(owner_id: params[:id])
     if @order_request.nil?
       flash[:error] = "A processing error has occurred - Sorry for the inconvenience"

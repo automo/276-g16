@@ -71,7 +71,7 @@ class OrderRequestsController < ApplicationController
     def set_order_request
       # @order_request = current_user.order_requests.find_by(params[:id])
       # @order_request = OrderRequest.find(params[:id])
-      @order_request = current_user.owned_orders.find_by(id: params[:id])
+      @order_request = current_user.owned_orders.find(params[:id])
       if @order_request.nil?
         flash[:error] = "A processing error has occurred - Sorry for the inconvenience"
         redirect_to root_url

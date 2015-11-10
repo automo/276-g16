@@ -1,5 +1,6 @@
 class OrderRequest < ActiveRecord::Base
   has_many :order_items, dependent: :destroy
+  accepts_nested_attributes_for :order_items
   validates :owner_id, presence: true
 
   belongs_to :owner, :class_name => "User"
