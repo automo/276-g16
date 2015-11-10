@@ -6,25 +6,22 @@ class User < ActiveRecord::Base
   attr_accessor :remember_token, :reset_token
 
   before_save {username.downcase!}
+  before_save {email.downcase!}
+
   validates :username, presence: true, uniqueness: {case_sensitive: false},
             length: {maximum:50}
-
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  before_save {email.downcase!}
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-
-
   has_secure_password
   validates :password, presence: true, length: {minimum: 6}
-
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :address, presence: true
-
   validates :age, numericality: {greater_than:0}
   validates :birthdate, presence: true
+
 
   def age
   now = Time.now.utc.to_date
@@ -55,6 +52,12 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
+  def authenticated?(attribute, token)
+      digest = send("#{attribute}_digest")
+      return false if digest.nil?
+      BCrypt::Password.new(digest).is_password?(token)
+    end
+
   # Forgets a user.
   def forget
     update_attribute(:remember_digest, nil)
@@ -67,10 +70,13 @@ class User < ActiveRecord::Base
       update_attribute(:reset_sent_at, Time.zone.now)
     end
 
-
   # Sends password reset email.
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
+  end
+
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
   end
 
 end
