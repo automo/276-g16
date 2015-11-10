@@ -55,9 +55,15 @@ $gray-medium-light: #eaeaea;
 	color:#fff;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   font-weight: bolder;
+}
 
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #0aa0d9;
 }
 
 #header{
@@ -97,10 +103,6 @@ footer ul li {
   margin-left: 15px;
 }
 
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-}
 // html {
 //   background: url('app/assets/images/AdobeStock_66582497_WM.jpeg') no-repeat center center fixed;
 //   -webkit-background-size: cover;
@@ -197,4 +199,24 @@ input {
   .form-control {
     color: red;
   }
+}
+
+// ~K
+.navbar-inverse {
+    background-color: #0c98cf;
+    border-color: #6c6e70;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #fff568;
+    background-color: #0aa0d9;
+}
+
+.lead {
+    font-size: 21px;
+    color: #2d3033;
 }
