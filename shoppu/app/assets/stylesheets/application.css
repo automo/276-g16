@@ -196,3 +196,23 @@
 {
   .mobileview {margin:0px;}
 }
+
+
+
+.input_section {
+    max-width: 600px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.input_section p, .links {
+
+  text-align: center;
+
+}
+
+$white_opaque: rgba(250, 250, 250, .3);
+$dark: #1F7972;
+
+
+::-webkit-input-placeholder { color: $dark; }

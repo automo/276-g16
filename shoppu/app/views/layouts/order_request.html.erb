@@ -1,13 +1,7 @@
-<!-- ~K -->
-<head class="body">
-  <%= stylesheet_link_tag    'order_requests' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class ="container">
-    <%=yield %>
-  </div>
-</body>
+
+
+<%= render 'layouts/head' %>
+
+<%= render 'layouts/body' %>
+
+<%= render 'layouts/footer' %>

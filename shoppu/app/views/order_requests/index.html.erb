@@ -1,11 +1,15 @@
+
+<div class="input_section">
+
 <% current_user.owned_orders.each do |order_request| %>
   <div class="index_row clearfix">
     <h2 class="order_request_title"><%= link_to order_request.title, order_request %></h2>
     <p class="order_request_sub_title"><%= order_request.description %></p>
   </div>
 <% end %>
-
+<br>
 <div class="links">
   <%= link_to "New Order", new_order_request_path %> |
   <%= link_to "Back to home", root_path %>
+</div>
 </div>
