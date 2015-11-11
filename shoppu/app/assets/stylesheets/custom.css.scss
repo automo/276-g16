@@ -207,6 +207,7 @@ input {
 .navbar-inverse {
     background-color: #0c98cf;
     border-color: #6c6e70;
+    border-radius: 0px;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -225,15 +226,12 @@ input {
 
 .home-title-box {
     position: absolute;
-    border-radius: 10px;
+    //border-radius: 10px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-
-
     width: 100%;
     height: 100%;
-
     background-color: rgba(45, 48, 51, 0.5);
     text-align: center;
     vertical-align: middle;
@@ -244,7 +242,6 @@ input {
         -ms-animation: fadein 3s; /* Internet Explorer */
          -o-animation: fadein 3s; /* Opera < 12.1 */
             animation: fadein 3s;
-
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px)
