@@ -1,0 +1,27 @@
+Template: As a <role>, I want <feature> so that <reason>
+As a user, I want to be able to sign up to an account so that I can start using Shoppu. ✓
+As a user, I want to get an error message when the username I chose isn’t available so that I could pick a new one right away and not waste time by doing the registration all over again. 
+As a user, I want to get an error message when the email is in an invalid format so that I could check for any typo and save time from restarting the process of filling and submitting the form.
+As a user, I want to be able to sign in my existing account with authentication so I can access my account.  ✓
+As a user, I want to be able to sign in my existing account with authentication so that other people can’t use my account for bad intention. ✓
+As a user (customers), I want to upload picture of the goods so that my personal shopper won’t get the wrong item.
+As a user (customers) who are younger than 19 years old, I want to be banned from ordering alcohol so that I won’t be fined by the government.
+As a user (customers), I want to choose the store so that I could get the goods at cheaper price.
+As a user (customers), I want to edit or delete my order so that I don’t need to pay for the wrong item.
+As a user (customers), I want to be able to chat with my shopper so that I could track her whereabouts, modify my order during shopping time and be informed of current store promotion.
+As a user (customers), I want to have an account review so that shoppers know that i’m a good customer and willing to take the job.
+As a user (shopper), I want to be able to choose the job so that I don’t have to travel too far.
+As a user (shopper), I want to be able to access the shopping list in checkboxes so that i could easily tell what goods i need to buy next.
+As a user (shopper), I want to be able to see the picture uploaded by my customer so that i don’t buy the wrong item.
+As a user (shopper), I want to see the location of stores near me so that I could go to the nearest one.
+As a user (shopper), I want to see the location of stores near me so that I could go to the one on the way to my customer’s address.
+As a user (shopper), I want to see the location of stores near me so that I could choose the job with stores nearest to me.
+As a user (shopper), I want to see the job lists on a map so that I could choose the nearest job easily.
+As a user (shopper), I want to see the location of all my customers so that i could choose the best route.
+As a user (shopper), I want to see the best route to my customer so that I could arrive there faster.
+As a user (shopper), I want to be able to upload a picture of the receipt so that my customer knows that i’m not lying about the cost.
+As a user (shopper), I want to be able to chat with my customer so that I could discuss on the fee and ask his/her opinion when the goods he/she wants have a different price, a short expiration date or not available and verify it.
+As a user (admin), I want to be able to see all the job postings so that I could find illegal posts.
+As a user (admin), I want to be able to give warnings to user so that the user will know what he/she will stop the illegal behavior.
+As a user (admin), I want to be able to block an account so to reduce fraudulent users and security risk.
+As a user (admin), I want to be able to delete postings so that no one will pick up an illegal job and let the shoppers be at a security risk.
