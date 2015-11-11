@@ -17,8 +17,9 @@ class OrderRequestsControllerTest < ActionController::TestCase
   end
 
   test "should create order_request" do
+    # puts @order_request.inspect
     assert_difference('OrderRequest.count') do
-      post :create, order_request: { accepted_at: @order_request.accepted_at, bounty: @order_request.bounty, deliver_by: @order_request.deliver_by, description: @order_request.description, owner_id: @order_request.owner_id, service_rating: @order_request.service_rating, servicer_id: @order_request.servicer_id, status: @order_request.status, title: @order_request.title }
+      post :create, order_request: { accepted_at: "2015-11-08 00:09:31", bounty: "123", description: "test description", owner_id: "1", title: "hello world!" }
     end
 
     assert_redirected_to order_request_path(assigns(:order_request))
@@ -43,7 +44,6 @@ class OrderRequestsControllerTest < ActionController::TestCase
     assert_difference('OrderRequest.count', -1) do
       delete :destroy, id: @order_request
     end
-
     assert_redirected_to order_requests_path
   end
 end
