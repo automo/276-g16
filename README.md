@@ -23,5 +23,5 @@ bin\rails server
 \* May appear in code comments
 
 ### References
-* Hartl, M. (2015). Ruby on rails tutorial: Learn web development with rails (Third ed.).
 * Child, M. (2014, October 12). How To Build A Todo App In Rails 4. Retrieved November 10, 2015, from https://www.youtube.com/watch?v=fd1Vn-Wvy2w
+* Hartl, M. (2015). Ruby on rails tutorial: Learn web development with rails (Third ed.).
