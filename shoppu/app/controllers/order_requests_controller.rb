@@ -27,6 +27,7 @@ class OrderRequestsController < ApplicationController
   # POST /order_requests
   # POST /order_requests.json
   def create
+    # puts @current_user
     @order_request = current_user.owned_orders.build(order_request_params)
     # @user = User.find(params[:id])
     # @order_request = @user.order_requests.build

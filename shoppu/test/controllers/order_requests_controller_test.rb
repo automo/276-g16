@@ -2,7 +2,8 @@ require 'test_helper'
 
 class OrderRequestsControllerTest < ActionController::TestCase
   setup do
-    @order_request = order_requests(:one)
+    @current_user = users(:UserOne)
+    @order_request = order_requests(:walmart_list)
   end
 
   test "should get index" do
