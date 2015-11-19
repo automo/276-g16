@@ -60,7 +60,11 @@ class UsersController < ApplicationController
  private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
+    if @user.nil?
+      flash[:error] = "A processing error has occurred - Sorry for the inconvenience"
+      redirect_to root_url
+    end
   end
 
   def user_params

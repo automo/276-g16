@@ -38,7 +38,7 @@ class OrderItemsController < ApplicationController
 
   def set_order_request
     # @order_request = OrderRequest.find(params[:order_request_id])
-    @order_request = current_user.owned_orders.find(params[:order_request_id])
+    @order_request = current_user.owned_orders.find_by_id(params[:order_request_id])
     # @order_request = current_user.owned_orders.find_by(owner_id: params[:id])
     if @order_request.nil?
       flash[:error] = "A processing error has occurred - Sorry for the inconvenience"
@@ -47,7 +47,7 @@ class OrderItemsController < ApplicationController
   end
 
   def set_order_item
-    @order_item = @order_request.order_items.find(params[:id])
+    @order_item = @order_request.order_items.find_by_id(params[:id])
   end
 
   def order_item_params
