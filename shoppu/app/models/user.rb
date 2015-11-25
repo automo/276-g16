@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :orders
+  # has_many :orders
   has_many :owned_orders, foreign_key: 'owner_id', class_name: "OrderRequest", dependent: :destroy
   has_many :serviced_orders, foreign_key: 'servicer_id', class_name: "OrderRequest", dependent: :destroy
 
@@ -22,8 +22,6 @@ class User < ActiveRecord::Base
   validates :age, numericality: {greater_than:0}
   validates :birthdate, presence: true
 
-  geocoded_by :address
-  after_validation :geocode
 
 
   def age

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   before_action :logged_in_user, only: [:edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
+  # before_action :correct_user,   only: [:edit, :update]
+
 
   def show
     # @user = User.find(params[:id])
@@ -26,11 +27,11 @@ class UsersController < ApplicationController
    @user = User.new(user_params)
 
    if @user.save
-     log_in @user
+    log_in @user
 
     flash[:success] = "Welcome to the Shoppu App!"
 
-     redirect_to @user
+    redirect_to @user
     UserMailer.user_email(@user).deliver
    else
      render 'new'
@@ -49,27 +50,25 @@ class UsersController < ApplicationController
 
       flash[:success] = "Profile updated"
       redirect_to @user
-
     else
+      flash[:error] = "Failed to update information - Please try again"
       render 'edit'
     end
   end
-
-
 
  private
 
   def set_user
     @user = User.find_by_id(params[:id])
     if @user.nil?
-      flash[:error] = "A processing error has occurred - Sorry for the inconvenience"
+      flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0000]"
       redirect_to root_url
     end
   end
 
   def user_params
     params.require(:user).permit(:username, :address, :email,:password,  :password_confirmation, :birthdate,
-    :first_name, :last_name, :is_moderator, :rating => "0", :failed_login_attempts => "0")
+    :first_name, :last_name, :rating => "0", :failed_login_attempts => "0")
   end
 
   def logged_in_user
