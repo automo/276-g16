@@ -2,6 +2,7 @@ class OrderRequestsController < ApplicationController
   layout 'order_request.html.erb' # ~K
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :set_order_request, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:update, :destroy]
 
   # GET /order_requests
   # GET /order_requests.json
@@ -47,7 +48,7 @@ class OrderRequestsController < ApplicationController
   # PATCH/PUT /order_requests/1.json
   def update
     respond_to do |format|
-      if @order_request.update(order_request_params)
+      if @order_request.update_attributes(order_request_params)
         format.html { redirect_to @order_request, notice: 'Order request was successfully updated.' }
         format.json { render :show, status: :ok, location: @order_request }
       else
@@ -75,14 +76,18 @@ class OrderRequestsController < ApplicationController
       @order_request = current_user.owned_orders.find_by_id(params[:id])
       # @order_request = current_user.owned_orders.find_by_id(params[:order_request_id])
       if @order_request.nil?
-        flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0001]"
+        flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0100]"
         redirect_to root_url
       end
     end
 
-    # def set_user
-    #   @user = User.find(params[:id])
-    # end
+    def correct_user
+      # @order_request = current_user.order_requests.find_by_id(params[:id])
+      if (@order_request == false)
+        flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0101]"
+        redirect_to root_url
+      end
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_request_params

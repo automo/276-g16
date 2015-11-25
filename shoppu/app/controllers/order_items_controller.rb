@@ -2,6 +2,7 @@ class OrderItemsController < ApplicationController
   before_action :set_order_request
   before_action :set_order_item, except: [:create]
   before_action :logged_in_user, only: [:create, :destroy]
+  before_action :correct_user, only: [:destroy, :complete]
   # before_action :debug
   #
   # def debug
@@ -40,13 +41,21 @@ class OrderItemsController < ApplicationController
     @order_request = current_user.owned_orders.find_by_id(params[:order_request_id])
     # @order_request = current_user.owned_orders.find_by(owner_id: params[:id])
     if @order_request.nil?
-      flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0002]"
+      flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0200]"
       redirect_to root_url
     end
   end
 
   def set_order_item
     @order_item = @order_request.order_items.find_by_id(params[:id])
+  end
+
+  def correct_user
+    # @order_request = current_user.order_requests.find_by_id(params[:id])
+    if (@order_request == false || @order_item == false)
+      flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0201]"
+      redirect_to root_url
+    end
   end
 
   def order_item_params
