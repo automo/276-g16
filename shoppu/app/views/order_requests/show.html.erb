@@ -23,4 +23,10 @@
 
 </div>
 
-<p>The owner of this order is <%= @order_request.owner.address %></p>
+<p>The longitude of this order is <%= @order_request.owner.longitude %></p>
+<p>The latitude of this order is <%= @order_request.owner.latitude %></p>
+
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@order_request.owner.latitude}%2C#{@order_request.owner.longitude}" %>
+
+<!-- AIzaSyCLhOKE-GbE_RxFpCb16gXkaMreWzes7ks API key for browser -->
