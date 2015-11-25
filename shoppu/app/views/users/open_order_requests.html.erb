@@ -1,7 +1,7 @@
 <div class="input_section">
-  <% @all_order_requests.each do |order_request| %>
+  <% @all_order_requests.each_with_index do |order_request, i| %>
     <div class="index_row clearfix">
-      <h2 class="order_request_title"><%= order_request.title %></h2>
+      <h2 class="order_request_title"><%= i+1 %>.&nbsp;<%= order_request.title %> - <%= order_request.owner.username %></h2>
       <p class="order_request_sub_title"><%= order_request.description %></p>
 
       <% order_request.order_items.each do |order_item| %>
