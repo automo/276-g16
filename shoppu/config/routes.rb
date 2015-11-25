@@ -22,14 +22,18 @@ Rails.application.routes.draw do
 
 
 
+  resources :users do
+  # Used to enable paths of this format: /users/<user.id>/open_order_requests
+    member do
+      post :open_order_requests
+    end
+  end
 
-  resources :users
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  # resources :order_requests
 
   resources :order_requests do
     resources :order_items do
-        member do
+      member do
         patch :complete
       end
     end
@@ -89,4 +93,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  match ':controller(/:id(/:action))', :via => :get
 end

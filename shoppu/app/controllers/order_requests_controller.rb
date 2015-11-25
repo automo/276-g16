@@ -11,9 +11,9 @@ class OrderRequestsController < ApplicationController
 
   # GET /order_requests/1
   # GET /order_requests/1.json
-  # def show
-  #   redirect_to root
-  # end
+  def show
+    # redirect_to root_url
+  end
 
   # GET /order_requests/new
   def new
@@ -75,7 +75,7 @@ class OrderRequestsController < ApplicationController
       @order_request = current_user.owned_orders.find_by_id(params[:id])
       # @order_request = current_user.owned_orders.find_by_id(params[:order_request_id])
       if @order_request.nil?
-        flash[:error] = "A processing error has occurred - Sorry for the inconvenience"
+        flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0001]"
         redirect_to root_url
       end
     end

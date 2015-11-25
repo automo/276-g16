@@ -2,7 +2,20 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   before_action :logged_in_user, only: [:edit, :update]
   # before_action :correct_user,   only: [:edit, :update]
-
+  # after_initialize :init
+  #
+  # def init
+  #   self.rating  ||= 0
+  #   self.failed_login_attempts ||= 0
+  # end
+  def open_order_requests
+    # Selects order_requests which have a positive number of order_items
+    #  AND which belong to other users
+    @all_order_requests = OrderRequest.select { |order_request| \
+      order_request.order_items.all.size > 0 && order_request.owner.id != current_user.id }
+    # redirect_to open_order_requests
+    render('open_order_requests')
+  end
 
   def show
     # @user = User.find(params[:id])

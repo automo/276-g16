@@ -1,0 +1,15 @@
+<div class="input_section">
+  <% @all_order_requests.each do |order_request| %>
+    <div class="index_row clearfix">
+      <h2 class="order_request_title"><%= order_request.title %></h2>
+      <p class="order_request_sub_title"><%= order_request.description %></p>
+
+      <% order_request.order_items.each do |order_item| %>
+        <div class="order_item">
+          <p><%= order_item.content %></p>
+        </div>
+      <% end %>
+
+    </div>
+  <% end %>
+<div>

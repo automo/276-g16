@@ -9,7 +9,6 @@ class OrderItemsController < ApplicationController
   # end
 
   # def show
-  #   redirect_to @order_request
   # end
 
   def create
@@ -41,7 +40,7 @@ class OrderItemsController < ApplicationController
     @order_request = current_user.owned_orders.find_by_id(params[:order_request_id])
     # @order_request = current_user.owned_orders.find_by(owner_id: params[:id])
     if @order_request.nil?
-      flash[:error] = "A processing error has occurred - Sorry for the inconvenience"
+      flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0002]"
       redirect_to root_url
     end
   end
