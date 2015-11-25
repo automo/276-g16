@@ -203,11 +203,14 @@ input {
   }
 }
 
-// ~K
 .navbar-inverse {
     background-color: #0c98cf;
     border-color: #6c6e70;
     border-radius: 0px;
+}
+
+.alert.alert-info {
+    margin-bottom: auto;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -250,7 +253,7 @@ input {
     padding-top:50%;
     padding-bottom:50%;
   }
-  
+
 
 }
 
