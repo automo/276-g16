@@ -22,6 +22,9 @@ class User < ActiveRecord::Base
   validates :age, numericality: {greater_than:0}
   validates :birthdate, presence: true
 
+  geocoded_by :address
+  after_validation :geocode
+
 
   def age
     now = Time.now.utc.to_date
