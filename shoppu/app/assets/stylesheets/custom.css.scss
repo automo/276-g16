@@ -23,12 +23,24 @@ h2 {
   color: #777;
 }
 
+h6 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  margin-left: 60px;
+  text-align: left;
+  font-weight: normal;
+  color: 2d3033
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
 
-
+.bold{
+  font-weight: bold;
+}
 
 
 $gray-medium-light: #eaeaea;
