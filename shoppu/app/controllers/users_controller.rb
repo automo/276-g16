@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   # before_action :set_order_request, only: [:accept_order_request]
-  before_action :set_user, only: [:open_order_requests, :accepted_order_requests, :accept_order_request, :show, :edit, :update]
-  before_action :logged_in_user, only: [:open_order_requests, :accepted_order_requests, :accept_order_request, :edit, :update]
-  before_action :correct_user,   only: [:open_order_requests, :accepted_order_requests, :accept_order_request, :show, :edit, :update]
+  before_action :set_user, except: [:reset_accepted_orders, :new, :create]
+  before_action :logged_in_user, except: [:reset_accepted_orders, :show, :new, :create]
+  before_action :correct_user, except: [:reset_accepted_orders, :new, :create]
   # after_initialize :init
   #
   # def init
@@ -25,9 +25,7 @@ class UsersController < ApplicationController
       redirect_to @user
     end
 
-    if @order_request.update_attributes(:servicer_id => current_user.id, :status => "accepted")
-      flash[:success] = "Order successfully accepted"
-    else
+    if !@order_request.update_attributes(:servicer_id => current_user.id, :status => "accepted")
       flash[:error] = "Failed to accept order - Please try again"
       redirect_to @user
     end
