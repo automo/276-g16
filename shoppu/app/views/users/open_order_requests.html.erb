@@ -1,8 +1,9 @@
 <div class="input_section">
   <% @all_order_requests.each_with_index do |order_request, i| %>
     <div class="index_row clearfix">
-      <h2 class="order_request_title"><%= i+1 %>.&nbsp;
-        <%= order_request.title %> by <%= order_request.owner.username %>
+      <h2 class="order_request_title">
+        Updated <%= time_ago_in_words(order_request.updated_at) %> ago <br/>
+        <%= i+1 %>.&nbsp;<%= order_request.title %> by <%= order_request.owner.username %>
         (<%= number_to_currency(order_request.bounty) %>)</h2>
       <p class="order_request_sub_title"> description:
         <%= if order_request.description.blank? then "-no description given-" else order_request.description end %></p>
