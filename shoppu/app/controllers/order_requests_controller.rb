@@ -4,6 +4,15 @@ class OrderRequestsController < ApplicationController
   before_action :set_order_request, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:show, :update, :destroy]
 
+  # def accept_order_request
+  #   if @order_request.update_attributes(:servicer_id => current_user.id)
+  #     flash[:success] = "Order successfully accepted"
+  #   else
+  #     flash[:error] = "Failed to accept order - Please try again"
+  #   end
+  #   redirect_to @user
+  # end
+
   # GET /order_requests
   # GET /order_requests.json
   def index
@@ -70,16 +79,7 @@ class OrderRequestsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_order_request
-      # @order_request = current_user.order_requests.find_by(params[:id])
-      # @order_request = OrderRequest.find(params[:id])
-      @order_request = current_user.owned_orders.find_by_id(params[:id])
-      # @order_request = current_user.owned_orders.find_by_id(params[:order_request_id])
-      if @order_request.nil?
-        flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0100]"
-        redirect_to root_url
-      end
-    end
+
 
     def correct_user
       # @order_request = current_user.order_requests.find_by_id(params[:id])
@@ -94,4 +94,8 @@ class OrderRequestsController < ApplicationController
       # params.require(:order_request).permit(:title, :bounty, :deliver_by, :accepted_at, :service_rating, :status, :owner_id, :servicer_id, :description)
       params.require(:order_request).permit(:title, :bounty, :deliver_by, :accepted_at, :service_rating, :status, :description)
     end
+
+    # def accept_order_request_params
+    #   params.require(:order_request).permit(:title, :bounty, :deliver_by, :accepted_at, :service_rating, :status => "accepted", :description, :servicer_id => current_user.id)
+    # end
 end

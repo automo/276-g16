@@ -23,9 +23,10 @@ Rails.application.routes.draw do
 
 
   resources :users do
-  # Used to enable paths of this format: /users/<user.id>/open_order_requests
+  # Used to enable paths of this format: /users/<user.id>/<action>
     member do
       post :open_order_requests
+      post :accept_order_request
     end
   end
 

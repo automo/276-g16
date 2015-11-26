@@ -1,22 +1,67 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
-  before_action :logged_in_user, only: [:edit, :update]
-  before_action :correct_user,   only: [:show, :edit, :update]
+  # before_action :set_order_request, only: [:accept_order_request]
+  before_action :set_user, only: [:open_order_requests, :accepted_order_requests, :accept_order_request, :show, :edit, :update]
+  before_action :logged_in_user, only: [:open_order_requests, :accepted_order_requests, :accept_order_request, :edit, :update]
+  before_action :correct_user,   only: [:open_order_requests, :accepted_order_requests, :accept_order_request, :show, :edit, :update]
   # after_initialize :init
   #
   # def init
   #   self.rating  ||= 0
   #   self.failed_login_attempts ||= 0
   # end
+
+  # DELETE BEFORE SUBMISSION
+  def reset_accepted_orders
+    OrderRequest.all.each do |order_request|
+      order_request.update_attributes(:servicer_id => nil, :status => "open")
+    end
+    render('accepted_order_requests')
+  end
+
+  def accept_order_request
+    @order_request = OrderRequest.find_by_id(params[:order_request_id])
+    if @order_request.blank?
+      flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0000]"
+      redirect_to @user
+    end
+
+    if @order_request.update_attributes(:servicer_id => current_user.id, :status => "accepted")
+      flash[:success] = "Order successfully accepted"
+    else
+      flash[:error] = "Failed to accept order - Please try again"
+      redirect_to @user
+    end
+
+    accepted_order_requests
+    render('accepted_order_requests')
+
+  end
+
+  def accepted_order_requests
+    # Selects order requests which are serviced by current_user
+    @order_requests = OrderRequest.select { |order_request| \
+                          # order_request.status == "accepted" && \
+                          order_request.servicer_id == current_user.id}
+
+    # if @order_requests.blank?
+    #   flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0000]"
+    #   redirect_to root_url
+    # end
+  end
+
   def open_order_requests
     # Selects open order_requests which have a positive number of order_items
     #  AND which belong to other users
-    @all_order_requests = OrderRequest.select { |order_request| \
-      order_request.status == "open" && \
-      order_request.order_items.all.size > 0 && \
-      order_request.owner.id != current_user.id}
-    # redirect_to open_order_requests
-    render('open_order_requests')
+    @order_requests = OrderRequest.select { |order_request| \
+                      order_request.status == "open" && \
+                      order_request.order_items.all.size > 0 && \
+                      order_request.owner_id != current_user.id}
+
+    # if @order_requests.blank?
+    #   flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0000]"
+    #   redirect_to root_url
+    # end
+    # render('open_order_requests')
   end
 
   def show
@@ -95,10 +140,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def logged_in_user
-    unless logged_in?
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
-  end
+  # def logged_in_user
+  #   unless logged_in?
+  #     flash[:danger] = "Please log in."
+  #     redirect_to login_url
+  #   end
+  # end
 end
