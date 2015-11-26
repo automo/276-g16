@@ -1,4 +1,5 @@
 
+
 <div class= "input_section">
 
 <p id="notice"><%= notice %></p>
@@ -27,6 +28,25 @@
 <p>The latitude of this order is <%= @order_request.owner.latitude %></p>
 
 
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@order_request.owner.latitude}%2C#{@order_request.owner.longitude}" %>
+
+<div style='width: 800px; margin-left:auto; margin-right: auto;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": <%= @order_request.owner.latitude %>,
+      "lng": <%= @order_request.owner.longitude %>,
+      "infowindow": "<%= @order_request.owner.address %>"
+    }
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>
+
 
 <!-- AIzaSyCLhOKE-GbE_RxFpCb16gXkaMreWzes7ks API key for browser -->
