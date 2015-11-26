@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :address, presence: true
+
+  geocoded_by :address
+  after_validation :geocode
+
   validates :age, numericality: {greater_than:0}
   validates :birthdate, presence: true
 
