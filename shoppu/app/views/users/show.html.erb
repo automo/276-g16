@@ -2,119 +2,112 @@
 <div class="mobileview">
 
 <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Welcome,   <%= @user.username %> </h1>
-                </div>
-                <!-- /.col-lg-12 -->
+  <div class="col-lg-12">
+    <h1 class="page-header">Welcome,   <%= @user.username %> </h1>
+  </div>
+  <!-- /.col-lg-12 -->
 </div>
 
 <div class="row">
   <div class="col-lg-3 col-md-6 col-sm-6">
-                      <div class="panel panel-yellow">
-                          <div class="panel-heading">
-                              <div class="row">
-                                  <div class="col-xs-3">
-                                      <i class="fa fa-th-list fa-4x"></i>
-                                  </div>
-                                  <div class="col-xs-9 text-right">
-
-                                      <div class="huge" style="">My Shopping</div>
-                                  </div>
-                              </div>
-                          </div>
-                          <!-- <%= link_to order_requests_path(@order_request), :class => 'panel-footer' do%> -->
-                          <!--  Directly link to create new list -->
-                          <a href="/order_requests/new">
-                              <div class="panel-footer">
-                                  <span class="pull-left medi">Create New List</span>
-                                  <span class="pull-right"><i class="fa fa-plus fa-2x"></i></span>
-                                  <div class="clearfix"></div>
-                              </div>
-                          </a>
-                          <!-- <% end %> -->
-                      </div>
+    <div class="panel panel-yellow">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+              <i class="fa fa-th-list fa-4x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+              <div class="huge" style="">My Shopping</div>
+          </div>
+        </div>
+      </div>
+      <!-- <%= link_to order_requests_path(@order_request), :class => 'panel-footer' do%> -->
+      <!--  Directly link to create new list -->
+      <a href="/order_requests/new">
+        <div class="panel-footer">
+          <span class="pull-left medi">Create New List</span>
+          <span class="pull-right"><i class="fa fa-plus fa-2x"></i></span>
+          <div class="clearfix"></div>
+        </div>
+      </a>
+      <!-- <% end %> -->
+    </div>
   </div>
   <div class="col-lg-3 col-md-6 col-sm-6">
-                      <div class="panel panel-green">
-                          <div class="panel-heading">
-                              <div class="row">
-                                  <div class="col-xs-3">
-                                      <i class="fa fa-shopping-cart fa-4x"></i>
-                                  </div>
-                                  <div class="col-xs-9 text-right">
-
-                                      <div class ="huge">My Orders</div>
-                                  </div>
-                              </div>
-                          </div>
-                          <a href="<%= order_requests_path %>">
-                              <div class="panel-footer">
-                                  <span class="pull-left medi">View My Orders</span>
-                                  <span class="pull-right"><i class="fa fa-check fa-2x"></i></span>
-                                  <div class="clearfix"></div>
-                              </div>
-                          </a>
-                      </div>
+    <div class="panel panel-green">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-shopping-cart fa-4x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <div class ="huge">My Orders</div>
+          </div>
+        </div>
+      </div>
+      <a href="<%= order_requests_path %>">
+        <div class="panel-footer">
+          <span class="pull-left medi">View My Orders</span>
+          <span class="pull-right"><i class="fa fa-check fa-2x"></i></span>
+          <div class="clearfix"></div>
+        </div>
+      </a>
+    </div>
   </div>
   <div class="col-lg-3 col-md-6 col-sm-6">
-                      <div class="panel panel-red">
-                          <div class="panel-heading">
-                              <div class="row">
-                                  <div class="col-xs-3">
-                                      <i class="fa fa-cloud fa-4x"></i>
-                                  </div>
-                                  <div class="col-xs-9 text-right">
-
-                                      <div class="huge">Open Order</div>
-
-                                  </div>
-                              </div>
-                          </div>
-                          <a href="/users/<%= @user.id %>/open_order_requests">
-                              <div class="panel-footer">
-                                  <span class="pull-leftmed medi">View Open Orders</span>
-                                  <span class="pull-right">  <i class="fa fa-eye fa-2x"></i></span>
-                                  <div class="clearfix"></div>
-                              </div>
-                          </a>
-                      </div>
+    <div class="panel panel-red">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-cloud fa-4x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <div class="huge">Open Order</div>
+          </div>
+        </div>
+      </div>
+      <a href="/users/<%= @user.id %>/open_order_requests">
+        <div class="panel-footer">
+          <span class="pull-leftmed medi">View Open Orders</span>
+          <span class="pull-right">  <i class="fa fa-eye fa-2x"></i></span>
+          <div class="clearfix"></div>
+        </div>
+      </a>
+    </div>
   </div>
   <div class="col-lg-3 col-md-6 col-sm-6">
-                      <div class="panel panel-primary">
-                          <div class="panel-heading">
-                              <div class="row">
-                                  <div class="col-xs-3">
-                                      <i class="fa fa-user fa-4x"></i>
-                                  </div>
-                                  <div class="col-xs-9 text-right">
-
-                                      <div class="huge">My Profile</div>
-                                  </div>
-                              </div>
-                          </div>
-                          <!-- attempting to link to edit page -->
-                          <a href = "/users/<%= @user.id %>/edit">
-                              <div class="panel-footer">
-                                  <span class="pull-left medi">Edit Profile</span>
-                                  <span class="pull-right"><i class="fa fa-cog fa-2x"></i></span>
-                                  <div class="clearfix"></div>
-                              </div>
-                          </a>
-                      </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-user fa-4x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <div class="huge">My Profile</div>
+          </div>
+        </div>
+      </div>
+      <!-- attempting to link to edit page -->
+      <a href = "/users/<%= @user.id %>/edit">
+        <div class="panel-footer">
+          <span class="pull-left medi">Edit Profile</span>
+          <span class="pull-right"><i class="fa fa-cog fa-2x"></i></span>
+          <div class="clearfix"></div>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 
-
-  <h3>This is a sample graph for order crearted and fulfilled by the user</h3>
-  <h4>Not implemented yet  for iteration 3 </h4>
-  <div  id="bar-example">
-
-  </div>
-
-
-
-
+<h3>This is a sample graph for order crearted and fulfilled by the user</h3>
+<h4>Not implemented yet  for iteration 3 </h4>
+<div  id="bar-example">
 </div>
+
+
+
+
+<!-- </div> -->
 
 
 <!-- Wil need to explore the ruby to extract the data here  -->
