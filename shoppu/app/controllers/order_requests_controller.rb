@@ -2,7 +2,7 @@ class OrderRequestsController < ApplicationController
   layout 'order_request.html.erb' # ~K
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :set_order_request, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:update, :destroy]
+  before_action :correct_user, only: [:show, :update, :destroy]
 
   # GET /order_requests
   # GET /order_requests.json
