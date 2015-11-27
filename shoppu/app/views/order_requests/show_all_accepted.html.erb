@@ -2,7 +2,7 @@
 <div class="input_section">
   <% if @order_requests.blank? %>
     <h2>It's empty right now, but it doesn't have to be!</h2>
-    <%= link_to "View Open Orders", {:controller => :users, :action => :open_order_requests} %>
+    <%= link_to "View Open Orders", {:controller => :order_requests, :action => :show_open} %>
   <% else %>
     <% @order_requests.each_with_index do |order_request, i| %>
       <div class="index_row clearfix">
@@ -23,6 +23,6 @@
       </div>
     <% end %>
     <!-- TEMPORARY RESET LINK: REMOVE BEFORE SUBMISSION -->
-    <%= link_to "RESET ALL ACCEPTED ORDERS", {:controller => :users, :action => :reset_accepted_orders} %>
+    <%= link_to "RESET ALL ACCEPTED ORDERS", {:controller => :order_requests, :action => :reset_accepted} %>
   <% end %>
 <div>

@@ -66,7 +66,8 @@
           </div>
         </div>
       </div>
-      <a href="/users/<%= @user.id %>/open_order_requests">
+      <!-- <a href="/users/<%= @user.id %>/open_order_requests"> -->
+      <a href="/order_requests/show_open">
         <div class="panel-footer">
           <span class="pull-leftmed medi">View Open Orders</span>
           <span class="pull-right">  <i class="fa fa-eye fa-2x"></i></span>
@@ -89,7 +90,8 @@
       </div>
       <!-- attempting to link to edit page -->
       <!-- <a href = "edit_user_path(@user) %>"> -->
-      <a href = "/users/<%= @user.id %>/accepted_order_requests">
+      <!-- <a href = "/users/<%= @user.id %>/accepted_order_requests"> -->
+      <a href="/order_requests/show_all_accepted">
         <div class="panel-footer">
           <span class="pull-left medi">View Accepted Orders</span>
           <span class="pull-right"><i class="fa fa-cog fa-2x"></i></span>

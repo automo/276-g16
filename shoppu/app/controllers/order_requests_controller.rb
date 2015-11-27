@@ -1,17 +1,53 @@
 class OrderRequestsController < ApplicationController
   layout 'order_request.html.erb' # ~K
   before_action :logged_in_user, only: [:create, :destroy]
-  before_action :set_order_request, only: [:show, :edit, :update, :destroy]
+
+  before_action only: [:show, :edit, :update, :destroy] do
+     set_order_request("from_current_user")
+  end
+
+  before_action only: [:accept] do
+    set_order_request("from_all")
+  end
+
   before_action :correct_user, only: [:show, :update, :destroy]
 
-  # def accept_order_request
-  #   if @order_request.update_attributes(:servicer_id => current_user.id)
-  #     flash[:success] = "Order successfully accepted"
-  #   else
-  #     flash[:error] = "Failed to accept order - Please try again"
-  #   end
-  #   redirect_to @user
-  # end
+  def show_open
+    # Selects open order_requests which have a positive number of order_items
+    #  AND which belong to other users
+    @order_requests = OrderRequest.select { |order_request| \
+                      order_request.status == "open" && \
+                      order_request.order_items.all.size > 0 && \
+                      order_request.owner_id != current_user.id}
+
+    if @order_requests.nil?
+      flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0103]"
+      redirect_to root_url
+    end
+  end
+
+  def show_all_accepted
+    set_accepted_order_requests
+  end
+
+  # DELETE BEFORE SUBMISSION
+  def reset_accepted
+    OrderRequest.all.each do |order_request|
+      order_request.update_attributes(:servicer_id => nil, :status => "open")
+    end
+    render('show_all_accepted')
+  end
+
+  def accept
+    if !@order_request.update_attributes(:servicer_id => current_user.id, :status => "accepted")
+      flash[:error] = "Failed to accept order - Please try again"
+      redirect_to @user
+      return
+    end
+
+    set_accepted_order_requests
+    render('show_all_accepted')
+  end
 
   # GET /order_requests
   # GET /order_requests.json
@@ -80,6 +116,28 @@ class OrderRequestsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
 
+    def set_order_request(from_type)
+      if from_type == "from_current_user"
+        @order_request = current_user.owned_orders.find_by_id(params[:id])
+      elsif from_type == "from_all"
+        @order_request = OrderRequest.find_by_id(params[:id])
+      else
+        @order_request = nil
+      end
+
+      if @order_request.blank?
+        flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0100]"
+        redirect_to root_url
+        return
+      end
+    end
+
+    def set_accepted_order_requests
+      # Selects order requests which are serviced by current_user
+      @order_requests = OrderRequest.select { |order_request| \
+                            # order_request.status == "accepted" && \
+                            order_request.servicer_id == current_user.id}
+    end
 
     def correct_user
       # @order_request = current_user.order_requests.find_by_id(params[:id])
@@ -94,8 +152,4 @@ class OrderRequestsController < ApplicationController
       # params.require(:order_request).permit(:title, :bounty, :deliver_by, :accepted_at, :service_rating, :status, :owner_id, :servicer_id, :description)
       params.require(:order_request).permit(:title, :bounty, :deliver_by, :accepted_at, :service_rating, :status, :description)
     end
-
-    # def accept_order_request_params
-    #   params.require(:order_request).permit(:title, :bounty, :deliver_by, :accepted_at, :service_rating, :status => "accepted", :description, :servicer_id => current_user.id)
-    # end
 end

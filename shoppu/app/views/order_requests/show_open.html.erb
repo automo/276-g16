@@ -4,7 +4,7 @@
     <div class="index_row clearfix">
       <h2 class="order_request_title">
         Updated <%= time_ago_in_words(order_request.updated_at) %> ago <br/>
-        <%= i+1 %>.&nbsp;<%= link_to order_request.title, {:controller => :users, :action => :accept_order_request, :order_request_id => order_request.id} %> by <%= order_request.owner.username %>
+        <%= i+1 %>.&nbsp;<%= link_to order_request.title, {:controller => :order_requests, :action => :accept, :id => order_request.id} %> by <%= order_request.owner.username %>
         (<%= number_to_currency(order_request.bounty) %>)
       </h2>
       <p class="order_request_sub_title"> <strong>description:</strong>
