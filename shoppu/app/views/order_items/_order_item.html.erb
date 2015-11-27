@@ -1,19 +1,29 @@
 
+<!-- Styling in static_page.css -->
+<div class="row clearfix" id ="">
+	<div class="col-lg-4">
+		<div class= "panel panel-info">
 
-<div class="row clearfix">
+			<div class= "panel-heading">
+				Order Information
+			</div>
+
+			<div class ="panel-body">
 	<% if order_item.completed? %>
 			<div class="order_item pull-left">
 				<p style="opacity: 0.4;"><strike><%= order_item.content %></strike></p>
 			</div>
 		<div class="complete pull-right">
 			<%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
-				<i style="opacity: 0.4;" class="fa fa-check fa-3x"></i>
+			<button type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i>
+			</button>
 			<% end %>
 		</div>
 
 		<div class="trash pull-right">
 			<%= link_to order_request_order_item_path(@order_request, order_item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
-				<i class="fa fa-trash fa-3x"></i>
+			<button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash"></i>
+			</button>
 			<% end %>
 		</div>
 	<% else %>
@@ -31,4 +41,7 @@
 			<% end %>
 		</div>
 	<% end %>
+			</div>
+		</div>
+	</div>
 </div>
