@@ -1,0 +1,19 @@
+The Application such as static pages (homepage) and order request use the layout
+from app/views/layouts and render all three head, body, footer html.erb
+
+
+
+look at the html tag and see the class of each element. most of the time those style
+of the those class are in the boostrap.css.
+
+use of the class is how bootstrap style each element.
+
+any styling of header and footer are in the application.css
+
+
+
+
+styling on the front page can be found in the static_page.scss. 
+
+
+for styling of the user profile page. it can be found on the user.SCSS
