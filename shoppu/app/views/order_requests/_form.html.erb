@@ -11,43 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <%= f.label :title %>
+  <%= f.text_field :title, :required => true, class: 'field' %>
+  <!-- <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
-  </div>
-  <div class="field">
+  </div> -->
+
+  <%= f.label :bounty %>
+  <%= f.text_field :bounty, :required => true, class: 'field' %>
+  <!-- <div class="field">
     <%= f.label :bounty %><br>
     <%= f.text_field :bounty %>
-  </div>
-  <div class="field">
+  </div> -->
+
+  <%= f.label :deliver_by %>
+  <%= f.datetime_select :deliver_by, class: 'field' %>
+  <!-- <div class="field">
     <%= f.label :deliver_by %><br>
     <%= f.datetime_select :deliver_by %>
-  </div>
+  </div> -->
   <br>
+
+  <%= f.label :description %>
+  <%= f.text_field :description, class: 'field' %>
   <!-- <div class="field">
-    <%= f.label :accepted_at %><br>
-    <%= f.datetime_select :accepted_at %>
-  </div> -->
-  <!-- <div class="field">
-    <%= f.label :service_rating %><br>
-    <%= f.number_field :service_rating %>
-  </div> -->
-  <!-- <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div> -->
-  <!-- <div class="field">
-    <%= f.label :owner_id %><br>
-    <%= f.text_field :owner_id %>
-  </div>
-  <div class="field">
-    <%= f.label :servicer_id %><br>
-    <%= f.text_field :servicer_id %>
-  </div> -->
-  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
-  </div>
+  </div> -->
   <div class="actions">
     <%= f.submit %>
   </div>
