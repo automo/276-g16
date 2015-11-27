@@ -9,7 +9,7 @@
 <p class="order_request_sub_title"><%= @order_request.description %></p>
 
 <div id="order_items_wrapper">
-	<%= render @order_request.order_items %>
+		<%= render @order_request.order_items %>
 	<div id="form">
 		<%= render "order_items/form" %>
 	</div>
@@ -23,11 +23,12 @@
 </div>
 
 </div>
-
+<!--
 <p>The longitude of this order is <%= @order_request.owner.longitude %></p>
 <p>The latitude of this order is <%= @order_request.owner.latitude %></p>
 
 
+-->
 
 <div style='width: 800px; margin-left:auto; margin-right: auto;'>
   <div id="directions" style='width: 800px; height: 400px;'></div>
