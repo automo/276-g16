@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 UserOne:
-  id: 1
+  # id: 1
   username: robbie123
   address: sfu
   email: sfu@example.com
@@ -14,7 +14,7 @@ UserOne:
   failed_login_attempts: 2
 
 UserTwo:
-  id: 2
+  # id: 2
   username: alice5
   address: somewhere
   email: alice@domain.com

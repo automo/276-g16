@@ -125,8 +125,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :address, :email,:password,  :password_confirmation, :birthdate,
-    :first_name, :last_name, :rating => "0", :failed_login_attempts => "0")
+    params.require(:user).permit(:username, :address, :email,:password,  :password_confirmation, :birthdate, :first_name, :last_name, :rating => "0", :failed_login_attempts => "0")
   end
 
   def correct_user

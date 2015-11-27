@@ -7,10 +7,11 @@ one:
   accepted_at: 2015-11-08 00:09:31
   service_rating: 1
   status: MyString
-  owner_id: 1
-  servicer_id: 1
+  # owner_id: 1
+  # servicer_id: 1
   description: MyText
-  # user: UserTwo
+  owner: UserTwo
+  servicer: UserOne
 
 two:
   title: MyString
@@ -19,10 +20,11 @@ two:
   accepted_at: 2015-11-08 00:09:31
   service_rating: 1
   status: MyString
-  owner_id: 1
-  servicer_id: 1
+  # owner_id: 1
+  # servicer_id: 1
   description: MyText
-  # user: UserTwo
+  owner: UserTwo
+  servicer: UserOne
 
 test_list:
   title: test_list
@@ -31,10 +33,11 @@ test_list:
   accepted_at: 2015-11-08 00:09:31
   service_rating: 1
   status: MyString
-  owner_id: 1
-  servicer_id: 1
+  # owner_id: 1
+  # servicer_id: 1
   created_at: <%= 10.minutes.ago %>
-  # user: UserTwo
+  owner: UserTwo
+  servicer: UserOne
 
 walmart_list:
   title: walmart_list
@@ -43,10 +46,11 @@ walmart_list:
   accepted_at: 2015-11-08 00:09:31
   service_rating: 2
   status: closed
-  owner_id: 1
-  servicer_id: 1
+  # owner_id: 1
+  # servicer_id: 1
   created_at: <%= 3.years.ago %>
-  # user: UserTwo
+  owner: UserTwo
+  servicer: UserOne
 
 hardware_stuff:
   title: hardware_stuff
@@ -55,10 +59,11 @@ hardware_stuff:
   accepted_at: 2015-11-08 00:09:31
   service_rating: 5
   status: closed
-  owner_id: 2
-  servicer_id: 1
+  # owner_id: 2
+  # servicer_id: 1
   created_at: <%= 2.hours.ago %>
-  # user: UserTwo
+  owner: UserTwo
+  servicer: UserOne
 
 most_recent:
   title: most_recent
@@ -67,7 +72,8 @@ most_recent:
   accepted_at: 2015-11-08 00:09:31
   service_rating: 1
   status: open
-  owner_id: 2
-  servicer_id: 1
+  # owner_id: 2
+  # servicer_id: 1
   created_at: <%= Time.zone.now %>
-  # user: UserTwo
+  owner: UserTwo
+  servicer: UserOne
