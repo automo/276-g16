@@ -37,7 +37,12 @@
 <!-- Navi header for the desktop browser -->
    <header style="margin-bottom:0px;" class="navbar navbar-inverse mobileHide">
      <div class="container">
-       <%= link_to "SHOPPU", root_path, id: "logo" %>
+        <!-- Prevents needless redirection when already at home page -->
+        <% if request.original_url != root_url %>
+            <%= link_to "SHOPPU", root_path, id: "logo" %>
+        <% else %>
+            <span id="logo">SHOPPU</span>
+        <% end %>
 
        <nav>
          <ul class="nav navbar-nav navbar-right">
