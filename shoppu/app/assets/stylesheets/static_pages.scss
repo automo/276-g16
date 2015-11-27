@@ -399,3 +399,30 @@ footer ul li {
   float: left;
   margin-left: 15px;
 }
+
+
+
+
+
+// The following is the css for the order reqeust show
+
+th{
+  font-size: 1.5em;
+}
+
+th small{
+  font-size: 0.5em;
+  color:grey;
+
+}
+
+td{
+  font-size: 1em;
+}
+
+// change the styling of the hover 
+td a:hover{
+  color:blue;
+  background-color: white;
+  text-decoration: underline;
+}
