@@ -8,12 +8,29 @@
 
 <p class="order_request_sub_title"><%= @order_request.description %></p>
 
-<div id="order_items_wrapper">
+<!-- <div id="order_items_wrapper"> -->
+
+<div class="row clearfix" id ="">
+	<div class="col-lg-12 col-md-12 col-sm-12">
+		<div class= "panel panel-info">
+
+			<div class= "panel-heading">
+				Order Information
+			</div>
+
+			<div class ="panel-body" id="order_item_panel_head">
 		<%= render @order_request.order_items %>
-	<div id="form">
-		<%= render "order_items/form" %>
+
+
+			</div>
+		</div>
 	</div>
 </div>
+
+<div id="form">
+	<%= render "order_items/form" %>
+</div>
+<!-- </div> -->
 
 <div class="links">
 	<%= link_to 'Edit', edit_order_request_path(@order_request) %> |
@@ -30,9 +47,10 @@
 
 -->
 
-<div style='width: 800px; margin-left:auto; margin-right: auto;'>
-  <div id="directions" style='width: 800px; height: 400px;'></div>
-</div>
+<!--  Styling of map can be found in static_page.css id= "directions"-->
+
+  <div id="directions" ></div>
+
 
 <script type="text/javascript">
 
