@@ -8,7 +8,7 @@
 
   <!--******************* -->
 
-    <div class="panel panel-info" style="margin-bottom: 10px;">
+    <div class="panel panel-info">
       <div class="panel-heading">
 
         <p><strong><%= i+1 %>.&nbsp;<%= link_to order_request.title, {:controller => :order_requests, :action => :accept, :id => order_request.id} %> by <%= order_request.owner.username %>
@@ -66,12 +66,13 @@
     </div>
 
 
-  <% end %>
+
 
 
 
 
   </div>
+  <% end %>
 
 </div>
 
