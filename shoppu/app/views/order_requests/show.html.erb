@@ -1,35 +1,67 @@
 
 
-<div class= "input_section">
+<div class= "container">
 
 <p id="notice"><%= notice %></p>
 
+
+<!--
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3><%= @order_request.title %></h3>
+	</div>
+	<div class ="panel-body">
+		<h4>Descriptoin:</h4>
+		<%= @order_request.description %>
+	</div>
+</div>
+-->
+<!--
 <h2 class="order_request_title"><%= @order_request.title %></h2>
 
 <p class="order_request_sub_title"><%= @order_request.description %></p>
-
+-->
 <!-- <div id="order_items_wrapper"> -->
 
-<div class="row clearfix" id ="">
+<div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12">
 		<div class= "panel panel-info">
 
 			<div class= "panel-heading">
-				Order Information
+				<h2 class="order_request_title"><%= @order_request.title %></h2>
 			</div>
 
 			<div class ="panel-body" id="order_item_panel_head">
-		<%= render @order_request.order_items %>
+
+				<p class="order_request_sub_title"><strong>DESCRPTION: </strong></p>
+				<p><%= @order_request.description %></p>
+				<p><strong>Item List:</strong></p>
 
 
+				<!--  Use Table to organize the item and the buttons, Styling of the table will be in custom.css-->
+
+				<div style="border: solid 1px #555; padding: 5px; ">
+				<%= render @order_request.order_items %>
 			</div>
+
+
+		</div>
+
+			<div class="panel-footer" style="background-color:white;">
+
+				<div id="form">
+					<%= render "order_items/form" %>
+				</div>
+
+		 </div>
+
 		</div>
 	</div>
 </div>
 
-<div id="form">
-	<%= render "order_items/form" %>
-</div>
+
+
+
 <!-- </div> -->
 
 <div class="links">
@@ -37,6 +69,14 @@
 	<%= link_to 'Delete', order_request_path(@order_request), method: :delete, data: { confirm: "Are you sure?" }
  %> |
   <%= link_to 'Back', order_requests_path %>
+</div>
+<br>
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12">
+<div id="directions" >
+</div>
+
+</div>
 </div>
 
 </div>
@@ -49,7 +89,7 @@
 
 <!--  Styling of map can be found in static_page.css id= "directions"-->
 
-  <div id="directions" ></div>
+
 
 
 <script type="text/javascript">

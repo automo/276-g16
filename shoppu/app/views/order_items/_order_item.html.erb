@@ -8,39 +8,61 @@
 				Order Information
 			</div>
 -->
-			<div class ="panel-body" id="order_item_panel_head">
+
+<!-- Use the bottom border of each render to seperate items -->
+
+<div style = "border-bottom: 1px dotted #333; margin:5px;">
+
 	<% if order_item.completed? %>
-			<div class="order_item pull-left">
-				<p style="opacity: 0.4;"><strike><%= order_item.content %></strike></p>
+			<div class="order_item">
+				<p style="opacity: 0.4; float:left;"><strike><%= order_item.content %></strike></p>
 			</div>
-		<div class="complete pull-right">
+
+
+			<!-- Having button for completed items create error so i diabled it out  but still can click on it...-->
+
+				<div class="complete" style="float:right; text-align:right;">
+					<%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
+					<button type="button" class="btn btn-success disabled"><i class="fa fa-check"></i>
+					</button>
+					<% end %>
+				</div>
+
+				<div class="trash" style="text-align:right;">
+					<%= link_to order_request_order_item_path(@order_request, order_item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+					<button type="button" class="btn btn-danger btn-circle disabled"><i class="fa fa-trash"></i>
+					</button>
+					<% end %>
+				</div>
+
+
+	<% else %>
+
+		<div class="order_item">
+			<p style="float:left;"><%= order_item.content %></p>
+		</div>
+
+
+		<div class="complete" style="float:right; text-align:right;">
 			<%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
-			<button type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i>
+			<button type="button" class="btn btn-success"><i class="fa fa-check"></i>
 			</button>
 			<% end %>
 		</div>
 
-		<div class="trash pull-right">
+		<div class="trash" style="text-align:right;">
 			<%= link_to order_request_order_item_path(@order_request, order_item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
 			<button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash"></i>
 			</button>
 			<% end %>
 		</div>
-	<% else %>
-		<div class="complete">
-			<%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
-				<i class="fa fa-check"></i>
-			<% end %>
-		</div>
-		<div class="order_item">
-			<p><%= order_item.content %></p>
-		</div>
-		<div class="trash">
-			<%= link_to order_request_order_item_path(@order_request, order_item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
-				<i class="fa fa-trash"></i>
-			<% end %>
-		</div>
+
+
+
 	<% end %>
+
+</div>
+
 
 <!--
 			</div>
