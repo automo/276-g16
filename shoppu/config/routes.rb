@@ -24,14 +24,15 @@ Rails.application.routes.draw do
   get 'order_requests/accept' => 'order_requests#accept'
   get 'order_requests/reset' => 'order_requests#reset_accepted' #DELETE BEFORE SUBMISSION
   get 'order_requests/show_all_accepted' => 'order_requests#show_all_accepted'
+  get 'order_requests/show_one_accepted' => 'order_requests#show_one_accepted'
 
-  resources :users do
+  resources :users #do
   # # Used to enable paths of this format: /users/<user.id>/<action>
   #   member do
   #     post :open_order_requests
   #     post :accept_order_request
   #   end
-  end
+  # end
 
   resources :password_resets,     only: [:new, :create, :edit, :update]
 

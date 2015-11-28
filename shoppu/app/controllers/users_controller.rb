@@ -81,6 +81,7 @@ class UsersController < ApplicationController
     redirect_to @user
     UserMailer.user_email(@user).deliver
    else
+     flash[:error] = "Failed to create account - Please try again [0x0002]"
      render 'new'
    end
  end
@@ -97,7 +98,7 @@ class UsersController < ApplicationController
       flash[:success] = "Profile updated"
       redirect_to @user
     else
-      flash[:error] = "Failed to update information - Please try again"
+      flash[:error] = "Failed to update information - Please try again [0x0003]"
       render 'edit'
     end
   end

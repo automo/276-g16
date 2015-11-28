@@ -37,16 +37,13 @@
 <!-- Navi header for the desktop browser -->
    <header style="margin-bottom:0px;" class="navbar navbar-inverse mobileHide">
      <div class="container">
-        <!-- Prevents needless redirection when already at home page -->
-        <% if request.original_url != root_url %>
-            <%= link_to "SHOPPU", root_path, id: "logo" %>
-        <% else %>
-            <span id="logo">SHOPPU</span>
-        <% end %>
 
+        <%= link_to "SHOPPU", root_path, id: "logo" %>
        <nav>
          <ul class="nav navbar-nav navbar-right">
-           <li><%= link_to "Home", root_path(:anchor => "top") %></li>
+           <% if request.original_url != root_url %>
+            <li><%= link_to "Home", root_url %></li>
+           <% end %>
            <li><%= link_to "About", root_path(:anchor => "about") %></li>
            <li><%= link_to "How It Works", root_path(:anchor => "services") %></li>
            <li><%= link_to "Contact", root_path(:anchor => "contact") %></li>

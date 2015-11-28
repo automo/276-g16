@@ -1,0 +1,33 @@
+<!-- Styling in static_page.css -->
+<div class="row clearfix" id ="">
+	<div class="col-lg-4">
+		<div class= "panel panel-info">
+			<div class= "panel-heading">Order Information for <%= @order_request.title %></div>
+			<% @order_request.order_items.each do |order_item| %>
+				<div class ="panel-body">
+					<% if order_item.completed? %>
+						<div class="order_item pull-left">
+							<p style="opacity: 0.4;"><strike><%= order_item.content %></strike></p>
+						</div>
+						<!-- <div class="complete pull-right">
+							<%#= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
+							<%#= link_to "#", {:controller => :order_items, :action => :complete, :order_request_id => @order_request.id, :id => order_item.id}, method: :patch do %>
+								<button type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i>
+								</button>
+							<%# end %>
+						</div> -->
+					<% else %>
+						<div class="complete pull-right">
+							<%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
+								<button type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>
+							<% end %>
+						</div>
+						<div class="order_item">
+							<p><%= order_item.content %></p>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
