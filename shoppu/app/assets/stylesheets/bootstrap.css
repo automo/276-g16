@@ -2576,13 +2576,18 @@ output {
 .form-control::-moz-placeholder {
   color: #999;
   opacity: 1;
+  font-style: italic;
 }
 .form-control:-ms-input-placeholder {
   color: #999;
+  font-style: italic;
 }
 .form-control::-webkit-input-placeholder {
   color: #999;
+  font-style: italic;
 }
+/* added italic for all 3 placeholders -A */
+
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
