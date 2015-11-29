@@ -194,11 +194,31 @@ aside {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 32.9%;
+  width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
 } /* change width for inline birthdate -A */
 
+/*the following codes: change width for date & time input field -A*/
+#order_request_deliver_by_1i{
+  width: 21.7%;
+}
+#order_request_deliver_by_2i{
+  width: 40%;
+}
+#order_request_deliver_by_3i, #order_request_deliver_by_4i, #order_request_deliver_by_5i{
+  width: 11%;
+}
+
+#user_birthdate_1i{
+  width: 29%;
+}
+#user_birthdate_2i{
+  width: 49%;
+}
+#user_birthdate_3i{
+  width: 20.8%;
+}
 input {
   height: auto !important;
 }
@@ -229,8 +249,6 @@ input {
 
 .navbar-inverse .navbar-nav > li > a {
     color: #ffffff;
-    padding-top: 21px;
-    padding-bottom: 21px;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
