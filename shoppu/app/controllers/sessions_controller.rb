@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_back_or user
     else
       flash.now[:danger] = 'Invalid email/password combination'
-      increment_user_failed_logins(user.id)
+      if !user.blank? increment_user_failed_logins(user.id)
       render 'new'
     end
   end
