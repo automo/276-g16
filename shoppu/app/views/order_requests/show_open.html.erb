@@ -2,7 +2,7 @@
 	<% @order_requests.each_with_index do |order_request, i| %>
 	<!-- map javascript here-->
 	<!--******************* -->
-	<div class="panel panel-info" style="margin-bottom: 10px;">
+	<div class="panel panel-info" style="margin-bottom: 15px;">
 		<div class="panel-heading">
 			<p><strong><%= i+1 %>.&nbsp;<%= link_to order_request.title, {:controller => :order_requests, :action => :accept, :id => order_request.id} %> by <%= order_request.owner.username %>
 			(<%= number_to_currency(order_request.bounty) %>)</strong> <small class="text-muted">Updated <%= time_ago_in_words(order_request.updated_at) %> ago </small></p>
@@ -12,12 +12,7 @@
 			<p>
 				<%= if order_request.description.blank? then "-no description given-" else order_request.description end %>
 			</p>
-			<!--  <#% order_request.order_items.each do |order_item| %>
-			<div class="order_item">
-				<p><%= order_item.content %></p>
-			</div>
-			<#% end %>
-			-->
+
 			<div style="border: solid 1px #555; padding: 5px; ">
 				<p class="order_request_sub_title"><strong>List of Items: </strong></p>
 				<ol class="order_item">
@@ -34,8 +29,10 @@
 				<% end %>
 			</div>
 		</div>
+    	</div>
 		<% end %>
-	</div>
+
+
 </div>
 <!--  The styling of the page can be found on the application.scss-->
 <!--Changed div from input_section to container to give wider view -->
