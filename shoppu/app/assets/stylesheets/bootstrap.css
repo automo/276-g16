@@ -2548,6 +2548,7 @@ output {
   line-height: 1.42857143;
   color: #555;
 }
+
 .form-control {
   display: block;
   width: 100%;
@@ -2575,13 +2576,18 @@ output {
 .form-control::-moz-placeholder {
   color: #999;
   opacity: 1;
+  font-style: italic;
 }
 .form-control:-ms-input-placeholder {
   color: #999;
+  font-style: italic;
 }
 .form-control::-webkit-input-placeholder {
   color: #999;
+  font-style: italic;
 }
+/* added italic for all 3 placeholders -A */
+
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
@@ -3126,6 +3132,10 @@ fieldset[disabled] .btn-default.active {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
+.btn-fullsize {
+  margin-top: 30px;
+  width:100%;
+} /*added class -A*/
 .btn-primary:focus,
 .btn-primary.focus {
   color: #fff;
