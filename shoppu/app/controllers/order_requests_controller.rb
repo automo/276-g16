@@ -26,13 +26,11 @@ class OrderRequestsController < ApplicationController
                       order_request.order_items.all.size > 0 && \
                       order_request.owner_id != current_user.id }
 
-    # change the error message to NO Open Order Avaialable
-    #
-    if @order_requests.blank?
-      flash[:error] = "No Open Orders Avaialable"
+    # if @order_requests.blank?
+    #   flash[:error] = "No Open Orders Avaialable"
       # let the user remain on the same page.
       #redirect_to root_url
-    end
+    # end
   end
 
   # For admins; Set all order requests made by all users
@@ -60,10 +58,11 @@ class OrderRequestsController < ApplicationController
   # For user who is a servicer
   def accept
     if @order_request.update_attributes(:servicer_id => current_user.id, :status => "accepted")
+      flash[:success] = 'Order request was successfully updated.'
       set_all_accepted
       render('show_all_accepted')
     else
-      flash[:error] = "Failed to accept order - Please try again"
+      flash[:error] = "Failed to accept order - Please try again [0x0103]"
       redirect_to @user
     end
   end
@@ -75,7 +74,6 @@ class OrderRequestsController < ApplicationController
 
   # For user who is a owner
   def show
-    # redirect_to root_url
   end
 
   # For users
@@ -174,7 +172,7 @@ class OrderRequestsController < ApplicationController
 
     def correct_admin
       if (!current_user.is_moderator?)
-        flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0101]"
+        flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0102]"
         redirect_to root_url
       end
     end

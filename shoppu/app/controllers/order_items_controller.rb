@@ -44,7 +44,7 @@ class OrderItemsController < ApplicationController
   		if @order_item.destroy
   			flash[:success] = "Order item was deleted."
   		else
-  			flash[:error] = "Order item could not be deleted."
+  			flash[:error] = "Order item could not be deleted. [0x0204]"
   		end
     end
 		redirect_to @order_request
@@ -80,7 +80,6 @@ class OrderItemsController < ApplicationController
   end
 
   def correct_user
-    # @order_request = current_user.order_requests.find_by_id(params[:id])
     if (@order_request.blank? || @order_item.blank?)
       flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0201]"
       redirect_to root_url
