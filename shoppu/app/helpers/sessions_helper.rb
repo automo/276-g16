@@ -55,4 +55,15 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.url if request.get?
   end
+
+  def increment_user_failed_logins(user_id)
+    user = User.find_by_id(user_id)
+    new_fail_count = user.failed_login_attempts + 1
+    user.update_attribute(:failed_login_attempts, new_fail_count)
+  end
+
+  def reset_user_failed_logins(user_id)
+    user = User.find_by_id(user_id)
+    user.update_attribute(:failed_login_attempts, 0)
+  end
 end
