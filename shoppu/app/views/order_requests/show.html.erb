@@ -73,8 +73,9 @@
 <br>
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12">
-<div id="directions" >
-</div>
+
+		  <div id="directions"></div>
+
 
 </div>
 </div>
@@ -91,48 +92,23 @@
 
 
 
-
 <script type="text/javascript">
 
 
 
-var directionsDisplay = new google.maps.DirectionsRenderer();
-var directionsService = new google.maps.DirectionsService();
+	handler = Gmaps.build('Google');
+	handler.buildMap({ provider: {}, internal: {id: 'directions'}}, function(){
+	  markers = handler.addMarkers([
+	    {
+	      "lat": <%= @order_request.owner.latitude %>,
+	      "lng": <%= @order_request.owner.longitude %>,
 
-function calcRoute(position) {
-
-
-
-
-  var origin      = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-  var destination = new google.maps.LatLng(<%= @order_request.owner.latitude %>, <%= @order_request.owner.longitude %>);
-  var request = {
-      origin:      origin,
-      destination: destination,
-      travelMode:  google.maps.TravelMode.DRIVING
-  };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    }
-  });
-}
-
-//getting current location for direction
-if(navigator.geolocation){
-
-	navigator.geolocation.getCurrentPosition(calcRoute);
-
-
-
-}
-
-
-
-var handler = Gmaps.build('Google');
-handler.buildMap({ internal: {id: 'directions'}}, function(){
-	directionsDisplay.setMap(handler.getMap());
-});
+	      "infowindow": "<%= @order_request.owner.address %>"
+	    }
+	  ]);
+	  handler.bounds.extendWith(markers);
+	  handler.fitMapToBounds();
+	});
 
 
 </script>
