@@ -6,7 +6,7 @@
     <%= form_for(@user) do |f| %>
      <%= render 'shared/error_messages' %>
       <%= f.label :first_name %>
-      <%= f.text_field :first_name, required: true, class: 'form-control' %>
+      <%= f.text_field :first_name ,required: true, class: 'form-control' %>
 
       <%= f.label :last_name %>
       <%= f.text_field :last_name, :required => true, class: 'form-control' %>
@@ -15,8 +15,9 @@
       <%= f.text_field :address,  :required => true, class: 'form-control' %>
 
       <%= f.label :birthdate %>
-      <%= f.date_select :birthdate, :start_year => 1910, :end_year => 2015,  :required => true ,class: 'form-control'%>
-
+      <div>
+        <%= f.date_select :birthdate, :start_year => 1910, :end_year => 2015, order: [:month, :day, :year] ,:required => true , class:'form-control'%>
+      </div>
 
 
       <%= f.label :email %>
