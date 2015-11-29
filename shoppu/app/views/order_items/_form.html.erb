@@ -1,4 +1,6 @@
 <%= form_for([@order_request, @order_request.order_items.build]) do |f| %>
-	<%= f.text_field :content, :required => true, placeholder: "New Item" %>
-	<%= f.submit %>
+	<%= f.text_field :content, :required => true, placeholder: "Add New Item Here", class: "form-control" %>
+
+	<%= f.submit class: "btn btn-success btn-block"%>
+
 <% end %>
