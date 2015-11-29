@@ -16,7 +16,7 @@
 		<!-- Having button for completed items create error so i diabled it out  but still can click on it...-->
 		<% if @order_request.servicer_id == current_user.id %>
 		<!-- Maybe we can add an "uncomplete" button here? -->
-			<div class="complete" style="float:right; text-align:right;">
+			<div class="complete" style="text-align:right;">
 				<%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
 					<button type="button" class="btn btn-success"><i class="fa fa-check"></i>
 					</button>
@@ -35,7 +35,7 @@
 			<p style="float:left;"><%= order_item.content %></p>
 		</div>
 		<% if @order_request.servicer_id == current_user.id %>
-			<div class="complete" style="float:right; text-align:right;">
+			<div class="complete" style="text-align:right;">
 				<%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
 					<button type="button" class="btn btn-success"><i class="fa fa-check"></i>
 					</button>
