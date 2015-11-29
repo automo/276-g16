@@ -177,7 +177,7 @@ input, textarea, select, .uneditable-input {
   width: 32.9%;
   margin-bottom: 15px;
   @include box_sizing;
-}
+} /* change width for inline birthdate -A */
 
 input {
   height: auto !important;
