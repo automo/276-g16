@@ -43,6 +43,35 @@ h2 {
   color: #777;
 }
 
+h3 {
+  font-size: 2.8em;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  text-align: center;
+  font-weight: bold;
+}
+
+h4{
+  font-size: 2.5em;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  text-align: center;
+  font-weight: normal;
+  font-style: italic;
+}
+
+h5{
+  font-size: 1.714em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/*h6{
+
+}*/
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -98,6 +127,7 @@ $gray-medium-light: #eaeaea;
 // }
 body{
 	padding-top:50px;
+  background-color: #f1f1f1;
 	//background-color:grey;
 
 }
@@ -167,8 +197,28 @@ input, textarea, select, .uneditable-input {
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
+} /* change width for inline birthdate -A */
+
+/*the following codes: change width for date & time input field -A*/
+#order_request_deliver_by_1i{
+  width: 21.7%;
+}
+#order_request_deliver_by_2i{
+  width: 40%;
+}
+#order_request_deliver_by_3i, #order_request_deliver_by_4i, #order_request_deliver_by_5i{
+  width: 11%;
 }
 
+#user_birthdate_1i{
+  width: 29%;
+}
+#user_birthdate_2i{
+  width: 49%;
+}
+#user_birthdate_3i{
+  width: 20.8%;
+}
 input {
   height: auto !important;
 }

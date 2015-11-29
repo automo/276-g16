@@ -20,11 +20,13 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  get 'order_requests/show_open' => 'order_requests#show_open'
   get 'order_requests/accept' => 'order_requests#accept'
   get 'order_requests/reset' => 'order_requests#reset_accepted' #DELETE BEFORE SUBMISSION
+  get 'order_requests/show_all' => 'order_requests#show_all'
+  get 'order_requests/show_open' => 'order_requests#show_open'
   get 'order_requests/show_all_accepted' => 'order_requests#show_all_accepted'
   get 'order_requests/show_one_accepted' => 'order_requests#show_one_accepted'
+  get 'order_requests/hide' => 'order_requests#hide'
 
   resources :users #do
   # # Used to enable paths of this format: /users/<user.id>/<action>
@@ -34,7 +36,7 @@ Rails.application.routes.draw do
   #   end
   # end
 
-  resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   resources :order_requests do
     resources :order_items do

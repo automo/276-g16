@@ -9,7 +9,7 @@
 </div>
 
 <div class="row">
-  <div class="col-lg-3 col-md-6 col-sm-6">
+  <div class="col-lg-3 col-md-6 col-sm-12">
     <div class="panel panel-yellow">
       <div class="panel-heading">
         <div class="row">
@@ -26,19 +26,19 @@
       <a href="/order_requests/new">
         <div class="panel-footer">
           <span class="pull-left medi">Create New List</span>
-          <span class="pull-right"><i class="fa fa-plus fa-2x"></i></span>
+          <span class="pull-right"><i class="fa fa-cloud-upload fa-2x"></i></span>
           <div class="clearfix"></div>
         </div>
       </a>
       <!-- <% end %> -->
     </div>
   </div>
-  <div class="col-lg-3 col-md-6 col-sm-6">
+  <div class="col-lg-3 col-md-6 col-sm-12">
     <div class="panel panel-green">
       <div class="panel-heading">
         <div class="row">
           <div class="col-xs-3">
-            <i class="fa fa-shopping-cart fa-4x"></i>
+            <i class="fa fa-list-alt fa-4x"></i>
           </div>
           <div class="col-xs-9 text-right">
             <div class ="huge">My Orders</div>
@@ -54,37 +54,37 @@
       </a>
     </div>
   </div>
-  <div class="col-lg-3 col-md-6 col-sm-6">
+  <div class="col-lg-3 col-md-6 col-sm-12">
     <div class="panel panel-red">
       <div class="panel-heading">
         <div class="row">
           <div class="col-xs-3">
-            <i class="fa fa-cloud fa-4x"></i>
+            <i class="fa fa-cloud-download fa-4x"></i>
           </div>
           <div class="col-xs-9 text-right">
-            <div class="huge">Open Order</div>
+            <div class="huge">Open Orders</div>
           </div>
         </div>
       </div>
       <!-- <a href="/users/<%= @user.id %>/open_order_requests"> -->
       <a href="/order_requests/show_open">
         <div class="panel-footer">
-          <span class="pull-leftmed medi">View Open Orders</span>
+          <span class="pull-leftmed medi">View Open</span>
           <span class="pull-right">  <i class="fa fa-eye fa-2x"></i></span>
           <div class="clearfix"></div>
         </div>
       </a>
     </div>
   </div>
-  <div class="col-lg-3 col-md-6 col-sm-6">
+  <div class="col-lg-3 col-md-6 col-sm-12">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <div class="row">
-          <div class="col-xs-3">
-            <i class="fa fa-user fa-4x"></i>
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <i class="fa fa-shopping-cart fa-4x"></i>
           </div>
-          <div class="col-xs-9 text-right">
-            <div class="huge">Accepted Order</div>
+          <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 text-right">
+            <div class="huge" style="font-size:160%;">Accepted Orders</div>
           </div>
         </div>
       </div>
@@ -93,8 +93,8 @@
       <!-- <a href = "/users/<%= @user.id %>/accepted_order_requests"> -->
       <a href="/order_requests/show_all_accepted">
         <div class="panel-footer">
-          <span class="pull-left medi">View Accepted Orders</span>
-          <span class="pull-right"><i class="fa fa-cog fa-2x"></i></span>
+          <span class="pull-left medi" style="">View Accepted</span>
+          <span class="pull-right"><i class="fa fa-usd fa-2x"></i></span>
           <div class="clearfix"></div>
         </div>
       </a>
@@ -102,8 +102,8 @@
   </div>
 </div>
 
-<h3>This is a sample graph for order crearted and fulfilled by the user</h3>
-<h4>Not implemented yet  for iteration 3 </h4>
+<h5>This is a sample graph for order created and fulfilled by the user</h5>
+<p>Not implemented yet  for iteration 3 </p>
 <div  id="bar-example">
 </div>
 

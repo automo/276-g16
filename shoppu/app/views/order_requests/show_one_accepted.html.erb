@@ -1,13 +1,15 @@
+<% provide(:title, @order_request.title) %>
 <!-- Styling in static_page.css -->
+<!--
 <div class="row clearfix" id ="">
 	<div class="col-lg-4">
 		<div class= "panel panel-info">
 			<div class= "panel-heading">Order Information for <%= @order_request.title %></div>
-			<% @order_request.order_items.each do |order_item| %>
+			<#% @order_request.order_items.each do |order_item| %>
 				<div class ="panel-body">
-					<% if order_item.completed? %>
+					<#% if order_item.completed? %>
 						<div class="order_item pull-left">
-							<p style="opacity: 0.4;"><strike><%= order_item.content %></strike></p>
+							<p style="opacity: 0.4;"><strike><#%= order_item.content %></strike></p>
 						</div>
 						<!-- <div class="complete pull-right">
 							<%#= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
@@ -16,115 +18,89 @@
 								</button>
 							<%# end %>
 						</div> -->
-					<% else %>
+<!--
+					<#% else %>
 						<div class="complete pull-right">
-							<%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
+							<#%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
 								<button type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>
-							<% end %>
+							<#% end %>
 						</div>
 						<div class="order_item">
-							<p><%= order_item.content %></p>
+							<p><#%= order_item.content %></p>
 						</div>
-					<% end %>
+					<#% end %>
 				</div>
-			<% end %>
+			<#% end %>
 		</div>
 	</div>
 </div>
-
-
-
+-->
+<!-- Reviced version of the code above -->
 
 <div class= "container">
+	<div class="panel-default">
+		<h1>Current Accepted Order:</h1>
+		<p id="notice"><%= notice %></p>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class= "panel panel-info">
+					<div class= "panel-heading">
+						<h2 class="order_request_title"><%= @order_request.title %></h2>
+					</div>
+					<div class ="panel-body" id="order_item_panel_head">
+						<p class="order_request_sub_title"><strong>Description: </strong></p>
+						<% if @order_request.description.blank? %>
+							<i>No description given</i>
+						<% else %>
+							<%= @order_request.description %>
+						<% end %>
 
-<p id="notice"><%= notice %></p>
+						<p><strong>Address for Delivery: </strong></p>
+						<p><%= @order_request.owner.address %></p>
 
-<div class="row">
-	<div class="col-lg-12 col-md-12 col-sm-12">
-		<div class= "panel panel-info">
-
-			<div class= "panel-heading">
-				<h2 class="order_request_title"><%= @order_request.title %></h2>
+						<p><strong>Shopping List:</strong></p>
+						<!--  Use Table to organize the item and the buttons, Styling of the table will be in custom.css-->
+						<div style="border: solid 1px #555; padding: 5px; ">
+							<%= render @order_request.order_items %>
+						</div>
+					</div>
+				</div>
+				<div id="directions"></div>
 			</div>
-
-			<div class ="panel-body" id="order_item_panel_head">
-
-				<p class="order_request_sub_title"><strong>DESCRPTION: </strong></p>
-
-
-				<%= if @order_request.description.blank? then "-no description given-" else order_request.description end %>
-
-
-				<p><strong>Shopping List:</strong></p>
-
-
-				<!--  Use Table to organize the item and the buttons, Styling of the table will be in custom.css-->
-
-				<div style="border: solid 1px #555; padding: 5px; ">
-				<%= render @order_request.order_items %>
-
-			</div>
-
-
-
 		</div>
-
-
-
 	</div>
-
-	<div id="directions" >
-	</div>
-
-</div>
-
-
-</div>
 </div>
 
 <script type="text/javascript">
+	var directionsDisplay = new google.maps.DirectionsRenderer();
+	var directionsService = new google.maps.DirectionsService();
 
+	function calcRoute(position) {
+	  var origin      = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	  var destination = new google.maps.LatLng(<%= @order_request.owner.latitude %>, <%= @order_request.owner.longitude %>);
+	  var request = {
+	      origin:      origin,
+	      destination: destination,
+	      travelMode:  google.maps.TravelMode.DRIVING
+	  };
+	  directionsService.route(request, function(response, status) {
+	    if (status == google.maps.DirectionsStatus.OK) {
+	      directionsDisplay.setDirections(response);
+	    }
+	  });
+	}
 
+	//getting current location for direction
+	if(navigator.geolocation){
 
-var directionsDisplay = new google.maps.DirectionsRenderer();
-var directionsService = new google.maps.DirectionsService();
+		navigator.geolocation.getCurrentPosition(calcRoute);
 
-function calcRoute(position) {
+	}
 
-
-
-
-  var origin      = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-  var destination = new google.maps.LatLng(<%= @order_request.owner.latitude %>, <%= @order_request.owner.longitude %>);
-  var request = {
-      origin:      origin,
-      destination: destination,
-      travelMode:  google.maps.TravelMode.DRIVING
-  };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    }
-  });
-}
-
-//getting current location for direction
-if(navigator.geolocation){
-
-	navigator.geolocation.getCurrentPosition(calcRoute);
-
-
-
-}
-
-
-
-var handler = Gmaps.build('Google');
-handler.buildMap({ internal: {id: 'directions'}}, function(){
-	directionsDisplay.setMap(handler.getMap());
-});
-
-
+	var handler = Gmaps.build('Google');
+	handler.buildMap({ internal: {id: 'directions'}}, function(){
+		directionsDisplay.setMap(handler.getMap());
+	});
 </script>
 
 

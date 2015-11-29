@@ -1,58 +1,45 @@
+		<div id="footer">
+			<h4 style="text-align:center;"><strong>SHOPPU</strong>
+			</h4>
+			<p>SFU<br>Burnaby, BC Canada</p>
+			<p><i class="fa fa-phone fa-fw"></i> (123) 456-7890</p>
+			<p>
+				<i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:shoppumail@gmail.com">shoppumail@gmail.com</a>
+			</p>
+			<br>
+			<hr class="small">
+			<p class="text-muted">Copyright &copy; SHOPPU 2015</p>
+		</div>
 
-    <div id="footer">
+		<!-- Custom Theme JavaScript -->
+		<script>
+		// Closes the sidebar menu
+		$("#menu-close").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		});
 
+		// Opens the sidebar menu
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		});
 
-                <h4 style="text-align:center;"><strong>SHOPPU</strong>
-                </h4>
-                <p>SFU<br>Burnaby, BC Canada</p>
-
-                    <p><i class="fa fa-phone fa-fw"></i> (123) 456-7890</p>
-                    <p><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:shoppumail@gmail.com">shoppumail@gmail.com</a>
-                    </p>
-
-                <br>
-
-                <hr class="small">
-                <p class="text-muted">Copyright &copy; SHOPPU 2015</p>
-
-
-    </div>
-
-
-
-
-
-
-<!-- Custom Theme JavaScript -->
-<script>
-// Closes the sidebar menu
-$("#menu-close").click(function(e) {
-    e.preventDefault();
-    $("#sidebar-wrapper").toggleClass("active");
-});
-
-// Opens the sidebar menu
-$("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#sidebar-wrapper").toggleClass("active");
-});
-
-// Scrolls to the selected menu item on the page
-$(function() {
-    $('a[href*=#]:not([href=#])').click(function() {
-        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            if (target.length) {
-                $('html,body').animate({
-                    scrollTop: target.offset().top
-                }, 1000);
-                return false;
-            }
-        }
-    });
-});
-</script>
-</body>
+		// Scrolls to the selected menu item on the page
+		$(function() {
+			$('a[href*=#]:not([href=#])').click(function() {
+				if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+					var target = $(this.hash);
+					target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+					if (target.length) {
+						$('html,body').animate({
+							scrollTop: target.offset().top
+						}, 1000);
+						return false;
+					}
+				}
+			});
+		});
+		</script>
+	</body>
 </html>

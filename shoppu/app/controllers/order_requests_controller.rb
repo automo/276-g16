@@ -15,6 +15,9 @@ class OrderRequestsController < ApplicationController
 
   before_action :correct_user, only: [:show, :update, :destroy]
 
+  before_action :correct_admin, only: [:hide, :show_all]
+
+  # For users; Set all un-accepted orders by users
   def show_open
     # Selects open order_requests which have a positive number of order_items
     #  AND which belong to other users
@@ -23,19 +26,27 @@ class OrderRequestsController < ApplicationController
                       order_request.order_items.all.size > 0 && \
                       order_request.owner_id != current_user.id }
 
-    if @order_requests.nil?
-      flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0103]"
-      redirect_to root_url
+    # change the error message to NO Open Order Avaialable
+    #
+    if @order_requests.blank?
+      flash[:error] = "No Open Orders Avaialable"
+      # let the user remain on the same page.
+      #redirect_to root_url
     end
   end
 
+  # For admins; Set all order requests made by all users
+  def show_all
+    @order_requests = OrderRequest.select {|order_request| order_request.status != "hidden"}
+  end
+
+  # For users who are servicers
   def show_all_accepted
     set_all_accepted
   end
 
+  # For user who is a servicer
   def show_one_accepted
-    # set_one_accepted
-    # set_order_request("servicer")
   end
 
   # DELETE BEFORE SUBMISSION
@@ -46,6 +57,7 @@ class OrderRequestsController < ApplicationController
     render('show_all_accepted')
   end
 
+  # For user who is a servicer
   def accept
     if @order_request.update_attributes(:servicer_id => current_user.id, :status => "accepted")
       set_all_accepted
@@ -56,34 +68,28 @@ class OrderRequestsController < ApplicationController
     end
   end
 
-  # GET /order_requests
-  # GET /order_requests.json
+  # For user who is a owner
   def index
     @order_requests = OrderRequest.all
   end
 
-  # GET /order_requests/1
-  # GET /order_requests/1.json
+  # For user who is a owner
   def show
     # redirect_to root_url
   end
 
-  # GET /order_requests/new
+  # For users
   def new
     @order_request = current_user.owned_orders.build
   end
 
-  # GET /order_requests/1/edit
+  # For users
   def edit
   end
 
-  # POST /order_requests
-  # POST /order_requests.json
+  # For users
   def create
-    # puts @current_user
     @order_request = current_user.owned_orders.build(order_request_params)
-    # @user = User.find(params[:id])
-    # @order_request = @user.order_requests.build
 
     respond_to do |format|
       if @order_request.save
@@ -96,8 +102,7 @@ class OrderRequestsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /order_requests/1
-  # PATCH/PUT /order_requests/1.json
+  # For user who is a owner
   def update
     respond_to do |format|
       if @order_request.update_attributes(order_request_params)
@@ -110,8 +115,15 @@ class OrderRequestsController < ApplicationController
     end
   end
 
-  # DELETE /order_requests/1
-  # DELETE /order_requests/1.json
+  # For admin
+  def hide
+    @order_request = OrderRequest.find_by_id(params[:id])
+    @order_request.update_attributes(:status => "hidden")
+
+    redirect_to order_requests_show_all_path
+  end
+
+  # For user who is a owner
   def destroy
     @order_request.destroy
     respond_to do |format|
@@ -121,7 +133,6 @@ class OrderRequestsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
 
     def set_order_request(from_type)
       if from_type == "from_owner"
@@ -144,16 +155,9 @@ class OrderRequestsController < ApplicationController
     def set_all_accepted
       # Selects order requests which are serviced by current_user
       @order_requests = OrderRequest.select { |order_request| \
-                            # order_request.status == "accepted" && \
-                            order_request.servicer_id == current_user.id}
+                        order_request.status == "accepted" && \
+                        order_request.servicer_id == current_user.id}
     end
-
-    # def set_one_accepted
-      # @order_request = OrderRequest.select { |order_request| \
-      #                   # order_request.status == "accepted" && \
-      #                   order_request.id == id && \
-      #                   order_request.servicer_id == current_user.id}
-    # end
 
     def correct_user
       # @order_request = current_user.order_requests.find_by_id(params[:id])
@@ -165,7 +169,13 @@ class OrderRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_request_params
-      # params.require(:order_request).permit(:title, :bounty, :deliver_by, :accepted_at, :service_rating, :status, :owner_id, :servicer_id, :description)
       params.require(:order_request).permit(:title, :bounty, :deliver_by, :accepted_at, :service_rating, :status, :description)
+    end
+
+    def correct_admin
+      if (!current_user.is_moderator?)
+        flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0101]"
+        redirect_to root_url
+      end
     end
 end

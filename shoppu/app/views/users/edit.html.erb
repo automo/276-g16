@@ -1,20 +1,15 @@
 <% provide(:title, 'Edit Profile') %>
 <h1>Edit Profile</h1>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3">
+  <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
     <%= form_for(@user) do |f| %>
      <%= render 'shared/error_messages' %>
-      <%= f.label :username %>
-      <%= f.text_field :username, :required => true, class: 'form-control' %>
+<!--
+      <%= old_password = "123" %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, :required => true ,class: 'form-control' %>
+      <%= f.label old_password %>
+      <%= f.password_field old_password, :required => true, class: 'form-control' %> -->
 
-      <%= f.label :password_confirmation, "Password Confirmation" %>
-      <%= f.password_field :password_confirmation, :required => true, class: 'form-control' %>
-
-      <%= f.label :birthdate %>
-      <%= f.date_select :birthdate, :start_year => 1910, :end_year => 2015,  :required => true ,class: 'form-control'%>
 
       <%= f.label :first_name %>
       <%= f.text_field :first_name, required: true, class: 'form-control' %>
@@ -25,6 +20,19 @@
       <%= f.label :address %>
       <%= f.text_field :address,  :required => true, class: 'form-control' %>
 
+      <%= f.label :birthdate %><br/>
+      <div>
+        <%= f.date_select :birthdate, :start_year => 1910, :end_year => 2015, order: [:month, :day, :year], :required => true, class: 'form-control'%>
+      </div>
+
+      <%= f.label :username %>
+      <%= f.text_field :username, :required => true, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Password Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
 
 
 
@@ -32,13 +40,14 @@
       <%= f.email_field :email, :required => true , class: 'form-control' %> -->
 
 
-      <!-- <%= f.label :is_moderator, "Moderator?" %>
-      <%= f.radio_button :is_moderator, 'true', :checked => true %>
-      <%= label :mod_yes, 'YES' %>
-      <%= f.radio_button :is_moderator, 'false' %>
-      <%= label :mod_no, 'NO' %> -->
+      <!-- <#%= f.label :is_moderator, "Moderator?" %>
+      <#%= f.radio_button :is_moderator, 'true', :checked => true %>
+      <#%= label :mod_yes, 'YES' %>
+      <#%= f.radio_button :is_moderator, 'false' %>
+      <#%= label :mod_no, 'NO' %> -->
 
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <br/>
+      <%= f.submit "Save changes", class: "btn btn-primary btn-block" %>
 
 
 

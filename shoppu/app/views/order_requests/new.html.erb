@@ -1,14 +1,12 @@
-
+<br>
+<%= provide(:title, 'New Order') %>
+<br>
 <div class= "input_section">
-
-		<h1 class="order_request_title">New Order</h1>
-
-		<div class="forms">
-			<%= render 'form' %>
-		</div>
-
-		<div class="links">
-			<%= link_to 'Back', order_requests_path %>
-		</div>
-
+	<h1 class="order_request_title" style="margin-top:30px; margin-bottom:30px">New Order</h1>
+	<div class="forms">
+		<%= render 'form' %>
+	</div>
+	<div class="links">
+		<%= link_to 'Back', order_requests_path %>
+	</div>
 </div>

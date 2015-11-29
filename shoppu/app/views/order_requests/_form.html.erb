@@ -1,45 +1,49 @@
 <%= form_for(@order_request) do |f| %>
-  <% if @order_request.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order_request.errors.count, "error") %> prohibited this order_request from being saved:</h2>
+	<% if @order_request.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@order_request.errors.count, "error") %> prohibited this order_request from being saved:</h2>
+			<ul>
+				<% @order_request.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-      <ul>
-      <% @order_request.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= f.label :title %>
-  <%= f.text_field :title, :required => true, class: 'field' %>
-  <!-- <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div> -->
-
-  <%= f.label :bounty %>
-  <%= f.text_field :bounty, :required => true, class: 'field' %>
-  <!-- <div class="field">
-    <%= f.label :bounty %><br>
-    <%= f.text_field :bounty %>
-  </div> -->
-
-  <%= f.label :deliver_by %>
-  <%= f.datetime_select :deliver_by, class: 'field' %>
-  <!-- <div class="field">
-    <%= f.label :deliver_by %><br>
-    <%= f.datetime_select :deliver_by %>
-  </div> -->
-  <br>
-
-  <%= f.label :description %>
-  <%= f.text_field :description, class: 'field' %>
-  <!-- <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div> -->
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<%= f.label :title %>
+	<div>
+		<%= f.text_field :title, :required => true, style: 'width:100%',class: 'field' %>
+	</div>
+	<!-- <div class="field">
+			<%= f.label :title %><br>
+			<%= f.text_field :title %>
+	</div> -->
+	<%= f.label :bounty %>
+	<div>
+		<%= f.text_field :bounty, :required => true, class: 'field' %>
+	</div>
+	<!-- <div class="field">
+			<%= f.label :bounty %><br>
+			<%= f.text_field :bounty %>
+	</div> -->
+	<%= f.label :deliver_by %>
+	<div>
+		<%= f.datetime_select :deliver_by, class: 'field' %>
+	</div>
+	<!-- <div class="field">
+			<%= f.label :deliver_by %><br>
+			<%= f.datetime_select :deliver_by %>
+	</div> -->
+	<br>
+	<%= f.label :description %>
+	<div>
+		<%= f.text_field :description, class: 'field' %>
+	</div>
+	<!-- <div class="field">
+			<%= f.label :description %><br>
+			<%= f.text_area :description %>
+	</div> -->
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 <% end %>

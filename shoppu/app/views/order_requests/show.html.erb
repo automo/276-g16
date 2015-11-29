@@ -1,116 +1,79 @@
-
-
+<% provide(:title, @order_request.title) %>
 <div class= "container">
+	<p id="notice"><%= notice %></p>
 
-<p id="notice"><%= notice %></p>
-
-
-<!--
-<div class="panel panel-primary">
-	<div class="panel-heading">
-		<h3><%= @order_request.title %></h3>
-	</div>
-	<div class ="panel-body">
-		<h4>Descriptoin:</h4>
-		<%= @order_request.description %>
-	</div>
-</div>
--->
-<!--
-<h2 class="order_request_title"><%= @order_request.title %></h2>
-
-<p class="order_request_sub_title"><%= @order_request.description %></p>
--->
-<!-- <div id="order_items_wrapper"> -->
-
-<div class="row">
-	<div class="col-lg-12 col-md-12 col-sm-12">
-		<div class= "panel panel-info">
-
-			<div class= "panel-heading">
-				<h2 class="order_request_title"><%= @order_request.title %></h2>
-			</div>
-
-			<div class ="panel-body" id="order_item_panel_head">
-
-				<p class="order_request_sub_title"><strong>DESCRPTION: </strong></p>
-				<p><%= @order_request.description %></p>
-				<p><strong>Shopping List:</strong></p>
-
-
-				<!--  Use Table to organize the item and the buttons, Styling of the table will be in custom.css-->
-
-				<div style="border: solid 1px #555; padding: 5px; ">
-				<%= render @order_request.order_items %>
-			</div>
-
-
-		</div>
-
-			<div class="panel-footer" style="background-color:white;">
-
-				<div id="form">
-					<%= render "order_items/form" %>
+	<div class="panel-default">
+		<h1>My Order:</h1>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class= "panel panel-info">
+					<div class= "panel-heading">
+						<h2 class="order_request_title"><%= @order_request.title %></h2>
+					</div>
+					<div class ="panel-body" id="order_item_panel_head">
+						<p class="order_request_sub_title"><strong>Description: </strong></p>
+						<p>
+							<% if @order_request.description.blank? %>
+								<i>No description given</i>
+							<% else %>
+								<%= @order_request.description %>
+							<% end %>
+						</p>
+						<p><strong>Delivery Address:</strong></p>
+						<p><%= @order_request.owner.address %></p>
+						<p><strong>Shopping List:</strong></p>
+						<!--  Use Table to organize the item and the buttons, Styling of the table will be in custom.css-->
+						<% if (@order_request.order_items.size > 0) %>
+						<div style="border: solid 1px #555; padding: 5px; ">
+							<%= render @order_request.order_items %>
+						</div>
+						<% else %>
+						<i>No items currently in order</i>
+						<% end %>
+					</div>
+					<div class="panel-footer" style="background-color:white;">
+						<div id="form">
+							<%= render "order_items/form" %>
+						</div>
+					</div>
 				</div>
-
-		 </div>
-
+			</div>
 		</div>
 	</div>
-</div>
-
-
-
-
-<!-- </div> -->
-
-<div class="links">
-	<%= link_to 'Edit', edit_order_request_path(@order_request) %> |
-	<%= link_to 'Delete', order_request_path(@order_request), method: :delete, data: { confirm: "Are you sure?" }
- %> |
-  <%= link_to 'Back', order_requests_path %>
-</div>
-<br>
-<div class="row">
-	<div class="col-lg-12 col-md-12 col-sm-12">
-
-		  <div id="directions"></div>
-
-
-</div>
-</div>
-
+	<!-- </div> -->
+	<div class="links">
+		<%= link_to 'Edit', edit_order_request_path(@order_request) %> |
+		<%= link_to 'Delete', order_request_path(@order_request), method: :delete, data: { confirm: "Are you sure?" }
+		%> |
+		<%= link_to 'Back', order_requests_path %>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div id="directions"></div>
+		</div>
+	</div>
 </div>
 <!--
 <p>The longitude of this order is <%= @order_request.owner.longitude %></p>
 <p>The latitude of this order is <%= @order_request.owner.latitude %></p>
-
-
 -->
-
 <!--  Styling of map can be found in static_page.css id= "directions"-->
 
-
-
 <script type="text/javascript">
-
-
-
 	handler = Gmaps.build('Google');
 	handler.buildMap({ provider: {}, internal: {id: 'directions'}}, function(){
-	  markers = handler.addMarkers([
-	    {
-	      "lat": <%= @order_request.owner.latitude %>,
-	      "lng": <%= @order_request.owner.longitude %>,
+		markers = handler.addMarkers([
+				{
+					"lat": <%= @order_request.owner.latitude %>,
+					"lng": <%= @order_request.owner.longitude %>,
 
-	      "infowindow": "<%= @order_request.owner.address %>"
-	    }
-	  ]);
-	  handler.bounds.extendWith(markers);
-	  handler.fitMapToBounds();
+					"infowindow": "<%= @order_request.owner.address %>"
+				}
+		]);
+		handler.bounds.extendWith(markers);
+		handler.fitMapToBounds();
 	});
-
-
 </script>
 
 

@@ -78,7 +78,7 @@ class UsersController < ApplicationController
 
     flash[:success] = "Welcome to the Shoppu App!"
 
-    redirect_to @user
+    redirect_to user_path(current_user.id)
     UserMailer.user_email(@user).deliver
    else
      flash[:error] = "Failed to create account - Please try again [0x0002]"
@@ -88,11 +88,9 @@ class UsersController < ApplicationController
 
 # Adding new action for update user profile
   def edit
-    # @user=User.find(params[:id])
   end
 
   def update
-    # @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       # Handle a successful update.
       flash[:success] = "Profile updated"
@@ -114,7 +112,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :address, :email,:password,  :password_confirmation, :birthdate, :first_name, :last_name, :rating => "0", :failed_login_attempts => "0")
+    params.require(:user).permit(:username, :address, :email, :password, :password_confirmation, :birthdate, :first_name, :last_name, :is_moderator)
   end
 
   def correct_user
