@@ -34,7 +34,7 @@
 			<div class ="panel-body" id="order_item_panel_head">
 
 				<p class="order_request_sub_title"><strong>DESCRPTION: </strong></p>
-				<p><%= @order_request.description %></p>
+				<p><%= if @order_request.description.blank? then "-no description given-" else @order_request.description end %></p>
 				<p><strong>Delievery Address:</strong></p>
 				<p><%= @order_request.owner.address %></p>
 
