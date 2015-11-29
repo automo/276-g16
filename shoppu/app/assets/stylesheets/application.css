@@ -31,10 +31,10 @@ body {
 	font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-h1 {
+h6 {
   font-size: 2em;
   letter-spacing: 1.5px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: left;
   font-weight: normal;
 }
