@@ -1,13 +1,14 @@
 <!-- Styling in static_page.css -->
+<!--
 <div class="row clearfix" id ="">
 	<div class="col-lg-4">
 		<div class= "panel panel-info">
 			<div class= "panel-heading">Order Information for <%= @order_request.title %></div>
-			<% @order_request.order_items.each do |order_item| %>
+			<#% @order_request.order_items.each do |order_item| %>
 				<div class ="panel-body">
-					<% if order_item.completed? %>
+					<#% if order_item.completed? %>
 						<div class="order_item pull-left">
-							<p style="opacity: 0.4;"><strike><%= order_item.content %></strike></p>
+							<p style="opacity: 0.4;"><strike><#%= order_item.content %></strike></p>
 						</div>
 						<!-- <div class="complete pull-right">
 							<%#= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
@@ -16,23 +17,24 @@
 								</button>
 							<%# end %>
 						</div> -->
-					<% else %>
+<!--
+					<#% else %>
 						<div class="complete pull-right">
-							<%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
+							<#%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
 								<button type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>
-							<% end %>
+							<#% end %>
 						</div>
 						<div class="order_item">
-							<p><%= order_item.content %></p>
+							<p><#%= order_item.content %></p>
 						</div>
-					<% end %>
+					<#% end %>
 				</div>
-			<% end %>
+			<#% end %>
 		</div>
 	</div>
 </div>
-
-
+-->
+<!-- Reviced version of the code above -->
 
 
 <div class= "container">
@@ -52,8 +54,10 @@
 				<p class="order_request_sub_title"><strong>DESCRPTION: </strong></p>
 
 
-				<%= if @order_request.description.blank? then "-no description given-" else order_request.description end %>
+				<%= if @order_request.description.blank? then "-no description given-" else @order_request.description end %>
 
+				<p><strong>Address for Delievery: </strong></p>
+				<p><%= @order_request.owner.address %></p>
 
 				<p><strong>Shopping List:</strong></p>
 
