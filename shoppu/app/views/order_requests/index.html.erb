@@ -1,42 +1,36 @@
+<% provide(:title, 'Your Orders') %>
 <!--  The styling of the page can be found on the application.scss-->
-
 <!--Changed div from input_section to container to give wider view -->
 <div class="container">
-
-
-<div class="panel-default">
-  <h1>My Orders</h1>
-  <table class="table table-striped table-bordered table-hover">
-    <!-- Adding the header of the table here -->
-    <thead>
-            <tr>
-                   <th>ORDER <small class="text-muted">Click on the order to view the details</small></th>
-                   <th>Description</th>
-
-            </tr>
-    </thead>
-
-    <tbody>
-    <% current_user.owned_orders.each do |order_request| %>
-      <!--
-      <div class="index_row clearfix">
-        <h2 class="order_request_title"><%= link_to order_request.title, order_request %></h2>
-        <p class="order_request_sub_title"><%= order_request.description %></p>
-      </div>
-    -->
-      <tr>
-        <td> <%= link_to order_request.title, order_request %></td>
-        <td><%= order_request.description %></td>
-
-      </tr>
-    <% end %>
-  </tbody>
-  </table>
-</div>
-
-<br>
-<div class="links">
-  <%= link_to "New Order", new_order_request_path %> |
-  <%= link_to "Back to home", root_path %>
-</div>
+	<div class="panel-default">
+		<h1>My Orders</h1>
+		<table class="table table-striped table-bordered table-hover">
+			<!-- Adding the header of the table here -->
+			<thead>
+				<tr>
+					<th>ORDER <small class="text-muted">Click on the order to view the details</small></th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% current_user.owned_orders.each do |order_request| %>
+				<!--
+				<div class="index_row clearfix">
+						<h2 class="order_request_title"><%#= link_to order_request.title, order_request %></h2>
+						<p class="order_request_sub_title"><#%= order_request.description %></p>
+				</div>
+				-->
+				<tr>
+					<td> <%= link_to order_request.title, order_request %></td>
+					<td><%= order_request.description %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<div class="links">
+		<%= link_to "New Order", new_order_request_path %> |
+		<%= link_to "Back", user_path(current_user.id) %>
+	</div>
 </div>
