@@ -26,9 +26,12 @@ class OrderRequestsController < ApplicationController
                       order_request.order_items.all.size > 0 && \
                       order_request.owner_id != current_user.id }
 
-    if @order_requests.black?
-      flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0103]"
-      redirect_to root_url
+    # change the error message to NO Open Order Avaialable
+    #
+    if @order_requests.blank?
+      flash[:error] = "No Open Orders Avaialable"
+      # let the user remain on the same page.
+      #redirect_to root_url
     end
   end
 
