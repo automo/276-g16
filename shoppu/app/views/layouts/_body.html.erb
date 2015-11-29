@@ -1,76 +1,61 @@
 <body>
-  <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle mobileShow">	<i class = "fa fa-bars fa-3x"></i></a>
-   <nav id="sidebar-wrapper" class ="mobileShow">
-       <ul class="sidebar-nav">
-           <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times fa-3x"></i></a>
-           <li class="sidebar-brand">
-               <a href="../#top"  onclick = $("#menu-close").click(); >Start Bootstrap</a>
-           </li>
-           <li>
-               <a href="../#top" onclick = $("#menu-close").click(); >Home</a>
-           </li>
-           <li>
-               <a href="../#about" onclick = $("#menu-close").click(); >About</a>
-           </li>
-           <li>
-               <a href="../#services" onclick = $("#menu-close").click(); >Services</a>
-           </li>
-           <% if logged_in? %>
-           <!-- Dropp down not working properly omitting the dropdown here for now-->
-
-                 <li><%= link_to "Profile", current_user %></li>
-                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                 <li>
-                   <%= link_to "Log out", logout_path, method: "delete" %>
-                 </li>
-
-         <% else %>
-           <li><%= link_to "Log in", login_path %></li>
-         <% end %>
-           <li>
-               <a href="#contact" onclick = $("#menu-close").click(); >Contact</a>
-           </li>
-       </ul>
-   </nav>
-
-
-<!-- Navi header for the desktop browser -->
-   <header style="margin-bottom:0px;" class="navbar navbar-inverse mobileHide">
-     <div class="container">
-
-        <%= link_to "SHOPPU", root_path, id: "logo" %>
-       <nav>
-         <ul class="nav navbar-nav navbar-right">
-           <% if request.original_url != root_url %>
-            <li><%= link_to "Home", root_url %></li>
-           <% end %>
-           <li><%= link_to "About", root_path(:anchor => "about") %></li>
-           <li><%= link_to "How It Works", root_path(:anchor => "services") %></li>
-           <li><%= link_to "Contact", root_path(:anchor => "contact") %></li>
-           <% if logged_in? %>
-
-
-           <!-- Dropp down not working properly omitting the dropdown here for now-->
-
-                 <li><%= link_to "Profile", current_user %></li>
-                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                 <li>
-                   <%= link_to "Log out", logout_path, method: "delete" %>
-                 </li>
-
-           <% else %>
-             <li><%= link_to "Log in", login_path %></li>
-           <% end %>
-         </ul>
-       </nav>
-     </div>
-   </header>
-
-
-
-   <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: "alert alert-info" %>
-    <% end %>
-
-
+  <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle mobileShow"> <i class = "fa fa-bars fa-3x"></i></a>
+  <nav id="sidebar-wrapper" class ="mobileShow">
+    <ul class="sidebar-nav">
+      <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times fa-3x"></i></a>
+      <li class="sidebar-brand">
+        <a href="../#top"  onclick = $("#menu-close").click(); >Start Bootstrap</a>
+      </li>
+      <li>
+        <a href="../#top" onclick = $("#menu-close").click(); >Home</a>
+      </li>
+      <li>
+        <a href="../#about" onclick = $("#menu-close").click(); >About</a>
+      </li>
+      <li>
+        <a href="../#services" onclick = $("#menu-close").click(); >Services</a>
+      </li>
+      <% if logged_in? %>
+      <li><%= link_to "Profile", current_user %></li>
+      <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+      <li>
+        <%= link_to "Log out", logout_path, method: "delete" %>
+      </li>
+      <% else %>
+      <li><%= link_to "Log in", login_path %></li>
+      <% end %>
+      <li>
+        <a href="#contact" onclick = $("#menu-close").click(); >Contact</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- Navi header for the desktop browser -->
+  <header style="margin-bottom:0px;" class="navbar navbar-inverse mobileHide">
+    <div class="container">
+      <%= link_to "SHOPPU", root_path, id: "logo" %>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <% if request.original_url != root_url %>
+          <li><%= link_to "Home", root_url %></li>
+          <% end %>
+          <li><%= link_to "About", root_path(:anchor => "about") %></li>
+          <li><%= link_to "How It Works", root_path(:anchor => "services") %></li>
+          <li><%= link_to "Contact", root_path(:anchor => "contact") %></li>
+          <% if logged_in? %>
+          <!-- Dropp down not working properly omitting the dropdown here for now-->
+          <li><%= link_to "Profile", current_user %></li>
+          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+          <li>
+            <%= link_to "Log out", logout_path, method: "delete" %>
+          </li>
+          <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-info" %>
+  <% end %>
   <%= yield %>
