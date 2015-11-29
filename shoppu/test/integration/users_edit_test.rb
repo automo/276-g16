@@ -30,8 +30,8 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     # get edit_user_path(@user)
     # assert_template 'users/edit'
     # assert_redirected_to edit_user_path(@user)
-    name  = "FooBar"
-    email = "foo@bar.com"
+    name  = "robbie123"
+    email = "sfu@example.com"
     patch user_path(@user), user: { username: name,
                                     email: email ,
                                     password: "",
