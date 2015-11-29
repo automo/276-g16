@@ -3,7 +3,7 @@
 	<div class="panel-default">
 		<h1>Available Orders:</h1>
 		<% if @order_requests.blank? %>
-			<h2>No orders available currently - Please check back later</h2>
+			<h2 style="font-size:2em">No orders available - Please check back later</h2>
 		<% else %>
 			<% @order_requests.each_with_index do |order_request, i| %>
 				<!-- map javascript here-->
