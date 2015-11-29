@@ -5,7 +5,7 @@ UserOne:
   username: robbie123
   address: sfu
   email: sfu@example.com
-  password_digest: <%= BCrypt::Password.create('donuts', cost: 4) %>
+  password_digest: <%= User.digest('password') %>
   birthdate: 1982-10-18
   first_name: Robert
   last_name: Apples
@@ -18,7 +18,7 @@ UserTwo:
   username: alice5
   address: somewhere
   email: alice@domain.com
-  password_digest: <%= BCrypt::Password.create('donuts', cost: 4) %>
+  password_digest: <%= User.digest('password') %>
   birthdate: 1984-10-18
   first_name: Alice
   last_name: Oranges

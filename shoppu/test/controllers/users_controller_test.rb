@@ -22,7 +22,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should redirect update when logged in as wrong user" do
-    log_in_as(@other_user)
+    log_in_as(@different_user)
     patch :update, id: @user, user: { first_name: @user.first_name, email: @user.email }
     assert_redirected_to root_url
   end
