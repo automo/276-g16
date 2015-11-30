@@ -120,11 +120,21 @@
 	<!-- Map -->
 
 
-    <section style= "margin-top:-30px; "id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="pointer-events:none" src="https://www.google.com/maps/embed/v1/place?q=Simon+Fraser+University,+Burnaby,+BC,+Canada&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
-        <br />
-        <small>
-            <a href="https://www.google.com/maps/embed/v1/place?q=Simon+Fraser+University,+Burnaby,+BC,+Canada&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></a>
-        </small>
-        </iframe>
-    </section>
+    <div style= "margin-top:-30px; "id="directions" >
+    </div>
+		<script type="text/javascript">
+			handler = Gmaps.build('Google');
+			handler.buildMap({ provider: {}, internal: {id: 'directions'}}, function(){
+				markers = handler.addMarkers([
+						{
+							"lat": 49.278143,
+							"lng": -122.919712,
+
+							"infowindow": "Simon "
+						}
+				]);
+				handler.bounds.extendWith(markers);
+				handler.fitMapToBounds();
+				handler.getMap().setZoom(15);
+			});
+		</script>
