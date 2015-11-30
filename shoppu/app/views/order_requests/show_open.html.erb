@@ -33,6 +33,9 @@
 								<%= order_request.description %>
 							<% end %>
 						</p>
+						<p><strong>Address for Delievery:</strong></p>
+						<p><%= order_request.owner.address%></p>
+
 						<div style="border: solid 1px #555; padding: 5px; ">
 							<p class="order_request_sub_title"><strong>List of Items: </strong></p>
 							<ol class="order_item">
