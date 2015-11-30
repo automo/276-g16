@@ -1,4 +1,15 @@
 <% provide(:title, @user.username) %>
+
+<!-- Demo of getting status counts of current user's orders -->
+<!-- Delete before submission -->
+Open order count is <%= getOpenCount(current_user.id) %>
+<br>
+Hidden order count is <%= getHiddenCount(current_user.id) %>
+<br>
+Completed order count is <%= getCompletedCount(current_user.id) %>
+<br>
+Accepted order count is <%= getAcceptedCount(current_user.id) %>
+
 <div class="mobileview">
 
 <div class="row">
