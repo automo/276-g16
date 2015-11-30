@@ -1,6 +1,15 @@
-<%= form_for([@order_request, @order_request.order_items.build]) do |f| %>
+<%= form_for [@order_request, @order_request.order_items.build], html: { multipart: true } do |f| %>
+
+	<%= f.label "Add new item" %>
 	<%= f.text_field :content, :required => true, placeholder: "Add New Item Here", class: "form-control" %>
 
+	<br>
+
+	<%= f.label "Add photo for item (optional)" %>
+	<%= f.file_field :photo, class: "form-control" %>
+	<br>
+
 	<%= f.submit class: "btn btn-success btn-block"%>
+
 
 <% end %>

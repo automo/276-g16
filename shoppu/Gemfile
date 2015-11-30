@@ -42,8 +42,14 @@ gem 'gmaps4rails'
 
 
 # SEtting up Gmail
-gem 'figaro'
+gem 'figaro', "~> 0.7.0"
 gem 'mail'
+
+# For images
+gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'rmagick'
+# Amazon S3 File Storage
+gem 'aws-sdk', '~> 1.6'
 
 # font-awesome
 
@@ -61,6 +67,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'web-console'
   gem 'spring'
+	# gem "paperclip"
+	# gem "rmagick"
+	# gem 'aws-s3'
 end
 
 group :test do

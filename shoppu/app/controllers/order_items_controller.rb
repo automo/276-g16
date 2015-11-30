@@ -103,6 +103,6 @@ class OrderItemsController < ApplicationController
   end
 
   def order_item_params
-    params[:order_item].permit(:content)
+    params[:order_item].permit(:content, :photo)
   end
 end

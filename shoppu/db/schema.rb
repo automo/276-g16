@@ -11,15 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125055625) do
+ActiveRecord::Schema.define(version: 20151130045642) do
 
   create_table "order_items", force: :cascade do |t|
-    t.string   "status",           default: "open"
-    t.text     "content"
-    t.integer  "order_request_id",                  null: false
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.string   "status",             default: "open", null: false
+    t.text     "content",                             null: false
+    t.integer  "order_request_id",                    null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.datetime "completed_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "order_items", ["order_request_id"], name: "index_order_items_on_order_request_id"

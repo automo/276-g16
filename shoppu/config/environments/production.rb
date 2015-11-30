@@ -85,13 +85,24 @@ Rails.application.configure do
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
    :address              => "smtp.gmail.com",
-   :port                 => 587,
-   :user_name            => ENV['gmail_username'],
-   :password             => ENV['gmail_password'],
+   :port                 => ENV['GMAIL_PORT'],
+   :user_name            => ENV['GMAIL_USERNAME'],
+   :password             => ENV['GMAIL_PASSWORD'],
    :authentication       => "plain",
   :enable_starttls_auto => true
   }
 
-  config.action_mailer.default_url_options = { :host => 'shoppuapp.heroku.com' }
+  config.action_mailer.default_url_options = { :host => ENV['MAILER_HOST_NAME'] }
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_region => ENV['S3_REGION'],
+    :s3_host_name => ENV['S3_HOST_NAME'],
+    :s3_credentials => {
+                          :bucket => ENV['S3_BUCKET_NAME'],
+                          :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+                          :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+                       }
+  }
 
 end
