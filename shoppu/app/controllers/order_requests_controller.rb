@@ -107,6 +107,8 @@ class OrderRequestsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @order_request.errors, status: :unprocessable_entity }
       end
+      flash[:success] = "Order has been updated"
+      format.html { redirect_to @order_request }
     end
   end
 
