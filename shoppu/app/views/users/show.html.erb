@@ -146,22 +146,22 @@
                                      <tbody>
                                          <tr class="success">
                                              <td>Open Order</td>
-                                             <td><%= getOpenCount(current_user.id) %></td>
+                                             <td><%= count_orders_by_status(current_user.id, "open") %></td>
 
                                          </tr>
                                          <tr class="info">
                                              <td>Completed</td>
-                                             <td><%= getCompletedCount(current_user.id) %></td>
+                                             <td><%= count_orders_by_status(current_user.id, "completed") %></td>
 
                                          </tr>
                                          <tr class="warning">
                                              <td>Accepted</td>
-                                             <td><%= getAcceptedCount(current_user.id) %></td>
+                                             <td><%= count_orders_by_status(current_user.id, "accepted") %></td>
 
                                          </tr>
                                          <tr class="danger">
                                              <td>Hidden</td>
-                                             <td><%= getHiddenCount(current_user.id) %></td>
+                                             <td><%= count_orders_by_status(current_user.id, "hidden") %></td>
 
                                          </tr>
 
@@ -213,28 +213,28 @@
                                              <tbody>
                                                  <tr class="success">
                                                      <td>Open Order</td>
-                                                     <td><%= getOpenCount(current_user.id) %></td>
+                                                     <td><%= count_all_orders_by_status("open") %></td>
 
                                                  </tr>
                                                  <tr class="info">
                                                      <td>Completed</td>
-                                                     <td><%= getCompletedCount(current_user.id) %></td>
+                                                     <td><%= count_all_orders_by_status("completed") %></td>
 
                                                  </tr>
                                                  <tr class="warning">
                                                      <td>Accepted</td>
-                                                     <td><%= getAcceptedCount(current_user.id) %></td>
+                                                     <td><%= count_all_orders_by_status("accepted") %></td>
 
                                                  </tr>
                                                  <tr class="danger">
                                                      <td>Hidden</td>
-                                                     <td><%= getHiddenCount(current_user.id) %></td>
+                                                     <td><%= count_all_orders_by_status("hidden") %></td>
 
                                                  </tr>
 
                                                  <tr>
                                                     <td><strong>Total Order</strong></td>
-                                                    <td><strong><%= current_user.owned_orders.size %></strong></td>
+                                                    <td><strong><%= count_all_orders %></strong></td>
                                                  </tr>
                                              </tbody>
                                          </table>
@@ -290,15 +290,14 @@
 <!-- </div> -->
 
 
-<!-- Wil need to explore the ruby to extract the data here  -->
 <script>
   new Morris.Donut({
   element: 'bar-example',
   data: [
-        {label: "Open Order", value: <%= getOpenCount(current_user.id) %>,},
-        {label: "Completed", value: <%= getCompletedCount(current_user.id) %>},
-        {label: "Accepted", value: <%= getAcceptedCount(current_user.id) %>},
-        {label: "Hidden", value: <%= getHiddenCount(current_user.id) %>}
+        {label: "Open Order", value: <%= count_orders_by_status(current_user.id, "open") %>,},
+        {label: "Completed", value: <%= count_orders_by_status(current_user.id, "completed") %>},
+        {label: "Accepted", value: <%= count_orders_by_status(current_user.id, "accepted") %>},
+        {label: "Hidden", value: <%= count_orders_by_status(current_user.id, "hidden") %>}
       ],
   colors: ["green","blue", "khaki", "red"]
   });
