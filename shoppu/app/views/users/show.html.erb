@@ -107,6 +107,8 @@
 </div>
 
 
+
+
 <div class ="row">
   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
@@ -179,6 +181,93 @@
 
 </div>
 
+
+<!-- Moderator Panel -->
+<% if current_user.is_moderator? %>
+  <div class ="row">
+    <div class ="col-lg-12 col-md-12 col-sm-12 col-xs-sm">
+      <div class ="panel panel-primary">
+        <div class ="panel-heading">
+          Moderator View
+        </div>
+
+        <div class ="panel-body">
+
+
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                             <div class="panel panel-default">
+                                 <div class="panel-heading">
+                                     Orders Overview
+                                 </div>
+                                 <!-- /.panel-heading -->
+                                 <div class="panel-body">
+                                     <div class="table-responsive">
+                                         <table class="table">
+                                             <thead>
+                                                 <tr>
+                                                     <th>Order Type</th>
+                                                     <th>Total Amount</th>
+
+                                                 </tr>
+                                             </thead>
+                                             <tbody>
+                                                 <tr class="success">
+                                                     <td>Open Order</td>
+                                                     <td><%= getOpenCount(current_user.id) %></td>
+
+                                                 </tr>
+                                                 <tr class="info">
+                                                     <td>Completed</td>
+                                                     <td><%= getCompletedCount(current_user.id) %></td>
+
+                                                 </tr>
+                                                 <tr class="warning">
+                                                     <td>Accepted</td>
+                                                     <td><%= getAcceptedCount(current_user.id) %></td>
+
+                                                 </tr>
+                                                 <tr class="danger">
+                                                     <td>Hidden</td>
+                                                     <td><%= getHiddenCount(current_user.id) %></td>
+
+                                                 </tr>
+
+                                                 <tr>
+                                                    <td><strong>Total Order</strong></td>
+                                                    <td><strong><%= current_user.owned_orders.size %></strong></td>
+                                                 </tr>
+                                             </tbody>
+                                         </table>
+                                     </div>
+                                     <!-- /.table-responsive -->
+                                 </div>
+                                 <!-- /.panel-body -->
+                                 <div class="panel-footer">
+
+                                   <div>
+                                     <%= link_to order_requests_show_all_path do %>
+
+                       							       <button type="button" class="btn btn-success btn-lg btn-block"style="text-decoration:none;">View ALL Orders</button>
+                       							<% end %>
+                       						</div>
+
+                                 </div>
+                             </div>
+                             <!-- /.panel -->
+              </div>
+        </div>
+
+
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+<% end %>
 <!-- </div> -->
 
 
