@@ -2,13 +2,24 @@
 <div class="container">
 	<div class="panel-default">
 		<h1>Available Orders:</h1>
+
+
+
+
+
+
 		<% if @order_requests.blank? %>
 			<h2 style="font-size:2em">No orders available - Please check back later</h2>
 		<% else %>
+
+		<div style='width: 100%;'>
+			<div id="geolocation" style='height: 400px;'></div>
+		</div>
+
 			<% @order_requests.each_with_index do |order_request, i| %>
 				<!-- map javascript here-->
 				<!--******************* -->
-				<div class="panel panel-info" style="margin-bottom: 15px;">
+				<div class="panel panel-info" style="margin-bottom: 15px;" id ="<%=i%>" >
 					<div class="panel-heading">
 						<p><strong><%= i+1 %>.&nbsp;<%= link_to order_request.title, {:controller => :order_requests, :action => :accept, :id => order_request.id} %> by <%= order_request.owner.username %>
 						(<%= number_to_currency(order_request.bounty) %>)</strong> <small class="text-muted">Updated <%= time_ago_in_words(order_request.updated_at) %> ago </small></p>
@@ -51,3 +62,39 @@
 </div>
 <!--  The styling of the page can be found on the application.scss-->
 <!--Changed div from input_section to container to give wider view -->
+
+
+<script type="text/javascript">
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'geolocation'} }, function(){
+  if(navigator.geolocation)
+    navigator.geolocation.getCurrentPosition(displayOnMap);
+
+
+		var markers = handler.addMarkers([
+			<% @order_requests.each_with_index do |order_request, i| %>
+				{ lat: <%= order_request.owner.latitude %>, lng: <%= order_request.owner.longitude %>, infowindow: "<a href='#<%=i%>'><%=order_request.owner.username%></a> <br/><%=order_request.owner.address%>",},
+
+			<% end %>
+
+
+ 	]);
+
+	handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  	handler.getMap().setZoom(10);
+});
+
+function displayOnMap(position){
+  var marker = handler.addMarker({
+    lat: position.coords.latitude,
+    lng: position.coords.longitude,
+
+		"infowindow": "You're Here"
+
+
+
+  });
+  handler.map.centerOn(marker);
+};
+</script>
