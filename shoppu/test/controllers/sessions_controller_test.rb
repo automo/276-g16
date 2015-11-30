@@ -1,15 +1,18 @@
 require 'test_helper'
 
 class SessionsControllerTest < ActionController::TestCase
+
   def setup
     @user = users(:UserTwo)
   end
+
 
 
   test "should get new" do
     get :new
     assert_response :success
   end
+
 
   # test "should get create" do
   #   get :create
@@ -23,12 +26,14 @@ class SessionsControllerTest < ActionController::TestCase
   #   assert_redirected_to login_url
   # end
 
+
   test "should redirect destroy when not logged in" do
     assert_no_difference 'session.count' do
       delete :destroy, id: users(:UserOne)
     end
     assert_redirected_to root_url #~R
   end
+
 
 
 
