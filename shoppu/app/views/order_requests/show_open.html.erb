@@ -25,8 +25,14 @@
 						<div style="border: solid 1px #555; padding: 5px; ">
 							<p class="order_request_sub_title"><strong>List of Items: </strong></p>
 							<ol class="order_item">
-								<% order_request.order_items.each do |order_item| %>
-								<li><%= order_item.content %></li>
+								<% if order_request.order_items.empty? %>
+									<i>No order items exist</i>
+								<% else%>
+									<ol class="order_item">
+										<% order_request.order_items.each do |order_item| %>
+										<li><%= order_item.content %></li>
+										<% end %>
+									</ol>
 								<% end %>
 							</ol>
 						</div>
