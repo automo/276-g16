@@ -305,3 +305,20 @@
 
 
 </script>
+
+
+<script>
+  new Morris.Donut({
+  element: 'bar-example-all',
+  data: [
+        {label: "Open Order", value: <%= count_all_orders_by_status("open") %>},
+        {label: "Completed", value: <%= count_all_orders_by_status("completed") %>},
+        {label: "Accepted", value: <%= count_all_orders_by_status("accepted") %>},
+        {label: "Hidden", value: <%= count_all_orders_by_status("hidden") %>}
+      ],
+  colors: ["green","blue", "khaki", "red"]
+  });
+
+
+
+</script>
