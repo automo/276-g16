@@ -103,10 +103,7 @@ class OrderRequestsController < ApplicationController
   # For user who is a owner
   def update
     respond_to do |format|
-      if @order_request.update_attributes(order_request_params)
-        format.html { redirect_to @order_request, notice: 'Order request was successfully updated.' }
-        format.json { render :show, status: :ok, location: @order_request }
-      else
+      if !@order_request.update_attributes(order_request_params)
         format.html { render :edit }
         format.json { render json: @order_request.errors, status: :unprocessable_entity }
       end
