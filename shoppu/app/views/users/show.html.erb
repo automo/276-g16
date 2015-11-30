@@ -1,4 +1,8 @@
 <% provide(:title, @user.username) %>
+
+<!-- Demo of getting status counts of current user's orders -->
+<!-- Delete before submission -->
+
 <div class="mobileview">
 
 <div class="row">
@@ -102,32 +106,219 @@
   </div>
 </div>
 
-<h5>This is a sample graph for order created and fulfilled by the user</h5>
-<p>Not implemented yet  for iteration 3 </p>
-<div  id="bar-example">
+
+
+
+<div class ="row">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Order Summary Chart
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                          <div class="flot-chart">
+                               <div class="flot-chart-content" id="bar-example"></div>
+                           </div>
+
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+  </div>
+
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                     <div class="panel panel-default">
+                         <div class="panel-heading">
+                             Orders Owned by Me
+                         </div>
+                         <!-- /.panel-heading -->
+                         <div class="panel-body">
+                             <div class="table-responsive">
+                                 <table class="table">
+                                     <thead>
+                                         <tr>
+                                             <th>Order Type</th>
+                                             <th>Total Amount</th>
+
+                                         </tr>
+                                     </thead>
+                                     <tbody>
+                                         <tr class="success">
+                                             <td>Open Order</td>
+                                             <td><%= count_orders_by_status(current_user.id, "open") %></td>
+
+                                         </tr>
+                                         <tr class="info">
+                                             <td>Completed</td>
+                                             <td><%= count_orders_by_status(current_user.id, "completed") %></td>
+
+                                         </tr>
+                                         <tr class="warning">
+                                             <td>Accepted</td>
+                                             <td><%= count_orders_by_status(current_user.id, "accepted") %></td>
+
+                                         </tr>
+                                         <tr class="danger">
+                                             <td>Hidden</td>
+                                             <td><%= count_orders_by_status(current_user.id, "hidden") %></td>
+
+                                         </tr>
+
+                                         <tr>
+                                            <td><strong>Total Order</strong></td>
+                                            <td><strong><%= current_user.owned_orders.size %></strong></td>
+                                         </tr>
+                                     </tbody>
+                                 </table>
+                             </div>
+                             <!-- /.table-responsive -->
+                         </div>
+                         <!-- /.panel-body -->
+                     </div>
+                     <!-- /.panel -->
+      </div>
+
 </div>
 
 
+<!-- Moderator Panel -->
+<% if current_user.is_moderator? %>
+  <div class ="row">
+    <div class ="col-lg-12 col-md-12 col-sm-12 col-xs-sm">
+      <div class ="panel panel-primary">
+        <div class ="panel-heading">
+          Moderator View
+        </div>
+
+        <div class ="panel-body">
 
 
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                             <div class="panel panel-default">
+                                 <div class="panel-heading">
+                                     Orders Overview
+                                 </div>
+                                 <!-- /.panel-heading -->
+                                 <div class="panel-body">
+                                     <div class="table-responsive">
+                                         <table class="table">
+                                             <thead>
+                                                 <tr>
+                                                     <th>Order Type</th>
+                                                     <th>Total Amount</th>
+
+                                                 </tr>
+                                             </thead>
+                                             <tbody>
+                                                 <tr class="success">
+                                                     <td>Open Order</td>
+                                                     <td><%= count_all_orders_by_status("open") %></td>
+
+                                                 </tr>
+                                                 <tr class="info">
+                                                     <td>Completed</td>
+                                                     <td><%= count_all_orders_by_status("completed") %></td>
+
+                                                 </tr>
+                                                 <tr class="warning">
+                                                     <td>Accepted</td>
+                                                     <td><%= count_all_orders_by_status("accepted") %></td>
+
+                                                 </tr>
+                                                 <tr class="danger">
+                                                     <td>Hidden</td>
+                                                     <td><%= count_all_orders_by_status("hidden") %></td>
+
+                                                 </tr>
+
+                                                 <tr>
+                                                    <td><strong>Total Order</strong></td>
+                                                    <td><strong><%= count_all_orders %></strong></td>
+                                                 </tr>
+                                             </tbody>
+                                         </table>
+                                     </div>
+                                     <!-- /.table-responsive -->
+                                 </div>
+                                 <!-- /.panel-body -->
+                                 <div class="panel-footer">
+
+                                   <div>
+                                     <%= link_to order_requests_show_all_path do %>
+
+                       							       <button type="button" class="btn btn-success btn-lg btn-block"style="text-decoration:none;">View ALL Orders</button>
+                       							<% end %>
+                       						</div>
+
+                                 </div>
+                             </div>
+                             <!-- /.panel -->
+              </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        ALL ORDERS Summary Chart
+                                    </div>
+                                    <!-- /.panel-heading -->
+                                    <div class="panel-body">
+                                      <div class="flot-chart">
+                                           <div class="flot-chart-content" id="bar-example-all"></div>
+                                       </div>
+
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                  </div>
+
+
+        </div>
+
+
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+<% end %>
 <!-- </div> -->
 
 
-<!-- Wil need to explore the ruby to extract the data here  -->
 <script>
-  new Morris.Bar({
+  new Morris.Donut({
   element: 'bar-example',
   data: [
-    { y: '2006', a: 100, b: 90 },
-    { y: '2007', a: 75,  b: 65 },
-    { y: '2008', a: 50,  b: 40 },
-    { y: '2009', a: 75,  b: 65 },
-    { y: '2010', a: 50,  b: 40 },
-    { y: '2011', a: 75,  b: 65 },
-    { y: '2012', a: 100, b: 90 }
-  ],
-  xkey: 'y',
-  ykeys: ['a', 'b'],
-  labels: ['Order Created', 'Order Fulfilled']
+        {label: "Open Order", value: <%= count_orders_by_status(current_user.id, "open") %>,},
+        {label: "Completed", value: <%= count_orders_by_status(current_user.id, "completed") %>},
+        {label: "Accepted", value: <%= count_orders_by_status(current_user.id, "accepted") %>},
+        {label: "Hidden", value: <%= count_orders_by_status(current_user.id, "hidden") %>}
+      ],
+  colors: ["green","blue", "khaki", "red"]
   });
+
+
+
+</script>
+
+
+<script>
+  new Morris.Donut({
+  element: 'bar-example-all',
+  data: [
+        {label: "Open Order", value: <%= count_all_orders_by_status("open") %>},
+        {label: "Completed", value: <%= count_all_orders_by_status("completed") %>},
+        {label: "Accepted", value: <%= count_all_orders_by_status("accepted") %>},
+        {label: "Hidden", value: <%= count_all_orders_by_status("hidden") %>}
+      ],
+  colors: ["green","blue", "khaki", "red"]
+  });
+
+
+
 </script>

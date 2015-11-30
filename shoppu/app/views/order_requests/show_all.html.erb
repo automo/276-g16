@@ -10,8 +10,18 @@
 				<!--******************* -->
 				<div class="panel panel-info" style="margin-bottom: 15px;">
 					<div class="panel-heading">
-						<p><strong><%= i+1 %>.&nbsp;<%= order_request.title %> by <%= order_request.owner.username %>
-						(<%= number_to_currency(order_request.bounty) %>)</strong> <small class="text-muted">Updated <%= time_ago_in_words(order_request.updated_at) %> ago </small></p>
+						<p>
+							<strong><%= i+1 %>.&nbsp;<%= order_request.title %> by
+								<%= order_request.owner.username %>
+								(<%= number_to_currency(order_request.bounty) %>)</strong>
+						</p>
+						<p style="font-family: monospace;">
+							Created: <%= order_request.created_at %>
+							</br>
+							Updated: <%= order_request.updated_at %>
+							</br>
+							Status: <%= order_request.status %>
+						</p>
 					</div>
 					<div class="panel-body">
 						<p class="order_request_sub_title"><strong>Description: </strong></p>
@@ -24,17 +34,21 @@
 						</p>
 						<div style="border: solid 1px #555; padding: 5px; ">
 							<p class="order_request_sub_title"><strong>List of Items: </strong></p>
-							<ol class="order_item">
-								<% order_request.order_items.each do |order_item| %>
-								<li><%= order_item.content %></li>
-								<% end %>
-							</ol>
+							<% if order_request.order_items.empty? %>
+								<i>No order items exist</i>
+							<% else%>
+								<ol class="order_item">
+									<% order_request.order_items.each do |order_item| %>
+									<li><%= order_item.content %></li>
+									<% end %>
+								</ol>
+							<% end %>
 						</div>
 					</div>
 					<div class="panel-footer">
 						<div>
 							<%= link_to order_requests_hide_path(:id => order_request.id) do%>
-							       <button type="button" class="btn btn-success btn-lg btn-block"style="text-decoration:none;">Delete Order</button>
+							       <button type="button" class="btn btn-danger btn-lg btn-block"style="text-decoration:none;">Hide Order</button>
 							<% end %>
 						</div>
 					</div>

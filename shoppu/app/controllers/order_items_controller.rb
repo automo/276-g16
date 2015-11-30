@@ -44,18 +44,33 @@ class OrderItemsController < ApplicationController
   		if @order_item.destroy
   			flash[:success] = "Order item was deleted."
   		else
-  			flash[:error] = "Order item could not be deleted."
+  			flash[:error] = "Order item could not be deleted. [0x0204]"
   		end
     end
 		redirect_to @order_request
 	end
 
   def complete
-		if !@order_item.update_attribute(:completed_at, Time.now)
+		if @order_item.update_attribute(:completed_at, Time.now)
+      # Check if all order_items are complete
+      count_complete = 0
+
+      @order_request.order_items.each do |order_item|
+        if !order_item.completed_at.blank?
+          count_complete += 1
+        end
+      end
+
+      if count_complete == @order_request.order_items.size
+        @order_request.update_attributes(:status => "completed")
+		    redirect_to order_requests_show_all_accepted_path, notice: "Order is complete! Thank you :)"
+      else
+        redirect_to order_requests_show_one_accepted_path(:id => @order_request.id), notice: "Order item completed"
+      end
+    else
       flash[:error] = "Failed to complete item - Please try again [0x0203]"
     end
 
-		redirect_to order_requests_show_one_accepted_path(:id => @order_request.id), notice: "Order item completed"
 	end
 
   private
@@ -80,7 +95,6 @@ class OrderItemsController < ApplicationController
   end
 
   def correct_user
-    # @order_request = current_user.order_requests.find_by_id(params[:id])
     if (@order_request.blank? || @order_item.blank?)
       flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0201]"
       redirect_to root_url

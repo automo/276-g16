@@ -24,22 +24,20 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
 
-  test "successful edit" do
-    log_in_as(@user)
+  test "successful edit, smart forwarding and lowercase username conversion" do
     get edit_user_path(@user)
-    # get edit_user_path(@user)
-    # assert_template 'users/edit'
-    # assert_redirected_to edit_user_path(@user)
-    name  = "robbie123"
-    email = "sfu@example.com"
-    patch user_path(@user), user: { username: name,
-                                    email: email ,
+    log_in_as(@user)
+    assert_redirected_to edit_user_path(@user)
+    new_username  = "Test Name"
+    new_email = "hello@example.com"
+    patch user_path(@user), user: { username: new_username,
+                                    email: new_email,
                                     password: "",
                                     password_confirmation: "" }
     #assert_not flash.empty?
     #assert_redirected_to @user
     @user.reload
-    assert_equal name, @user.username
-    assert_equal email, @user.email
+    assert_equal new_username.downcase, @user.username
+    assert_equal new_email, @user.email
   end
 end

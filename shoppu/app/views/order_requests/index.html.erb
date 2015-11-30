@@ -8,8 +8,9 @@
 			<!-- Adding the header of the table here -->
 			<thead>
 				<tr>
-					<th>ORDER <small class="text-muted">Click on the order to view the details</small></th>
-					<th>Description</th>
+					<th style="width:30%">ORDER <small class="text-muted">Click on the order to view the details</small></th>
+					<th style="width:55%">Description</th>
+					<th style="width:15%">Status</th> <!-- add a color-coded status column -A */ -->
 				</tr>
 			</thead>
 			<tbody>
@@ -22,7 +23,31 @@
 				-->
 				<tr>
 					<td> <%= link_to order_request.title, order_request %></td>
-					<td><%= order_request.description %></td>
+					<td>
+						<% if order_request.description.blank? %>
+							<i>No description given</i>
+						<% else %>
+							<%= order_request.description %>
+						<% end %>
+					</td>
+					<!--the following shows the colorcoded status -A*/-->
+					<% if order_request.status=="open" %>
+						<td style="background-color:#458B00">
+							<i style="color:#FFFFFF">OPEN</i>
+						</td>
+					<% elsif order_request.status=="accepted" %>
+						<td style="background-color:#FBDB0C">
+							<i style="color:#FFFFFF">ACCEPTED</i>
+						</td>
+					<% elsif order_request.status=="completed" %>
+						<td style="background-color:#8B8989">
+							<i style="color:#FFFFFF">COMPLETED</i>
+						</td>
+					<% else %>
+						<td style="background-color:#E3170D">
+							<i style="color:#FFFFFF">HIDDEN</i>
+						</td>
+					<% end %>
 				</tr>
 				<% end %>
 			</tbody>

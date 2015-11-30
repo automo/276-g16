@@ -17,19 +17,20 @@
 		<% if @order_request.servicer_id == current_user.id %>
 		<!-- Maybe we can add an "uncomplete" button here? -->
 			<div class="complete" style="text-align:right;">
-				<%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
-					<button type="button" class="btn btn-success"><i class="fa fa-check"></i>
+				<!-- <#%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %> -->
+					<button type="button" class="btn btn-success" style="visibility:hidden;"><i class="fa fa-check"></i>
 					</button>
-				<% end %>
+				<!-- <#% end %> -->
 			</div>
 		<% else %>
 			<div class="trash" style="text-align:right;">
-				<%= link_to order_request_order_item_path(@order_request, order_item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
-					<button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash"></i>
+				<!-- <#%= link_to order_request_order_item_path(@order_request, order_item.id), method: :delete, data: { confirm: "Are you sure?" } do %> -->
+					<button type="button" class="btn btn-danger btn-circle" style="visibility:hidden;"><i class="fa fa-trash"></i>
 					</button>
-				<% end %>
+				<!-- <#% end %> -->
 			</div>
 		<% end %>
+	<!-- else if order_item is not completed -->
 	<% else %>
 		<div class="order_item">
 			<p style="float:left;"><%= order_item.content %></p>
