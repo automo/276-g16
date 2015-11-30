@@ -19,12 +19,12 @@
 								<%= @order_request.description %>
 							<% end %>
 						</p>
-
-						<%= form_for(@order_request) do |f| %>
-							<%= f.text_field :description, value: "", placeholder: "Enter Description", class: "form-control" %>
-							<%= f.submit "Save changes", class: "btn btn-success btn-block"%>
-						<% end %>
-
+						<!--
+						<#%= form_for(@order_request) do |f| %>
+							<#%= f.text_field :description, value: "", placeholder: "Enter Description", class: "form-control" %>
+							<#%= f.submit "Save changes", class: "btn btn-success btn-block"%>
+						<#% end %>
+					-->
 						<br>
 						<p><strong>Delivery Address:</strong></p>
 						<p><%= @order_request.owner.address %></p>
