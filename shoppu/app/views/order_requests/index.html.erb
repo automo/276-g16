@@ -22,7 +22,13 @@
 				-->
 				<tr>
 					<td> <%= link_to order_request.title, order_request %></td>
-					<td><%= order_request.description %></td>
+					<td>
+						<% if order_request.description.blank? %>
+							<i>No description given</i>
+						<% else %>
+							<%= order_request.description %>
+						<% end %>
+					</td>
 				</tr>
 				<% end %>
 			</tbody>
