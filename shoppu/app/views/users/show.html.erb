@@ -2,15 +2,6 @@
 
 <!-- Demo of getting status counts of current user's orders -->
 <!-- Delete before submission -->
-Open order count is <%= getOpenCount(current_user.id) %>
-<br>
-Hidden order count is <%= getHiddenCount(current_user.id) %>
-<br>
-Completed order count is <%= getCompletedCount(current_user.id) %>
-<br>
-Accepted order count is <%= getAcceptedCount(current_user.id) %>
-<br>
-Total orders by current user is <%= current_user.owned_orders.size %>
 
 <div class="mobileview">
 
@@ -115,32 +106,95 @@ Total orders by current user is <%= current_user.owned_orders.size %>
   </div>
 </div>
 
-<h5>This is a sample graph for order created and fulfilled by the user</h5>
-<p>Not implemented yet  for iteration 3 </p>
-<div  id="bar-example">
+
+<div class ="row">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Order Summary Chart
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                          <div class="flot-chart">
+                               <div class="flot-chart-content" id="bar-example"></div>
+                           </div>
+
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+  </div>
+
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                     <div class="panel panel-default">
+                         <div class="panel-heading">
+                             Orders Owned by Me
+                         </div>
+                         <!-- /.panel-heading -->
+                         <div class="panel-body">
+                             <div class="table-responsive">
+                                 <table class="table">
+                                     <thead>
+                                         <tr>
+                                             <th>Order Type</th>
+                                             <th>Total Amount</th>
+
+                                         </tr>
+                                     </thead>
+                                     <tbody>
+                                         <tr class="success">
+                                             <td>Open Order</td>
+                                             <td><%= getOpenCount(current_user.id) %></td>
+
+                                         </tr>
+                                         <tr class="info">
+                                             <td>Completed</td>
+                                             <td><%= getCompletedCount(current_user.id) %></td>
+
+                                         </tr>
+                                         <tr class="warning">
+                                             <td>Accepted</td>
+                                             <td><%= getAcceptedCount(current_user.id) %></td>
+
+                                         </tr>
+                                         <tr class="danger">
+                                             <td>Hidden</td>
+                                             <td><%= getHiddenCount(current_user.id) %></td>
+
+                                         </tr>
+
+                                         <tr>
+                                            <td><strong>Total Order</strong></td>
+                                            <td><strong><%= current_user.owned_orders.size %></strong></td>
+                                         </tr>
+                                     </tbody>
+                                 </table>
+                             </div>
+                             <!-- /.table-responsive -->
+                         </div>
+                         <!-- /.panel-body -->
+                     </div>
+                     <!-- /.panel -->
+      </div>
+
 </div>
-
-
-
 
 <!-- </div> -->
 
 
 <!-- Wil need to explore the ruby to extract the data here  -->
 <script>
-  new Morris.Bar({
+  new Morris.Donut({
   element: 'bar-example',
   data: [
-    { y: '2006', a: 100, b: 90 },
-    { y: '2007', a: 75,  b: 65 },
-    { y: '2008', a: 50,  b: 40 },
-    { y: '2009', a: 75,  b: 65 },
-    { y: '2010', a: 50,  b: 40 },
-    { y: '2011', a: 75,  b: 65 },
-    { y: '2012', a: 100, b: 90 }
-  ],
-  xkey: 'y',
-  ykeys: ['a', 'b'],
-  labels: ['Order Created', 'Order Fulfilled']
+        {label: "Open Order", value: <%= getOpenCount(current_user.id) %>,},
+        {label: "Completed", value: <%= getCompletedCount(current_user.id) %>},
+        {label: "Accepted", value: <%= getAcceptedCount(current_user.id) %>},
+        {label: "Hidden", value: <%= getHiddenCount(current_user.id) %>}
+      ],
+  colors: ["green","blue", "khaki", "red"]
   });
+
+
+
 </script>
