@@ -1,1 +1,5 @@
+# Ignore diagram temporary file
 *.dia~
+
+# Ignore application configuration
+shoppu/config/application.yml
