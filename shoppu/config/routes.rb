@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'order_requests/show_all' => 'order_requests#show_all'
   get 'order_requests/show_open' => 'order_requests#show_open'
   get 'order_requests/show_all_accepted' => 'order_requests#show_all_accepted'
+  get 'order_requests/show_all_completed' => 'order_requests#show_all_completed'
   get 'order_requests/show_one_accepted' => 'order_requests#show_one_accepted'
   get 'order_requests/hide' => 'order_requests#hide'
 

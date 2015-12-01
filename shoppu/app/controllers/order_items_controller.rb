@@ -4,34 +4,15 @@ class OrderItemsController < ApplicationController
 
   before_action except: [:complete] do
     set_order_request("owner")
-    # set_order_item #("owner")
   end
 
   before_action only: [:complete] do
     set_order_request("servicer")
-    # set_order_item #("servicer")
   end
 
   before_action :set_order_item
 
   before_action :correct_user, except: [:create]
-
-
-  # before_action only: [:destroy] do
-  #   correct_user("owner")
-  # end
-  #
-  # before_action only: [:complete] do
-  #   correct_user("servicer")
-  # end
-  # before_action :debug
-  #
-  # def debug
-  #   render :text => @order_request.inspect
-  # end
-
-  # def show
-  # end
 
   def create
     # @order_request = current_user.owned_orders.find_by(id: params[:id])
@@ -64,7 +45,7 @@ class OrderItemsController < ApplicationController
 
       if count_complete == @order_request.order_items.size
         @order_request.update_attributes(:status => "completed")
-		    redirect_to order_requests_show_all_accepted_path, notice: "Order is complete! Thank you :)"
+		    redirect_to order_requests_show_all_completed_path, notice: "Order is complete! Thank you :)"
       else
         redirect_to order_requests_show_one_accepted_path(:id => @order_request.id), notice: "Order item completed"
       end

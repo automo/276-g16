@@ -13,7 +13,7 @@ class OrderRequestsController < ApplicationController
     set_order_request("from_servicer")
   end
 
-  before_action :correct_user, only: [:show, :update, :destroy]
+  # before_action :correct_user, only: [:show, :update, :destroy]
 
   before_action :correct_admin, only: [:hide, :show_all]
 
@@ -40,7 +40,7 @@ class OrderRequestsController < ApplicationController
 
   # For users who are servicers
   def show_all_accepted
-    set_all_accepted
+    set_all("accepted")
   end
 
   # For user who is a servicer
@@ -48,10 +48,15 @@ class OrderRequestsController < ApplicationController
   end
 
   # For user who is a servicer
+  def show_all_completed
+    set_all("completed")
+  end
+
+  # For user who is a servicer
   def accept
     if @order_request.update_attributes(:servicer_id => current_user.id, :status => "accepted")
-      flash[:success] = 'Order request was successfully updated.'
-      set_all_accepted
+      flash[:success] = 'Order request was successfully accepted.'
+      set_all("accepted")
       render('show_all_accepted')
     else
       flash[:error] = "Failed to accept order - Please try again [0x0103]"
@@ -141,20 +146,20 @@ class OrderRequestsController < ApplicationController
       end
     end
 
-    def set_all_accepted
-      # Selects order requests which are serviced by current_user
+    # Selects order requests of a certain status which are serviced by current_user
+    def set_all(status_type)
       @order_requests = OrderRequest.select { |order_request| \
-                        order_request.status == "accepted" && \
+                        order_request.status == status_type && \
                         order_request.servicer_id == current_user.id}
     end
 
-    def correct_user
-      # @order_request = current_user.order_requests.find_by_id(params[:id])
-      if (@order_request.blank?)
-        flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0101]"
-        redirect_to root_url
-      end
-    end
+    # def correct_user
+    #   # @order_request = current_user.order_requests.find_by_id(params[:id])
+    #   if (@order_request.blank?)
+    #     flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0101]"
+    #     redirect_to root_url
+    #   end
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_request_params
