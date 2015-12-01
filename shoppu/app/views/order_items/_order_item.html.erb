@@ -30,14 +30,7 @@
 				<!-- <#% end %> -->
 			</div>
 		<% end %>
-
-		<% if order_item.photo.file? %>
-			<!-- <#%= image_tag order_item.photo.url(:small) %> -->
-			<%= link_to image_tag(order_item.photo.url(:small)), order_item.photo.url(:original) %>
-		<% end %>
-
-	<!-- else if order_item is not completed -->
-	<% else %>
+	<% else %> <!-- else if order_item is not completed -->
 		<div class="order_item">
 			<p style="float:left;"><%= order_item.content %></p>
 		</div>
@@ -56,12 +49,11 @@
 				<% end %>
 			</div>
 		<% end %>
-
-	<% if order_item.photo.file? %>
-		<!-- <%#= image_tag order_item.photo.url(:small) %> -->
-		<%= link_to image_tag(order_item.photo.url(:small)), order_item.photo.url(:original) %>
 	<% end %>
-
-
+	<% if order_item.photo.file? %>
+		<div>
+			<%= link_to image_tag(order_item.photo.url(:small), class: "small_image"), order_item.photo.url(:original) %>
+		</div>
+		<br>
 	<% end %>
 </div>
