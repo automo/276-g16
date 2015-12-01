@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    log_out if logged_in?
     @user = User.new
   end
 
