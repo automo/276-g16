@@ -247,34 +247,12 @@ $dark: #1F7972;
     border-color: #ccc;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
     color: #2d3033;
 		font-weight: bold;
 		font-size: 15px;
     background-color: #fff568;
     border-color: #ccc;
 }
-
-/*.btn-light {
-    border-radius: 0;
-    color: #fff;
-    background-color: #0aa0d9;
-}
-
-.btn-light:hover {
-    border-radius: 0;
-    color: #2d3033;
-    background-color: #fff568;
-}
-
-.btn-dark {
-    border-radius: 0;
-    color: #fff;
-    background-color: #0aa0d9;
-}
-
-.btn-dark:hover {
-    border-radius: 0;
-    color: #2d3033;
-    background-color: #fff568;
-}*/
