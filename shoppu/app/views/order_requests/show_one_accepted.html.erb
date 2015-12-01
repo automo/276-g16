@@ -1,42 +1,5 @@
 <% provide(:title, @order_request.title) %>
 <!-- Styling in static_page.css -->
-<!--
-<div class="row clearfix" id ="">
-	<div class="col-lg-4">
-		<div class= "panel panel-info">
-			<div class= "panel-heading">Order Information for <%= @order_request.title %></div>
-			<#% @order_request.order_items.each do |order_item| %>
-				<div class ="panel-body">
-					<#% if order_item.completed? %>
-						<div class="order_item pull-left">
-							<p style="opacity: 0.4;"><strike><#%= order_item.content %></strike></p>
-						</div>
-						<!-- <div class="complete pull-right">
-							<%#= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
-							<%#= link_to "#", {:controller => :order_items, :action => :complete, :order_request_id => @order_request.id, :id => order_item.id}, method: :patch do %>
-								<button type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i>
-								</button>
-							<%# end %>
-						</div> -->
-<!--
-					<#% else %>
-						<div class="complete pull-right">
-							<#%= link_to complete_order_request_order_item_path(@order_request, order_item.id), method: :patch do %>
-								<button type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>
-							<#% end %>
-						</div>
-						<div class="order_item">
-							<p><#%= order_item.content %></p>
-						</div>
-					<#% end %>
-				</div>
-			<#% end %>
-		</div>
-	</div>
-</div>
--->
-<!-- Reviced version of the code above -->
-
 <div class= "container">
 	<div class="panel-default">
 		<h1>Current Accepted Order:</h1>
@@ -62,6 +25,9 @@
 						<!--  Use Table to organize the item and the buttons, Styling of the table will be in custom.css-->
 						<div style="border: solid 1px #555; padding: 5px; ">
 							<%= render @order_request.order_items %>
+						</div>
+						<div class="links">
+							<%= link_to 'Back', order_requests_show_all_accepted_path %>
 						</div>
 					</div>
 				</div>

@@ -4,7 +4,7 @@
 		<h1>Available Orders:</h1>
 
 		<% if @order_requests.blank? %>
-			<h2 style="font-size:2em">No orders available - Please check back later</h2>
+			<h3>No orders available - Please check back later</h3>
 		<% else %>
 
 		<div style='width: 100%;'>
@@ -57,7 +57,7 @@
 			<% end %>
 		<% end %>
 		<div class="links">
-			<%= link_to 'Back', user_path(current_user) %>
+			<%= link_to 'Back to profile', user_path(current_user) %>
 		</div>
 	</div>
 </div>
