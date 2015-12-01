@@ -61,27 +61,27 @@ h2{
 .btn-dark {
 	border-radius: 0;
 	color: #fff;
-	background-color: rgba(0,0,0,0.4);
+	background-color: rgba(0,0,0,0.3);
 }
 
 .btn-dark:hover,
 .btn-dark:focus,
 .btn-dark:active {
 	color: #fff;
-	background-color: rgba(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.5);
 }
 
 .btn-light {
 	border-radius: 0;
 	color: #333;
-	background-color: rgb(255,255,255);
+	background-color: rgba(255,255,255,0.8);
 }
 
 .btn-light:hover,
 .btn-light:focus,
 .btn-light:active {
 	color: #333;
-	background-color: rgba(255,255,255,0.8);
+	background-color: rgb(255,255,255);
 }
 
 /* Custom Horizontal Rule */
@@ -240,41 +240,41 @@ $dark: #1F7972;
 }
 
 .btn-primary {
-    color: #2d3033;
+    color: #fff;
     font-weight: bold;
 		font-size: 15px;
-    background-color: #fff568;
+    background-color: #0aa0d9;
     border-color: #ccc;
 }
 
 .btn-primary:hover {
-    color: #fff;
+    color: #2d3033;
 		font-weight: bold;
 		font-size: 15px;
-    background-color: #0aa0d9;
+    background-color: #fff568;
     border-color: #ccc;
 }
 
-.btn-light {
+/*.btn-light {
     border-radius: 0;
-    color: #2d3033;
-    background-color: #fff568;
+    color: #fff;
+    background-color: #0aa0d9;
 }
 
 .btn-light:hover {
     border-radius: 0;
-    color: #fff;
-    background-color: #0aa0d9;
+    color: #2d3033;
+    background-color: #fff568;
 }
 
 .btn-dark {
     border-radius: 0;
     color: #fff;
-    background-color: #2d3033;
+    background-color: #0aa0d9;
 }
 
 .btn-dark:hover {
     border-radius: 0;
-    color: #fff;
-    background-color: #0aa0d9;
-}
+    color: #2d3033;
+    background-color: #fff568;
+}*/
