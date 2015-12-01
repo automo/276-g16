@@ -10,6 +10,7 @@
 		<div style='width: 100%;'>
 			<div id="geolocation" style='height: 400px;'></div>
 		</div>
+		<p class ="text-muted"><small>Please click zoom out if there is no open order shown</small></p>
 
 			<% @order_requests.each_with_index do |order_request, i| %>
 				<!-- map javascript here-->
@@ -82,7 +83,12 @@ handler.buildMap({ internal: {id: 'geolocation'} }, function(){
  	]);
 
 
-  	handler.getMap().setZoom(15);
+
+		handler.bounds.extendWith(markers);
+  	handler.fitMapToBounds();
+		if(navigator.geolocation)
+	    navigator.geolocation.getCurrentPosition(displayOnMap);
+
 });
 
 function displayOnMap(position){
