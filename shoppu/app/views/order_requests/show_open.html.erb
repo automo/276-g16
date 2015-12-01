@@ -16,7 +16,7 @@
 				<!--******************* -->
 				<div class="panel panel-info" style="margin-bottom: 15px;" id ="<%=i%>" >
 					<div class="panel-heading">
-						<p><strong><%= i+1 %>.&nbsp;<%= link_to order_request.title, {:controller => :order_requests, :action => :accept, :id => order_request.id} %> by <%= order_request.owner.username %>
+						<p><strong><%= i+1 %>.&nbsp;<%= order_request.title %> by <%= order_request.owner.username %>
 						(<%= number_to_currency(order_request.bounty) %>)</strong> <small class="text-muted">Updated <%= time_ago_in_words(order_request.updated_at) %> ago </small></p>
 					</div>
 					<div class="panel-body">
@@ -74,7 +74,7 @@ handler.buildMap({ internal: {id: 'geolocation'} }, function(){
 
 		var markers = handler.addMarkers([
 			<% @order_requests.each_with_index do |order_request, i| %>
-				{ lat: <%= order_request.latitude %>, lng: <%= order_request.longitude %>, infowindow: "<a href='#<%=i%>'><%=order_request.owner.username%></a> <br/><%=order_request.address%>",},
+				{ lat: <%= order_request.latitude %>, lng: <%= order_request.longitude %>, infowindow: "<a href='#<%=i%>'><%= order_request.title%> by <%=order_request.owner.username%></a> <br/><%=order_request.address%>",},
 
 			<% end %>
 
