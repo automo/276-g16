@@ -82,12 +82,9 @@ handler.buildMap({ internal: {id: 'geolocation'} }, function(){
 
  	]);
 
-
-
-		handler.bounds.extendWith(markers);
-  	handler.fitMapToBounds();
 		if(navigator.geolocation)
 	    navigator.geolocation.getCurrentPosition(displayOnMap);
+
 
 });
 
@@ -107,5 +104,6 @@ function displayOnMap(position){
 
   });
   handler.map.centerOn(marker);
+	 handler.getMap().setZoom(15);
 };
 </script>
