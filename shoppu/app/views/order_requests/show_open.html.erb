@@ -83,15 +83,19 @@ handler.buildMap({ internal: {id: 'geolocation'} }, function(){
 
  	]);
 
-	handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-  	handler.getMap().setZoom(10);
+
+  	handler.getMap().setZoom(15);
 });
 
 function displayOnMap(position){
   var marker = handler.addMarker({
     lat: position.coords.latitude,
     lng: position.coords.longitude,
+		picture: {
+			url: "http://mt.googleapis.com/maps/vt/icon/name=icons/spotlight/spotlight-waypoint-a.png&text=A&psize=16&font=fonts/Roboto-Regular.ttf&color=ff333333&ax=44&ay=48&scale=1",
+			width:  36,
+			height: 36
+		},
 
 		"infowindow": "You're Here"
 
