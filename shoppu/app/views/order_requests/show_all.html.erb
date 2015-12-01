@@ -45,10 +45,10 @@
 											<div>
 												<%= link_to image_tag(order_item.photo.url(:small), class: "small_image"), order_item.photo.url(:original) %>
 											</div>
-											<br>
 										<% else %>
 											<i>No image provided</i>
 										<% end %>
+										<br>
 									<% end %>
 								</ol>
 							<% end %>
