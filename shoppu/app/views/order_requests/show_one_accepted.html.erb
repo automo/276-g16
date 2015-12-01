@@ -56,7 +56,7 @@
 						<% end %>
 
 						<p><strong>Address for Delivery: </strong></p>
-						<p><%= @order_request.owner.address %></p>
+						<p><%= @order_request.address %></p>
 
 						<p><strong>Shopping List:</strong></p>
 						<!--  Use Table to organize the item and the buttons, Styling of the table will be in custom.css-->
@@ -77,7 +77,7 @@
 
 	function calcRoute(position) {
 	  var origin      = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	  var destination = new google.maps.LatLng(<%= @order_request.owner.latitude %>, <%= @order_request.owner.longitude %>);
+	  var destination = new google.maps.LatLng(<%= @order_request.latitude %>, <%= @order_request.longitude %>);
 	  var request = {
 	      origin:      origin,
 	      destination: destination,

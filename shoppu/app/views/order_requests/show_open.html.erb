@@ -34,7 +34,7 @@
 							<% end %>
 						</p>
 						<p><strong>Address for Delivery:</strong></p>
-						<p><%= order_request.owner.address%></p>
+						<p><%= order_request.address%></p>
 
 						<div style="border: solid 1px #555; padding: 5px; ">
 							<p class="order_request_sub_title"><strong>List of Items: </strong></p>
@@ -76,7 +76,7 @@ handler.buildMap({ internal: {id: 'geolocation'} }, function(){
 
 		var markers = handler.addMarkers([
 			<% @order_requests.each_with_index do |order_request, i| %>
-				{ lat: <%= order_request.owner.latitude %>, lng: <%= order_request.owner.longitude %>, infowindow: "<a href='#<%=i%>'><%=order_request.owner.username%></a> <br/><%=order_request.owner.address%>",},
+				{ lat: <%= order_request.latitude %>, lng: <%= order_request.longitude %>, infowindow: "<a href='#<%=i%>'><%=order_request.owner.username%></a> <br/><%=order_request.address%>",},
 
 			<% end %>
 
