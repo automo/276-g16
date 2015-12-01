@@ -39,7 +39,13 @@
 							<% else%>
 								<ol class="order_item">
 									<% order_request.order_items.each do |order_item| %>
-									<li><%= order_item.content %></li>
+										<li><%= order_item.content %></li>
+										<% if order_item.photo.file? %>
+											<div>
+												<%= link_to image_tag(order_item.photo.url(:small), class: "small_image"), order_item.photo.url(:original) %>
+											</div>
+											<br>
+										<% end %>
 									<% end %>
 								</ol>
 							<% end %>
