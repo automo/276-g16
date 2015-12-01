@@ -8,8 +8,6 @@ one:
   address: "1234 123St, XY, A1A 1A1 Canada"
   service_rating: 1
   status: MyString
-  # owner_id: 1
-  # servicer_id: 1
   description: MyText
   owner: UserTwo
   servicer: UserOne
@@ -22,8 +20,6 @@ two:
   address: "1234 123St, XY, A1A 1A1 Canada"
   service_rating: 1
   status: MyString
-  # owner_id: 1
-  # servicer_id: 1
   description: MyText
   owner: UserTwo
   servicer: UserOne
@@ -36,8 +32,6 @@ test_list:
   address: "1234 123St, XY, A1A 1A1 Canada"
   service_rating: 1
   status: MyString
-  # owner_id: 1
-  # servicer_id: 1
   created_at: <%= 10.minutes.ago %>
   owner: UserTwo
   servicer: UserOne
@@ -50,8 +44,6 @@ walmart_list:
   address: "1234 123St, XY, A1A 1A1 Canada"
   service_rating: 2
   status: closed
-  # owner_id: 1
-  # servicer_id: 1
   created_at: <%= 3.years.ago %>
   owner: UserTwo
   servicer: UserOne
@@ -64,8 +56,6 @@ hardware_stuff:
   address: "1234 123St, XY, A1A 1A1 Canada"
   service_rating: 5
   status: closed
-  # owner_id: 2
-  # servicer_id: 1
   created_at: <%= 2.hours.ago %>
   owner: UserTwo
   servicer: UserOne
@@ -78,8 +68,6 @@ most_recent:
   address: "1234 123St, XY, A1A 1A1 Canada"
   service_rating: 1
   status: open
-  # owner_id: 2
-  # servicer_id: 1
   created_at: <%= Time.zone.now %>
   owner: UserTwo
   servicer: UserOne

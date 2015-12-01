@@ -11,6 +11,21 @@ class OrderRequestTest < ActiveSupport::TestCase
     assert @order_request.valid?
   end
 
+  test "order_request bounty cannot be negative" do
+    @order_request.bounty = -1
+    assert_not @order_request.valid?
+  end
+
+  test "order_request bounty should be present" do
+    @order_request.bounty = nil
+    assert_not @order_request.valid?
+  end
+
+  test "order_request address should be present" do
+    @order_request.address = nil
+    assert_not @order_request.valid?
+  end
+
   test "owner id should be present" do
     @order_request.owner_id = nil
     assert_not @order_request.valid?
