@@ -59,7 +59,7 @@ h4{
   margin-top: 30px;
   text-align: center;
   font-weight: normal;
-  font-style: italic;
+  // font-style: italic;
 }
 
 h5{
@@ -509,4 +509,8 @@ td a:hover{
   width: 100%;
   height: 400px;
 
+}
+
+.small_image {
+  border: 1px solid black;
 }

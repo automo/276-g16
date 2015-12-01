@@ -11,8 +11,8 @@
  * file per style scope.
  *
  *= require_tree .
- *= require_self
  *= require bootstrap.min
+ *= require_self
  * // ~K
  *= stub 'order_requests.scss'
  */
@@ -237,4 +237,44 @@ $dark: #1F7972;
   border-top: 1px solid #eaeaea;
   color: #777;
 
+}
+
+.btn-primary {
+    color: #2d3033;
+    font-weight: bold;
+		font-size: 15px;
+    background-color: #fff568;
+    border-color: #ccc;
+}
+
+.btn-primary:hover {
+    color: #fff;
+		font-weight: bold;
+		font-size: 15px;
+    background-color: #0aa0d9;
+    border-color: #ccc;
+}
+
+.btn-light {
+    border-radius: 0;
+    color: #2d3033;
+    background-color: #fff568;
+}
+
+.btn-light:hover {
+    border-radius: 0;
+    color: #fff;
+    background-color: #0aa0d9;
+}
+
+.btn-dark {
+    border-radius: 0;
+    color: #fff;
+    background-color: #2d3033;
+}
+
+.btn-dark:hover {
+    border-radius: 0;
+    color: #fff;
+    background-color: #0aa0d9;
 }
