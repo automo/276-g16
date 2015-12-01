@@ -13,7 +13,7 @@ class OrderItemsControllerTest < ActionController::TestCase
 
   test "should create order_item" do
     assert_difference('OrderItem.count') do
-      post :create, article: {content: 'Hi'}
+      post :create, order_item: {content: 'Hi'}
     end
     assert_redirected_to order_request_path
     assert_equal 'Order item was added.', flash[:success]
@@ -21,11 +21,11 @@ class OrderItemsControllerTest < ActionController::TestCase
 
   test "should destroy order_item" do
     assert_difference('OrderItem.count',-1) do
-      delete :destroy, id: @order_item.id
+      delete :destroy, id: @order_item
     end
     assert_redirected_to order_request_path
     assert_equal 'Order item was deleted.', flash[:success]
   end
 
-  
+
 end
