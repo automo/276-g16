@@ -7,4 +7,8 @@ class OrderRequest < ActiveRecord::Base
   default_scope -> { order(created_at: :desc) }
   belongs_to :servicer, :class_name => "User"
 
+  validates :address, presence: true
+  geocoded_by :address
+  after_validation :geocode
+
 end

@@ -31,7 +31,7 @@
 						</p>
 
 						<p><strong>Delivery Address:</strong></p>
-						<p><%= @order_request.owner.address %></p>
+						<p><%= @order_request.address %></p>
 						<p><strong>Shopping List:</strong></p>
 						<!--  Use Table to organize the item and the buttons, Styling of the table will be in custom.css-->
 						<% if (@order_request.order_items.size > 0) %>
@@ -76,8 +76,8 @@
 	handler.buildMap({ provider: {}, internal: {id: 'directions'}}, function(){
 		markers = handler.addMarkers([
 				{
-					"lat": <%= @order_request.owner.latitude %>,
-					"lng": <%= @order_request.owner.longitude %>,
+					"lat": <%= @order_request.latitude %>,
+					"lng": <%= @order_request.longitude %>,
 
 					"infowindow": "<%= @order_request.owner.address %>"
 				}

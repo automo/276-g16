@@ -34,6 +34,13 @@
 			<%= f.label :deliver_by %><br>
 			<%= f.datetime_select :deliver_by %>
 	</div> -->
+
+	<%= f.label :address %>
+	<p class ="text-muted" style="text-align:left;"><small>Example, 1234 Abc Street, City, State/Province, Country</small></p>
+	<div>
+		<%= f.text_field :address, class: 'field', :required => true,value: @order_request.owner.address %>
+	</div>
+
 	<%= f.label :description %>
 	<div>
 		<%= f.text_field :description, class: 'field' %>
@@ -44,6 +51,6 @@
 			<%= f.text_area :description %>
 	</div> -->
 	<div class="actions">
-		<%= f.submit %>
+		<%= f.submit  %>
 	</div>
 <% end %>

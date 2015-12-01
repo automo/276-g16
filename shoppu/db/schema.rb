@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130045642) do
+ActiveRecord::Schema.define(version: 20151201065052) do
 
   create_table "order_items", force: :cascade do |t|
-    t.string   "status",             default: "open", null: false
-    t.text     "content",                             null: false
+    t.string   "status",             default: "open"
+    t.text     "content"
     t.integer  "order_request_id",                    null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(version: 20151130045642) do
     t.text     "description"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "order_requests", ["owner_id"], name: "index_order_requests_on_owner_id"

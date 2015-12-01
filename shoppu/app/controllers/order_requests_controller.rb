@@ -166,7 +166,7 @@ class OrderRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_request_params
-      params.require(:order_request).permit(:title, :bounty, :deliver_by, :accepted_at, :service_rating, :status, :description)
+      params.require(:order_request).permit(:title, :bounty, :deliver_by, :accepted_at, :service_rating, :status, :description, :address,:longitude,:latitude)
     end
 
     def correct_admin
