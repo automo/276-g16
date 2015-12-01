@@ -1,9 +1,14 @@
 ** color hex codes **
-yellow:     fff568
-blue:       0c98cf
-light blue: 0aa0d9
-grey:       6c6e70
-dark-grey:  2d3033
+yellow:       fff568
+blue:         0c98cf
+light blue:   0aa0d9
+light grey:   f1f1f1
+grey:         6c6e70
+dark-grey:    2d3033
+gree-stat:    458B00
+red-stat:     E3170D
+grey-stat:    8B8989
+yellow-stat:  FBDB0C
 
 ** info **
 satinweave.png can be used as background texture for plain pages
