@@ -36,9 +36,9 @@
 	</div> -->
 
 	<%= f.label :address %>
-	<p class ="text-muted" style="text-align:left;"><small>Example, 1234 Abc Street, City, State/Province, Country</small></p>
+	<p class ="text-muted" style="text-align:left;"><small>Example: 1234 Abc Street, City, State/Province, Country</small></p>
 	<div>
-		<%= f.text_field :address, class: 'field', :required => true,value: @order_request.owner.address %>
+		<%= f.text_field :address, class: 'field', :required => true, value: @order_request.owner.address %>
 	</div>
 
 	<%= f.label :description %>

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
-# root 'order_requests#index'
   root             'static_pages#home'
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
@@ -22,20 +21,13 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   get 'order_requests/accept' => 'order_requests#accept'
-  get 'order_requests/reset' => 'order_requests#reset_accepted' #DELETE BEFORE SUBMISSION
   get 'order_requests/show_all' => 'order_requests#show_all'
   get 'order_requests/show_open' => 'order_requests#show_open'
   get 'order_requests/show_all_accepted' => 'order_requests#show_all_accepted'
   get 'order_requests/show_one_accepted' => 'order_requests#show_one_accepted'
   get 'order_requests/hide' => 'order_requests#hide'
 
-  resources :users #do
-  # # Used to enable paths of this format: /users/<user.id>/<action>
-  #   member do
-  #     post :open_order_requests
-  #     post :accept_order_request
-  #   end
-  # end
+  resources :users
 
   resources :password_resets, only: [:new, :create, :edit, :update]
 

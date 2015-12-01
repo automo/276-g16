@@ -1,8 +1,5 @@
 <% provide(:title, @user.username) %>
 
-<!-- Demo of getting status counts of current user's orders -->
-<!-- Delete before submission -->
-
 <div class="mobileview">
 
 <div class="row">
@@ -113,7 +110,7 @@
   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Order Summary Chart
+                            My Orders by Status
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -130,7 +127,7 @@
   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                      <div class="panel panel-default">
                          <div class="panel-heading">
-                             Orders Owned by Me
+                             Orders Overview
                          </div>
                          <!-- /.panel-heading -->
                          <div class="panel-body">
@@ -138,14 +135,13 @@
                                  <table class="table">
                                      <thead>
                                          <tr>
-                                             <th>Order Type</th>
-                                             <th>Total Amount</th>
-
+                                             <th>Order Status</th>
+                                             <th>Count</th>
                                          </tr>
                                      </thead>
                                      <tbody>
                                          <tr class="success">
-                                             <td>Open Order</td>
+                                             <td>Open</td>
                                              <td><%= count_orders_by_status(current_user.id, "open") %></td>
 
                                          </tr>
@@ -166,7 +162,7 @@
                                          </tr>
 
                                          <tr>
-                                            <td><strong>Total Order</strong></td>
+                                            <td><strong>Total</strong></td>
                                             <td><strong><%= current_user.owned_orders.size %></strong></td>
                                          </tr>
                                      </tbody>
@@ -205,14 +201,13 @@
                                          <table class="table">
                                              <thead>
                                                  <tr>
-                                                     <th>Order Type</th>
-                                                     <th>Total Amount</th>
-
+                                                    <th>Order Status</th>
+                                                    <th>Count</th>
                                                  </tr>
                                              </thead>
                                              <tbody>
                                                  <tr class="success">
-                                                     <td>Open Order</td>
+                                                     <td>Open</td>
                                                      <td><%= count_all_orders_by_status("open") %></td>
 
                                                  </tr>
@@ -233,7 +228,7 @@
                                                  </tr>
 
                                                  <tr>
-                                                    <td><strong>Total Order</strong></td>
+                                                    <td><strong>Total</strong></td>
                                                     <td><strong><%= count_all_orders %></strong></td>
                                                  </tr>
                                              </tbody>
@@ -259,7 +254,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        ALL ORDERS Summary Chart
+                                        All Orders by Status
                                     </div>
                                     <!-- /.panel-heading -->
                                     <div class="panel-body">
@@ -294,7 +289,7 @@
   new Morris.Donut({
   element: 'bar-example',
   data: [
-        {label: "Open Order", value: <%= count_orders_by_status(current_user.id, "open") %>,},
+        {label: "Open", value: <%= count_orders_by_status(current_user.id, "open") %>,},
         {label: "Completed", value: <%= count_orders_by_status(current_user.id, "completed") %>},
         {label: "Accepted", value: <%= count_orders_by_status(current_user.id, "accepted") %>},
         {label: "Hidden", value: <%= count_orders_by_status(current_user.id, "hidden") %>}
@@ -311,7 +306,7 @@
   new Morris.Donut({
   element: 'bar-example-all',
   data: [
-        {label: "Open Order", value: <%= count_all_orders_by_status("open") %>},
+        {label: "Open", value: <%= count_all_orders_by_status("open") %>},
         {label: "Completed", value: <%= count_all_orders_by_status("completed") %>},
         {label: "Accepted", value: <%= count_all_orders_by_status("accepted") %>},
         {label: "Hidden", value: <%= count_all_orders_by_status("hidden") %>}

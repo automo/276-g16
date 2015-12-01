@@ -47,14 +47,6 @@ class OrderRequestsController < ApplicationController
   def show_one_accepted
   end
 
-  # DELETE BEFORE SUBMISSION
-  def reset_accepted
-    OrderRequest.all.each do |order_request|
-      order_request.update_attributes(:servicer_id => nil, :status => "open")
-    end
-    render('show_all_accepted')
-  end
-
   # For user who is a servicer
   def accept
     if @order_request.update_attributes(:servicer_id => current_user.id, :status => "accepted")
