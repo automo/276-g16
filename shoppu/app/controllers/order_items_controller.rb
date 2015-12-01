@@ -15,7 +15,6 @@ class OrderItemsController < ApplicationController
   before_action :correct_user, except: [:create]
 
   def create
-    # @order_request = current_user.owned_orders.find_by(id: params[:id])
 		@order_item = @order_request.order_items.create(order_item_params)
     flash[:success] = "Order item was added."
 		redirect_to @order_request

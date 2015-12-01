@@ -13,8 +13,6 @@ class OrderRequestsController < ApplicationController
     set_order_request("from_servicer")
   end
 
-  # before_action :correct_user, only: [:show, :update, :destroy]
-
   before_action :correct_admin, only: [:hide, :show_all]
 
   # For users; Set all un-accepted orders by users
@@ -25,12 +23,6 @@ class OrderRequestsController < ApplicationController
                       order_request.status == "open" && \
                       order_request.order_items.all.size > 0 && \
                       order_request.owner_id != current_user.id }
-
-    # if @order_requests.blank?
-    #   flash[:error] = "No Open Orders Avaialable"
-      # let the user remain on the same page.
-      #redirect_to root_url
-    # end
   end
 
   # For admins; Set all order requests made by all users
@@ -152,14 +144,6 @@ class OrderRequestsController < ApplicationController
                         order_request.status == status_type && \
                         order_request.servicer_id == current_user.id}
     end
-
-    # def correct_user
-    #   # @order_request = current_user.order_requests.find_by_id(params[:id])
-    #   if (@order_request.blank?)
-    #     flash[:error] = "A processing error has occurred - Sorry for the inconvenience [0x0101]"
-    #     redirect_to root_url
-    #   end
-    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_request_params
