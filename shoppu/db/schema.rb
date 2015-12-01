@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20151201065052) do
 
   create_table "order_items", force: :cascade do |t|
-    t.string   "status",             default: "open"
-    t.text     "content"
+    t.string   "status",             default: "open", null: false
+    t.text     "content",                             null: false
     t.integer  "order_request_id",                    null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
