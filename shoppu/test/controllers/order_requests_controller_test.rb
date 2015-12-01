@@ -21,7 +21,7 @@ class OrderRequestsControllerTest < ActionController::TestCase
   test "should create order_request" do
     # puts @order_request.inspect
     assert_difference('OrderRequest.count') do
-      post :create, order_request: { accepted_at: "2015-11-08 00:09:31", bounty: "123", description: "test description", owner_id: "1", title: "hello world!" }
+      post :create, order_request: { accepted_at: "2015-11-08 00:09:31", bounty: "123", description: "test description", title: "hello world!", address: "1234 123St, XY, A1A 1A1 Canada" }
     end
 
     assert_redirected_to order_request_path(assigns(:order_request))

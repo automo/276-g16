@@ -104,7 +104,7 @@ end
 
   test "associated order_requests should be destroyed" do
     @user.save
-    @user.owned_orders.create!(title: "Example Title", bounty: "123.99")
+    @user.owned_orders.create!(title: "Example Title", bounty: "123.99",  address: "1234 123St, XY, A1A 1A1 Canada")
     assert_difference 'OrderRequest.count', -1 do
       @user.destroy
     end

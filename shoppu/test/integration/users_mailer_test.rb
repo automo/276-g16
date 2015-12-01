@@ -38,8 +38,5 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                              password: "password123",
                              password_confirmation: "password123" }
     assert_template 'user_mailer/user_email', layout: 'layouts/mailer'
-    # assert_template layout: 'layouts/mailer'
-
-    # assert_template partial: 'user_mailer/user_email'
   end
 end

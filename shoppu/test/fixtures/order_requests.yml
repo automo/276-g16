@@ -5,6 +5,7 @@ one:
   bounty: 9.99
   deliver_by: 2015-11-08 00:09:31
   accepted_at: 2015-11-08 00:09:31
+  address: "1234 123St, XY, A1A 1A1 Canada"
   service_rating: 1
   status: MyString
   # owner_id: 1
@@ -18,6 +19,7 @@ two:
   bounty: 9.99
   deliver_by: 2015-11-08 00:09:31
   accepted_at: 2015-11-08 00:09:31
+  address: "1234 123St, XY, A1A 1A1 Canada"
   service_rating: 1
   status: MyString
   # owner_id: 1
@@ -31,6 +33,7 @@ test_list:
   bounty: 19.99
   deliver_by: 2015-11-08 00:09:31
   accepted_at: 2015-11-08 00:09:31
+  address: "1234 123St, XY, A1A 1A1 Canada"
   service_rating: 1
   status: MyString
   # owner_id: 1
@@ -44,6 +47,7 @@ walmart_list:
   bounty: 29.99
   deliver_by: 2015-11-08 00:09:31
   accepted_at: 2015-11-08 00:09:31
+  address: "1234 123St, XY, A1A 1A1 Canada"
   service_rating: 2
   status: closed
   # owner_id: 1
@@ -57,6 +61,7 @@ hardware_stuff:
   bounty: 39.99
   deliver_by: 2015-11-08 00:09:31
   accepted_at: 2015-11-08 00:09:31
+  address: "1234 123St, XY, A1A 1A1 Canada"
   service_rating: 5
   status: closed
   # owner_id: 2
@@ -70,6 +75,7 @@ most_recent:
   bounty: 9.99
   deliver_by: 2015-11-08 00:09:31
   accepted_at: 2015-11-08 00:09:31
+  address: "1234 123St, XY, A1A 1A1 Canada"
   service_rating: 1
   status: open
   # owner_id: 2
