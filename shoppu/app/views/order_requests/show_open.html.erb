@@ -3,11 +3,6 @@
 	<div class="panel-default">
 		<h1>Available Orders:</h1>
 
-
-
-
-
-
 		<% if @order_requests.blank? %>
 			<h2 style="font-size:2em">No orders available - Please check back later</h2>
 		<% else %>
@@ -61,6 +56,9 @@
 				</div>
 			<% end %>
 		<% end %>
+		<div class="links">
+			<%= link_to 'Back', user_path(current_user) %>
+		</div>
 	</div>
 </div>
 <!--  The styling of the page can be found on the application.scss-->

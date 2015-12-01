@@ -1,19 +1,9 @@
-<!-- Styling in static_page.css -->
-<!-- <div class="row clearfix" id ="">
-		<div class="col-lg-12 col-md-12 col-sm-12">
-				<div class= "panel panel-info">
-						<div class= "panel-heading">
-								Order Information
-						</div>
-			-->
-
 <!-- Use the bottom border of each render to seperate items -->
 <div style = "border-bottom: 1px dotted #333; margin:5px;">
 	<% if order_item.completed? %>
 		<div class="order_item">
 			<p style="opacity: 0.4; float:left;"><strike><%= order_item.content %></strike></p>
 		</div>
-		<!-- Having button for completed items create error so i diabled it out  but still can click on it...-->
 		<% if @order_request.servicer_id == current_user.id %>
 		<!-- Maybe we can add an "uncomplete" button here? -->
 			<div class="complete" style="text-align:right;">

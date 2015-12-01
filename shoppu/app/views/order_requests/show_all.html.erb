@@ -1,9 +1,9 @@
-<% provide(:title, 'All User Orders') %>
+<% provide(:title, 'All Public Orders') %>
 <div class="container">
 	<div class="panel-default">
-		<h1>All User Orders</h1>
+		<h1>All Public Orders</h1>
 		<% if @order_requests.blank? %>
-			<h2>No orders have been created yet, surprisingly :O</h2>
+			<h3>No orders have been created yet, surprisingly :O</h3>
 		<% else %>
 			<% @order_requests.each_with_index do |order_request, i| %>
 				<!-- map javascript here-->
@@ -40,11 +40,14 @@
 								<ol class="order_item">
 									<% order_request.order_items.each do |order_item| %>
 										<li><%= order_item.content %></li>
+										<br>
 										<% if order_item.photo.file? %>
 											<div>
 												<%= link_to image_tag(order_item.photo.url(:small), class: "small_image"), order_item.photo.url(:original) %>
 											</div>
 											<br>
+										<% else %>
+											<i>No image provided</i>
 										<% end %>
 									<% end %>
 								</ol>
