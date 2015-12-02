@@ -25,7 +25,7 @@
       <li><%= link_to "Log in", login_path %></li>
       <% end %>
       <li>
-        <a href="#contact" onclick = $("#menu-close").click(); >Contact</a>
+        <a href="#footer" onclick = $("#menu-close").click(); >Contact</a>
       </li>
     </ul>
   </nav>
@@ -40,7 +40,7 @@
           <% end %>
           <li><%= link_to "About", root_path(:anchor => "about") %></li>
           <li><%= link_to "How It Works", root_path(:anchor => "services") %></li>
-          <li><%= link_to "Contact", root_path(:anchor => "contact") %></li>
+          <li><%= link_to "Contact", root_path(:anchor => "footer") %></li>
           <% if logged_in? %>
             <% if current_user.is_moderator? %>
               <li><%= link_to "All Orders", order_requests_show_all_path %></li>
