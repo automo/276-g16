@@ -1,18 +1,18 @@
 # Shoppu
-**By Group 16, CMPT 276 D1**
 
 Shoppu is a web-based, multi-device app that provides a platform for connecting customers and personal shoppers with each other.
 
-### Try it out at:
-http://shoppuapp.herokuapp.com/
+### Try it at http://shoppuapp.herokuapp.com/
 
-*(Just a heads-up that this app uses the free tier of Amazon S3, so the image-uploading feature may break at some point, unless other arrangements are made)*
+*Heads-up: As of Dec. 1, 2015, this app uses the free tier of Amazon S3, which expires after 12 months. Therefore, the image-uploading feature may break in the future, unless other arrangements are made.*
 
 ### Running the app locally
-**Note:** A file with environment constants (shoppu\config\application.yml) is required to run the app locally. For more info, please contact existing developers.
+A file with environment constants _(shoppu\config\application.yml)_ is required to run the app locally. For more info, please contact existing developers.
 
+##### Installation steps:
 1. Install ImageMagick (http://www.imagemagick.org/)
-2. Open a terminal with the Ruby on Rails environment, change directory to 276-g16/shoppu/, and enter:
+2. Copy over application.yml file to 276-g16\shoppu\config\
+3. Open terminal with Ruby on Rails environment, change directory to 276-g16/shoppu/, and enter:
 ```
 gem install rmagick // See comment below!
 bundle install
