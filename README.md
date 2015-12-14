@@ -9,7 +9,7 @@ http://shoppuapp.herokuapp.com/
 *(Just a heads-up that this app uses the free tier of Amazon S3, so the image-uploading feature may break at some point, unless other arrangements are made)*
 
 ### Running the app locally
-**Note:** A file with environment constants (shoppu\config\application.yml) is required to run the app locally. For more info, please message existing developers.
+**Note:** A file with environment constants (shoppu\config\application.yml) is required to run the app locally. For more info, please contact existing developers.
 
 1. Install ImageMagick (http://www.imagemagick.org/)
 2. Open a terminal with the Ruby on Rails environment, change directory to 276-g16/shoppu/, and enter:
@@ -20,7 +20,7 @@ rake db:migrate
 bin\rails server
 ```
 
-\* Basic form; this command will likely require additional arguments. It is recommended to follow a platform-specific guide for this step.
+\* Basic form; this command will likely require additional arguments. It is highly recommended to follow a platform-specific guide for this step.
 
 ### Authors
 | Name            | Initials  |
