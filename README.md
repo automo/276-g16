@@ -12,7 +12,7 @@ A file with environment constants _(shoppu\config\application.yml)_ is required 
 ##### Installation steps:
 1. Install ImageMagick (http://www.imagemagick.org/)
 2. Copy over application.yml file to 276-g16\shoppu\config\
-3. Open terminal with Ruby on Rails environment, change directory to 276-g16/shoppu/, and enter:
+3. Open terminal with Ruby on Rails environment, change directory to 276-g16\shoppu\, and enter:
 ```
 gem install rmagick // See comment below!
 bundle install
